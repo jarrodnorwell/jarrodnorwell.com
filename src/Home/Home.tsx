@@ -1,7 +1,7 @@
 import '@mantine/carousel/styles.css';
 import "@mantine/core/styles.css";
 import { Carousel } from '@mantine/carousel';
-import { Anchor, ActionIcon, Container, MantineProvider, Group, Badge, Space, Text, Title, Grid, Divider, Button, VisuallyHidden, Image, AspectRatio, Paper } from "@mantine/core";
+import { Anchor, ActionIcon, Container, MantineProvider, Group, Badge, Space, Text, Title, Grid, Divider, Button, VisuallyHidden, Image, AspectRatio, Paper, Card, SimpleGrid } from "@mantine/core";
 import { IconQuote, IconHash, IconBrandReddit, IconBrandTwitch, IconBrandTwitter } from "@tabler/icons-react";
 import { theme } from "../theme";
 
@@ -9,9 +9,14 @@ interface BadgeProp {
     color: string | undefined, title: string, variant: string | undefined
 }
 
+interface BusinessProp {
+    name: string, type: string
+}
+
 interface PropDetailed {
     id: string
     description: string
+    businesses?: Array<BusinessProp>
     images?: Array<string>
     roles: Array<string>
 }
@@ -84,18 +89,11 @@ export default function Home() {
                 }
             ],
             linkTo: 'f_rep_tech_detailed',
-            hideReadMode: false,
-            details: {
-                id: 'f_rep_tech_detailed',
-                description: '',
-                roles: [
-
-                ]
-            }
+            hideReadMode: true
         },
         {
             id: 'f_sen_soft_dev',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam volutpat malesuada tortor. Vivamus ligula orci, tempus ut gravida et, sodales in arcu. Nulla facilisi. Nam dignissim enim non odio tempor.',
+            description: 'Jarrod has been a freelance software developer for over 14 years having started out as a website developer and later an application developer',
             title: 'Senior Software Developer',
             badges: [
                 {
@@ -109,11 +107,41 @@ export default function Home() {
                     variant: 'default'
                 }
             ],
-            hideReadMode: true
+            linkTo: 'f_sen_soft_dev_detailed',
+            hideReadMode: false,
+            details: {
+                id: 'f_sen_soft_dev_detailed',
+                businesses: [
+                    {
+                        name: 'Australian Karaoke Pty Ltd',
+                        type: 'Freelance'
+                    },
+                    {
+                        name: 'Blueprint Health & Fitness',
+                        type: 'Subcontracted'
+                    },
+                    {
+                        name: 'Seniors Card Discount',
+                        type: 'Subcontracted'
+                    },
+                    {
+                        name: 'Texts',
+                        type: 'Subcontracted'
+                    },
+                    {
+                        name: 'Wopadu',
+                        type: 'Freelance'
+                    }
+                ],
+                description: 'Shown above are some of the projects Jarrod has worked on',
+                roles: [
+
+                ]
+            }
         },
         {
             id: 'f_painter',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam volutpat malesuada tortor. Vivamus ligula orci, tempus ut gravida et, sodales in arcu. Nulla facilisi. Nam dignissim enim non odio tempor.',
+            description: 'Jarrod has been a freelance painter for 4 years on and off doing requests on AirTasker as well as subcontracted by smaller painting companies',
             title: 'Painter',
             badges: [
                 {
@@ -131,7 +159,8 @@ export default function Home() {
             hideReadMode: false,
             details: {
                 id: 'f_painter_detailed',
-                description: 'Jarrod has been painting interiors for roughly 4 years freelancing on AirTasker',
+                businesses: [],
+                description: 'Shown above are a handful of pictures demonstrating Jarrod\'s work',
                 images: [
                     '/IMG_0006.jpg',
                     '/IMG_0007.jpg',
@@ -202,12 +231,29 @@ export default function Home() {
             </Carousel.Slide>
         ))
 
+        const businessSlides = element.details?.businesses?.map((element) => (
+            <Card id={element.name} radius={'md'} withBorder>
+                <Badge variant='light'>
+                    {element.type}
+                </Badge>
+
+                <Space h={'md'} />
+
+                <Title order={4}>
+                    {element.name}
+                </Title>
+            </Card>
+        ))
+
         return (
             <>
                 <Title id={element.details?.id} order={3}>
                     {element.title}
                 </Title>
                 <Space h={'sm'} />
+                <SimpleGrid cols={{ base: 1, md: 3 }} hidden={businessSlides == null}>
+                    {businessSlides}
+                </SimpleGrid>
                 <Carousel align={'start'} hidden={slides == null} slideGap={'md'} slideSize={{ base: '50%', md: '25%' }}>
                     {slides}
                 </Carousel>
@@ -341,7 +387,7 @@ export default function Home() {
     ))
 
     const date = new Date()
-    const forceDarkMode = true
+    const forceDarkMode = false
 
     return (
         <MantineProvider theme={theme} forceColorScheme={forceDarkMode ? "dark" : date.getHours() >= 5 && date.getHours() <= 17 ? "light" : "dark"}>
@@ -398,12 +444,6 @@ export default function Home() {
                 <Grid>
                     {work_experiences}
                 </Grid>
-
-                <Divider my="md" />
-
-                <Title order={4} ta={'center'}>
-                    To Be Continued
-                </Title>
 
                 <Divider my="md" />
 
