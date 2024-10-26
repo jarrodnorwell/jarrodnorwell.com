@@ -74,7 +74,7 @@ export default function Home() {
     const freelancers = [
         {
             id: 'f_rep_tech',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam volutpat malesuada tortor. Vivamus ligula orci, tempus ut gravida et, sodales in arcu. Nulla facilisi. Nam dignissim enim non odio tempor.',
+            description: 'Jarrod has been a repair technician for 12 years servicing the south west with desktop, laptop and mobile repairs of all kinds',
             title: 'Repair Technician',
             badges: [
                 {
