@@ -1,9 +1,9 @@
 import '@mantine/carousel/styles.css';
-import "@mantine/core/styles.css";
+import '@mantine/core/styles.css';
 import { Carousel } from '@mantine/carousel';
-import { Anchor, ActionIcon, Container, MantineProvider, Group, Badge, Space, Text, Title, Grid, Divider, Button, VisuallyHidden, Image, AspectRatio, Paper, Card, SimpleGrid } from "@mantine/core";
-import { IconQuote, IconHash, IconBrandReddit, IconBrandTwitch, IconBrandTwitter } from "@tabler/icons-react";
-import { theme } from "../theme";
+import { Anchor, ActionIcon, Container, MantineProvider, Group, Badge, Space, Text, Title, Grid, Divider, Button, VisuallyHidden, Image, AspectRatio, Paper, Card, SimpleGrid } from '@mantine/core';
+import { IconQuote, IconHash, IconBrandReddit, IconBrandTwitch, IconBrandTwitter, IconExternalLink } from '@tabler/icons-react';
+import { theme } from '../theme';
 
 interface BadgeProp {
     color: string | undefined, title: string, variant: string | undefined
@@ -24,9 +24,13 @@ interface PropDetailed {
 interface Prop {
     id: string, linkTo?: string, description: string, title: string
     badges: Array<BadgeProp>
-    hideReadMode: boolean
+    hideReadMore: boolean
 
     details?: PropDetailed
+}
+
+interface ProjectProp {
+    id: string, linkTo: string, title: string
 }
 
 export function FWECard(prop: Prop) {
@@ -35,7 +39,7 @@ export function FWECard(prop: Prop) {
     ))
 
     const readMoreButton = function () {
-        if (prop.hideReadMode) {
+        if (prop.hideReadMore) {
             return (
                 <VisuallyHidden>
                     <Button>
@@ -45,7 +49,7 @@ export function FWECard(prop: Prop) {
             )
         } else {
             return (
-                <ActionIcon component="a" href={`#${prop.linkTo}`} size={'sm'} variant="transparent">
+                <ActionIcon component='a' href={`#${prop.linkTo}`} size={'sm'} variant='transparent'>
                     <IconHash />
                 </ActionIcon>
             )
@@ -54,7 +58,7 @@ export function FWECard(prop: Prop) {
 
     return (
         <div key={prop.id}>
-            <Group justify={prop.hideReadMode ? "flex-start" : "space-between"}>
+            <Group justify={prop.hideReadMore ? 'flex-start' : 'space-between'}>
                 <Title id={prop.id} order={3}>
                     {prop.title}
                 </Title>
@@ -70,7 +74,23 @@ export function FWECard(prop: Prop) {
     )
 }
 
+export function ProjectCard(prop: ProjectProp) {
+    return (
+        <div key={prop.id}>
+            <Group justify={'space-between'}>
+                <Title id={prop.id} order={3}>
+                    {prop.title}
+                </Title>
+                <ActionIcon component='a' href={`#${prop.linkTo}`} size={'sm'} variant='transparent'>
+                    <IconExternalLink />
+                </ActionIcon>
+            </Group>
+        </div>
+    )
+}
+
 export default function Home() {
+    const image_base = 'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/main/public/'
     const freelancers = [
         {
             id: 'f_rep_tech',
@@ -84,12 +104,28 @@ export default function Home() {
                 },
                 {
                     color: undefined,
-                    title: '12 years',
+                    title: '13 years',
                     variant: 'default'
                 }
             ],
             linkTo: 'f_rep_tech_detailed',
-            hideReadMode: true
+            hideReadMore: false,
+            details: {
+                id: 'f_rep_tech_detailed',
+                businesses: [],
+                description: 'Shown above are a handful of pictures demonstrating Jarrod\'s work',
+                images: [
+                    `${image_base}IMG_0164.jpg?raw=true`,
+                    `${image_base}IMG_0165.jpg?raw=true`,
+                    `${image_base}IMG_0166.jpg?raw=true`,
+                    `${image_base}IMG_0167.jpg?raw=true`,
+                    `${image_base}IMG_0168.jpg?raw=true`,
+                    `${image_base}IMG_0169.jpg?raw=true`
+                ],
+                roles: [
+
+                ]
+            }
         },
         {
             id: 'f_sen_soft_dev',
@@ -103,33 +139,38 @@ export default function Home() {
                 },
                 {
                     color: undefined,
-                    title: '14 years',
+                    title: '15 years',
                     variant: 'default'
                 }
             ],
             linkTo: 'f_sen_soft_dev_detailed',
-            hideReadMode: false,
+            hideReadMore: false,
             details: {
                 id: 'f_sen_soft_dev_detailed',
                 businesses: [
                     {
-                        name: 'Australian Karaoke Pty Ltd',
+                        name: 'RealKaraoke2',
+                        details: 'Australian Karaoke Pty Ltd',
                         type: 'Freelance'
                     },
                     {
                         name: 'Blueprint Health & Fitness',
+                        details: 'Blueprint Health & Fitness',
                         type: 'Subcontracted'
                     },
                     {
-                        name: 'Seniors Card Discount',
+                        name: 'Seniors Card Discounts',
+                        details: 'Colorado Database Services',
                         type: 'Subcontracted'
                     },
                     {
                         name: 'Texts',
+                        details: 'Texts',
                         type: 'Subcontracted'
                     },
                     {
                         name: 'Wopadu',
+                        details: 'Wopadu',
                         type: 'Freelance'
                     }
                 ],
@@ -156,54 +197,54 @@ export default function Home() {
                 }
             ],
             linkTo: 'f_painter_detailed',
-            hideReadMode: false,
+            hideReadMore: false,
             details: {
                 id: 'f_painter_detailed',
                 businesses: [],
                 description: 'Shown above are a handful of pictures demonstrating Jarrod\'s work',
                 images: [
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_0006.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_0007.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_0008.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1227.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1228.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1229.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1230.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1231.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1232.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1288.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1289.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1290.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1291.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1292.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1293.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1294.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1295.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1296.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1297.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1298.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1299.jpg?raw=true',
+                    `${image_base}IMG_0006.jpg?raw=true`,
+                    `${image_base}IMG_0007.jpg?raw=true`,
+                    `${image_base}IMG_0008.jpg?raw=true`,
+                    `${image_base}IMG_1227.jpg?raw=true`,
+                    `${image_base}IMG_1228.jpg?raw=true`,
+                    `${image_base}IMG_1229.jpg?raw=true`,
+                    `${image_base}IMG_1230.jpg?raw=true`,
+                    `${image_base}IMG_1231.jpg?raw=true`,
+                    `${image_base}IMG_1232.jpg?raw=true`,
+                    `${image_base}IMG_1288.jpg?raw=true`,
+                    `${image_base}IMG_1289.jpg?raw=true`,
+                    `${image_base}IMG_1290.jpg?raw=true`,
+                    `${image_base}IMG_1291.jpg?raw=true`,
+                    `${image_base}IMG_1292.jpg?raw=true`,
+                    `${image_base}IMG_1293.jpg?raw=true`,
+                    `${image_base}IMG_1294.jpg?raw=true`,
+                    `${image_base}IMG_1295.jpg?raw=true`,
+                    `${image_base}IMG_1296.jpg?raw=true`,
+                    `${image_base}IMG_1297.jpg?raw=true`,
+                    `${image_base}IMG_1298.jpg?raw=true`,
+                    `${image_base}IMG_1299.jpg?raw=true`,
 
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1300.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1301.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1302.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1303.jpg?raw=true',
+                    `${image_base}IMG_1300.jpg?raw=true`,
+                    `${image_base}IMG_1301.jpg?raw=true`,
+                    `${image_base}IMG_1302.jpg?raw=true`,
+                    `${image_base}IMG_1303.jpg?raw=true`,
 
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1833.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1834.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1844.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1845.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1846.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1847.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1848.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1897.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1898.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1899.jpg?raw=true',
+                    `${image_base}IMG_1833.jpg?raw=true`,
+                    `${image_base}IMG_1834.jpg?raw=true`,
+                    `${image_base}IMG_1844.jpg?raw=true`,
+                    `${image_base}IMG_1845.jpg?raw=true`,
+                    `${image_base}IMG_1846.jpg?raw=true`,
+                    `${image_base}IMG_1847.jpg?raw=true`,
+                    `${image_base}IMG_1848.jpg?raw=true`,
+                    `${image_base}IMG_1897.jpg?raw=true`,
+                    `${image_base}IMG_1898.jpg?raw=true`,
+                    `${image_base}IMG_1899.jpg?raw=true`,
 
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1900.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1901.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1902.jpg?raw=true',
-                    'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/4af476908b2a38e10cb28a3a18e3600cbf5516b7/public/IMG_1903.jpg?raw=true'
+                    `${image_base}IMG_1900.jpg?raw=true`,
+                    `${image_base}IMG_1901.jpg?raw=true`,
+                    `${image_base}IMG_1902.jpg?raw=true`,
+                    `${image_base}IMG_1903.jpg?raw=true`
                 ],
                 roles: [
 
@@ -242,6 +283,9 @@ export default function Home() {
                 <Title order={4}>
                     {element.name}
                 </Title>
+                <Text c={'dimmed'}>
+                    {element.details}
+                </Text>
             </Card>
         ))
 
@@ -259,7 +303,7 @@ export default function Home() {
                 </Carousel>
                 <Space h={'sm'} />
                 <Group>
-                    <ActionIcon size={'sm'} variant="transparent">
+                    <ActionIcon size={'sm'} variant='transparent'>
                         <IconQuote />
                     </ActionIcon>
                     <Text>{element.details?.description}</Text>
@@ -272,7 +316,7 @@ export default function Home() {
     const work_experiences = [
         {
             id: 'we_floor_xtra',
-            description: 'Jarrod was hired by Flooring Xtra initially to sell furniture to customers but within weeks the role would switch over to installing carpet, vinyl and more across the south',
+            description: 'Jarrod was hired by Flooring Xtra initially to sell furniture to customers but within weeks the role would switch over to installing carpet, vinyl and more across the south west',
             title: 'Flooring Xtra',
             badges: [
                 {
@@ -286,7 +330,7 @@ export default function Home() {
                     variant: 'default'
                 }
             ],
-            hideReadMode: true
+            hideReadMore: true
         },
         {
             id: 'we_texts',
@@ -304,7 +348,7 @@ export default function Home() {
                     variant: 'default'
                 }
             ],
-            hideReadMode: true
+            hideReadMore: true
         },
         {
             id: 'we_aus_kar_pty_ltd',
@@ -322,12 +366,12 @@ export default function Home() {
                     variant: 'default'
                 }
             ],
-            hideReadMode: true
+            hideReadMore: true
         },
         {
-            id: 'we_sen_disc',
-            description: 'Jarrod was hired by Seniors Card Discount  to design and develop a new and improved version of their existing Senior Cards Discount application',
-            title: 'Seniors Card Discount',
+            id: 'we_col_data_ser',
+            description: 'Jarrod was hired by Colorado Database Services to design and develop a new and improved version of their existing Seniors Card Discounts application',
+            title: 'Colorado Database Services',
             badges: [
                 {
                     color: theme.primaryColor,
@@ -340,7 +384,7 @@ export default function Home() {
                     variant: 'default'
                 }
             ],
-            hideReadMode: true
+            hideReadMore: true
         },
         {
             id: 'we_blu_health_fitness',
@@ -358,7 +402,7 @@ export default function Home() {
                     variant: 'default'
                 }
             ],
-            hideReadMode: true
+            hideReadMore: true
         },
         {
             id: 'we_wop',
@@ -376,7 +420,7 @@ export default function Home() {
                     variant: 'default'
                 }
             ],
-            hideReadMode: true
+            hideReadMore: true
         }
     ].sort((lhs, rhs) => lhs.title.localeCompare(rhs.title)).map((work_experience) => (
         <>
@@ -386,46 +430,60 @@ export default function Home() {
         </>
     ))
 
+    const projects_mapped = [
+        {
+            id: 'p_folium',
+            linkTo: 'https://apps.apple.com/au/app/folium/id6498623389',
+            title: 'Folium'
+        }
+    ].sort((lhs, rhs) => lhs.title.localeCompare(rhs.title)).map((project) => (
+        <>
+            <Grid.Col span={{ base: 12, md: 4 }}>
+                <ProjectCard {...project} />
+            </Grid.Col>
+        </>
+    ))
+
     const date = new Date()
     const forceDarkMode = false
 
     return (
-        <MantineProvider theme={theme} forceColorScheme={forceDarkMode ? "dark" : date.getHours() >= 5 && date.getHours() <= 17 ? "light" : "dark"}>
+        <MantineProvider theme={theme} forceColorScheme={forceDarkMode ? 'dark' : date.getHours() >= 5 && date.getHours() <= 17 ? 'light' : 'dark'}>
             <Container my={'xl'}>
-                <Group justify="space-between">
+                <Group justify='space-between'>
                     <Title order={1}>
                         Jarrod Norwell
                     </Title>
                     <Group>
-                        {/*<ActionIcon component="a" href="mailto:official.antique@gmail.com" variant="transparent">
+                        {/*<ActionIcon component='a' href='mailto:official.antique@gmail.com' variant='transparent'>
                             <IconMail />
                         </ActionIcon>
-                        <ActionIcon component="a" href="tel:+61499152077" color="green" variant="transparent">
+                        <ActionIcon component='a' href='tel:+61499152077' color='green' variant='transparent'>
                             <IconPhone />
                         </ActionIcon>*/}
-                        <ActionIcon component="a" href="https://reddit.com/u/antique_codes" color="red" variant="transparent">
+                        <ActionIcon component='a' href='https://reddit.com/u/antique_codes' color='red' variant='transparent'>
                             <IconBrandReddit />
                         </ActionIcon>
-                        <ActionIcon component="a" href="https://twitch.tv/antique_codes" variant="transparent">
+                        <ActionIcon component='a' href='https://twitch.tv/antique_codes' variant='transparent'>
                             <IconBrandTwitch />
                         </ActionIcon>
-                        <ActionIcon component="a" href="https://twitter.com/antique_codes" color="blue" variant="transparent">
+                        <ActionIcon component='a' href='https://twitter.com/antique_codes' color='blue' variant='transparent'>
                             <IconBrandTwitter />
                         </ActionIcon>
                     </Group>
                 </Group>
 
-                <Divider my="md" />
+                <Divider my='md' />
 
                 <Title order={2}>
                     About
                 </Title>
                 <Space h={'sm'} />
                 <Text c={'dimmed'}>
-                    Jarrod Norwell is a Senior Software Developer with 14 years experience spanning across roughly 14 programming languages having worked freelance most of his professional career with companies such as <Anchor fw={700} href="#we_aus_kar_pty_ltd">Australian Karaoke Pty Ltd</Anchor>, <Anchor fw={700} href="#we_blu_health_fitness">Blueprint Health & Fitness</Anchor>, <Anchor fw={700} href="#we_texts">Texts</Anchor> and <Anchor fw={700} href="#we_wop">Wopadu</Anchor>
+                    Jarrod Norwell is a Senior Software Developer with 14 years experience spanning across roughly 14 programming languages having worked freelance most of his professional career with companies such as <Anchor fw={700} href='#we_aus_kar_pty_ltd'>Australian Karaoke Pty Ltd</Anchor>, <Anchor fw={700} href='#we_blu_health_fitness'>Blueprint Health & Fitness</Anchor>, <Anchor fw={700} href='#we_col_data_ser'>Colorado Database Services</Anchor>, <Anchor fw={700} href='#we_texts'>Texts</Anchor> and <Anchor fw={700} href='#we_wop'>Wopadu</Anchor>
                 </Text>
 
-                <Divider my="md" />
+                <Divider my='md' />
 
                 <Title order={2}>
                     Freelance
@@ -435,7 +493,7 @@ export default function Home() {
                     {freelancers_mapped}
                 </Grid>
 
-                <Divider my="md" />
+                <Divider my='md' />
 
                 <Title order={2}>
                     Work Experience
@@ -445,13 +503,23 @@ export default function Home() {
                     {work_experiences}
                 </Grid>
 
-                <Divider my="md" />
+                <Divider my='md' />
 
                 <Title order={2}>
                     Freelance (cont.)
                 </Title>
                 <Space h={'sm'} />
                 {freelancers_details_mapped}
+
+                <Divider my='md' />
+
+                <Title order={2}>
+                    Projects
+                </Title>
+                <Space h={'sm'} />
+                <Grid>
+                    {projects_mapped}
+                </Grid>
             </Container>
         </MantineProvider>
     )
