@@ -30,7 +30,7 @@ interface Prop {
 }
 
 interface ProjectProp {
-    id: string, linkTo: string, title: string
+    id: string, image: string, linkTo: string, description: string, title: string
 }
 
 export function FWECard(prop: Prop) {
@@ -77,20 +77,27 @@ export function FWECard(prop: Prop) {
 export function ProjectCard(prop: ProjectProp) {
     return (
         <div key={prop.id}>
-            <Group justify={'space-between'}>
-                <Title id={prop.id} order={3}>
-                    {prop.title}
-                </Title>
-                <ActionIcon component='a' href={`#${prop.linkTo}`} size={'sm'} variant='transparent'>
-                    <IconExternalLink />
-                </ActionIcon>
-            </Group>
+            <Paper radius={'md'} style={{ overflow: 'hidden' }} withBorder>
+                <AspectRatio ratio={9 / 19.5}>
+                    <Image src={prop.image} />
+                </AspectRatio>
+            </Paper>
+            <Space h={'sm'} />
+            <Title id={prop.id} order={3}>
+                {prop.title}
+            </Title>
+            <ActionIcon component='a' href={prop.linkTo} size={'sm'} variant='transparent'>
+                <IconExternalLink />
+            </ActionIcon>
+            <Text c={'dimmed'}>
+                {prop.description}
+            </Text>
         </div>
     )
 }
 
 export default function Home() {
-    const image_base = 'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/main/public/'
+    const image_base = '/' // 'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/main/public/'
     const freelancers = [
         {
             id: 'f_rep_tech',
@@ -433,8 +440,24 @@ export default function Home() {
     const projects_mapped = [
         {
             id: 'p_folium',
+            image: `${image_base}IMG_4027.png?raw=true`,
             linkTo: 'https://apps.apple.com/au/app/folium/id6498623389',
+            description: 'Folium is a multi-system emulator for iPad and iPhone',
             title: 'Folium'
+        },
+        {
+            id: 'p_blueprint',
+            image: `${image_base}IMG_4029.png?raw=true`,
+            linkTo: 'https://apps.apple.com/au/app/blueprint-health-fitness/id1504024859',
+            description: 'Blueprint Health & Fitness is an online training and nutritional planner app for iPad and iPhone',
+            title: 'Blueprint Health & Fitness'
+        },
+        {
+            id: 'p_seniors',
+            image: `${image_base}IMG_4028.png?raw=true`,
+            linkTo: 'https://apps.apple.com/au/app/senior-cards-discount/id1490840352',
+            description: 'Seniors Card Discounts is a seniors coupon app for iPad and iPhone',
+            title: 'Seniors Card Discounts'
         }
     ].sort((lhs, rhs) => lhs.title.localeCompare(rhs.title)).map((project) => (
         <>
