@@ -97,7 +97,7 @@ export function ProjectCard(prop: ProjectProp) {
 }
 
 export default function Home() {
-    const image_base = '/' // 'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/main/public/'
+    const image_base = 'https://github.com/jarrodnorwell/jarrodnorwell.com/blob/main/public/'
     const freelancers = [
         {
             id: 'f_rep_tech',
