@@ -47,7 +47,7 @@ export default function ColourCam() {
                     <Text c={'dimmed'} ta={'center'}>
                         Capture colour information from the world around you in real-time
                     </Text>
-                    <Carousel align={'start'} slideGap={'md'} slideSize={{ base: '100%', sm: '33.333333%', lg: '25%' }}>
+                    <Carousel align={'start'} slideGap={'md'} slideSize={{ base: '50%', sm: '33.333333%', lg: '25%' }}>
                         {images}
                     </Carousel>
                 </Stack>
