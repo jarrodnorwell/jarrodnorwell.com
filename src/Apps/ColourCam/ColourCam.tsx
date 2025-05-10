@@ -1,6 +1,6 @@
 import '@mantine/carousel/styles.css';
 import '@mantine/core/styles.css';
-import { Anchor, AspectRatio, Center, Container, Image, MantineProvider, Paper, Stack, Text, Title } from '@mantine/core';
+import { Anchor, AspectRatio, Button, Center, Container, Flex, Image, MantineProvider, Paper, Space, Stack, Text, Title } from '@mantine/core';
 import { theme } from '../../theme';
 import { Carousel } from '@mantine/carousel';
 
@@ -38,7 +38,7 @@ export default function ColourCam() {
                             </Paper>
                         </AspectRatio>
                     </Center>
-                    <Anchor href='https://twitter.com/antique_codes' ta={'center'} target='_blank'>
+                    <Anchor c={'blue'} href='https://twitter.com/antique_codes' ta={'center'} target='_blank'>
                         @antique_codes
                     </Anchor>
                     <Title order={1} ta={'center'}>
@@ -50,6 +50,10 @@ export default function ColourCam() {
                     <Carousel align={'start'} slideGap={'md'} slideSize={{ base: '50%', sm: '33.333333%', lg: '25%' }}>
                         {images}
                     </Carousel>
+                    <Space h={'md'} />
+                    <Flex align={'center'} justify={'center'}>
+                        <Button color={'blue'} component='a' href='https://testflight.apple.com/join/8dAqYDZq' radius={'xl'} variant='filled'>Open in TestFlight</Button>
+                    </Flex>
                 </Stack>
             </Container>
         </MantineProvider>
