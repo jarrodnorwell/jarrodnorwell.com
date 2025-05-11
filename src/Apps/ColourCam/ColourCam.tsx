@@ -54,6 +54,13 @@ export default function ColourCam() {
                     <Flex align={'center'} justify={'center'}>
                         <Button color={'blue'} component='a' href='https://testflight.apple.com/join/8dAqYDZq' radius={'xl'} variant='filled'>Open in TestFlight</Button>
                     </Flex>
+                    <Space h={'md'} />
+                    <Title order={1}>
+                        Privacy Policy
+                    </Title>
+                    <Text c={'dimmed'}>
+                        ColourCam requires camera access for its core functionality. ColourCam does not collect, share, store or track any personal information, everything is run on-device
+                    </Text>
                 </Stack>
             </Container>
         </MantineProvider>
