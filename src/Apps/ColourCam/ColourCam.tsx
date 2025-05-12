@@ -51,8 +51,9 @@ export default function ColourCam() {
                         {images}
                     </Carousel>
                     <Space h={'md'} />
-                    <Flex align={'center'} justify={'center'}>
-                        <Button color={'blue'} component='a' href='https://testflight.apple.com/join/8dAqYDZq' radius={'xl'} variant='filled'>Open in TestFlight</Button>
+                    <Flex align={'center'} gap={'md'} justify={'center'} direction={'row'} wrap={'wrap'}>
+                        <Button color={'blue'} component='a' href='https://apps.apple.com/au/app/colourcam/id6745690307' radius={'xl'} variant='filled'>Open in App Store</Button>
+                        <Button color={'blue'} component='a' href='https://testflight.apple.com/join/8dAqYDZq' radius={'xl'} variant='outline'>Open in TestFlight</Button>
                     </Flex>
                     <Space h={'md'} />
                     <Title order={1}>
