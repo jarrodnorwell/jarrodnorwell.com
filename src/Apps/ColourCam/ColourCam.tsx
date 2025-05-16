@@ -16,7 +16,8 @@ export default function ColourCam() {
         'three',
         'four',
         'five',
-        'six'
+        'six',
+        'seven'
     ].map((image) => {
         return (
             <Carousel.Slide>
@@ -60,7 +61,7 @@ export default function ColourCam() {
                         Privacy Policy
                     </Title>
                     <Text c={'dimmed'}>
-                        ColourCam requires camera access for its core functionality. ColourCam does not collect, share, store or track any personal information, everything is run on-device
+                        ColourCam requires Camera and Photo Library access for its core functionality. ColourCam does not collect, share, store or track any personal information, everything is run on-device
                     </Text>
                 </Stack>
             </Container>
