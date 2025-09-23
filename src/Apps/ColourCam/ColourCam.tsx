@@ -1,70 +1,347 @@
-import '@mantine/carousel/styles.css';
 import '@mantine/core/styles.css';
-import { Anchor, AspectRatio, Button, Center, Container, Flex, Image, MantineProvider, Paper, Space, Stack, Text, Title } from '@mantine/core';
-import { theme } from '../../theme';
+import {
+    Anchor, AspectRatio, Badge, Center, Container,
+    Flex,
+    Image,
+    MantineProvider,
+    Paper,
+    Space,
+    Stack, Text, Title
+} from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
+import { theme } from '../../theme';
+import { useOs } from '@mantine/hooks';
 
-export default function ColourCam() {
-    const date = new Date()
-    const forceDarkMode = false
-    const darkMode = date.getHours() >= 5 && date.getHours() <= 17
+export default function NewHome() {
+    /*
+    const changes = [
+        {
+            text: 'Latest Changes',
+            secondaryText: 'Updated 2nd September 2025',
+            details: [
+                {
+                    header: 'Added',
+                    items: [
+                        {
+                            title: 'Added a new filter menu to the Library screen with sub-menu options for each core allowing users to hide or show a core as well as jump to its section within the Library screen',
+                            subtitle: ''
+                        }
+                    ]
+                },
+                {
+                    header: 'Changed',
+                    items: [
+                        {
+                            title: 'Changed how the artwork sub-menu handles Import and Delete so that Delete only shows when a custom artwork has been imported and so that it does not need a full Library refresh to update',
+                            subtitle: ''
+                        },
+                        {
+                            title: 'Changed how the Library screen and Onboarding screens work by separating them by iOS version, Deprecated for iOS 16-17 and Latest for iOS 26 with iOS 18 not having a prefix',
+                            subtitle: ''
+                        },
+                        {
+                            title: 'Changed Library and Onboarding screens so they are now much more consistent with each other',
+                            subtitle: ''
+                        },
+                        {
+                            title: 'Changed Grape on-screen controls to use Liquid Glass on iOS 26 as Beta 8 fixes a frame drop issue',
+                            subtitle: ''
+                        },
+                        {
+                            title: 'Changed how the GamesManager handles errors so that errors are "collected" and can be shown once the Library screen is presented (not fully implemented yet)',
+                            subtitle: ''
+                        }
+                    ]
+                },
+                {
+                    header: 'Deprecated',
+                    items: []
+                },
+                {
+                    header: 'Fixed',
+                    items: []
+                },
+                {
+                    header: 'Removed',
+                    items: []
+                },
+                {
+                    header: 'Security',
+                    items: []
+                }
+            ]
+        }
+    ]
 
-    const images = [
-        'one',
-        'one_a',
-        'two',
-        'three',
-        'four',
-        'five',
-        'six',
-        'seven'
-    ].map((image) => {
+    const items = changes.map((item) => {
         return (
-            <Carousel.Slide>
-                <Paper radius={'lg'} withBorder>
-                    <Image radius={'lg'} src={`/colourcam/${image}.png`} />
-                </Paper>
-            </Carousel.Slide>
+            <Accordion.Item key={item.text} value={item.text}>
+                <Accordion.Control>
+                    <Group justify={'space-between'} mr={'sm'}>
+                        <Text>
+                            {item.text}
+                        </Text>
+                        <Text c={'dimmed'}>
+                            {item.secondaryText}
+                        </Text>
+                    </Group>
+                </Accordion.Control>
+                <Accordion.Panel mr={'md'}>
+                    {
+                        item.details.map((detail, index) => (
+                            <>
+                                <Title order={2}>
+                                    {detail.header}
+                                </Title>
+                                <List>
+                                    {
+                                        detail.items.length == 0 ? (
+                                            <Text c={'dimmed'}>Unchanged</Text>
+                                        ) : (
+                                            detail.items.map((item) => (
+                                                <List.Item>
+                                                    <Text>
+                                                        {item.title}
+                                                    </Text>
+                                                    <List.Item hidden={item.subtitle.length == 0}>
+                                                        <Text c={'dimmed'}>
+                                                            {item.subtitle}
+                                                        </Text>
+                                                    </List.Item>
+                                                </List.Item>
+                                            ))
+                                        )
+                                    }
+                                </List>
+                                <Space h={index == item.details.length - 1 ? 0 : 'md'} />
+                            </>
+                        ))
+                    }
+                </Accordion.Panel>
+            </Accordion.Item>
         )
     })
+    */
+
+    // const date = new Date()
+    const os = useOs()
 
     return (
-        <MantineProvider theme={theme} forceColorScheme={forceDarkMode ? 'dark' : darkMode ? 'light' : 'dark'}>
-            <Container my={'xl'}>
-                <Stack>
-                    <Center>
-                        <AspectRatio ratio={1 / 1} w={60}>
-                            <Paper radius={'lg'} withBorder>
-                                <Image radius={'lg'} src={'/colourcam/tinted.png'} />
-                            </Paper>
-                        </AspectRatio>
-                    </Center>
-                    <Anchor c={'blue'} href='https://twitter.com/antique_codes' ta={'center'} target='_blank'>
-                        @antique_codes
-                    </Anchor>
-                    <Title order={1} ta={'center'}>
-                        ColourCam
-                    </Title>
-                    <Text c={'dimmed'} ta={'center'}>
-                        Capture colour information from the world around you in real-time
-                    </Text>
-                    <Carousel align={'start'} slideGap={'md'} slideSize={{ base: '50%', sm: '33.333333%', lg: '25%' }}>
-                        {images}
-                    </Carousel>
+        <MantineProvider theme={theme} forceColorScheme={'light' /*date.getHours() >= 7 && date.getHours() <= 19 ? 'light' : 'dark'*/}>
+            <Container>
+                <Flex align={'center'} mih={'100vh'} justify={'center'}>
+                    <Stack>
+                        <Anchor href='https://twitter.com/antique_codes' target={'_blank'}>
+                            <Text c={'colourCamPrimaryColor'} ta={'center'}>
+                                @antique_codes
+                            </Text>
+                        </Anchor>
+                        <Title order={1} ta={'center'}>
+                            ColourCam
+                        </Title>
+                        <Center>
+                            <Badge color={'green'} variant={'dot'}>
+                                #main
+                            </Badge>
+                        </Center>
+                        <Text c={'dimmed'} ta={'center'}>
+                            Capture colour information from the environment around you in real-time
+                        </Text>
+                        {/*
                     <Space h={'md'} />
-                    <Flex align={'center'} gap={'md'} justify={'center'} direction={'row'} wrap={'wrap'}>
-                        <Button color={'blue'} component='a' href='https://apps.apple.com/au/app/colourcam/id6745690307' radius={'xl'} variant='filled'>Open in App Store</Button>
-                        <Button color={'blue'} component='a' href='https://testflight.apple.com/join/8dAqYDZq' radius={'xl'} variant='outline'>Open in TestFlight</Button>
-                    </Flex>
-                    <Space h={'md'} />
-                    <Title order={1}>
-                        Privacy Policy
-                    </Title>
-                    <Text c={'dimmed'}>
-                        ColourCam requires Camera and Photo Library access for its core functionality. ColourCam does not collect, share, store or track any personal information, everything is run on-device
-                    </Text>
-                </Stack>
+                    <Accordion radius={'lg'} variant={'contained'}>
+                        {items}
+                    </Accordion>
+                    */}
+                        <Space h={'md'} />
+                        <Carousel withIndicators slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '20%'} align={'start'}>
+                            {
+                                [
+                                    'S41XnH08/colourcam-new', '0jKqpfFP/colourcam-one', 'Jw8kNZgS/colourcam-two', 'r2ztd813/colourcam-three',
+                                    'QvG75Pk7/colourcam-four'
+                                ].map((image) => (
+                                    <>
+                                        <Carousel.Slide>
+                                            <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
+                                                <AspectRatio ratio={9 / 19.5}>
+                                                    <Image src={`https://i.ibb.co/${image}.png`} fit='contain' loading='lazy' />
+                                                </AspectRatio>
+                                            </Paper>
+                                        </Carousel.Slide>
+                                    </>
+                                ))
+                            }
+                        </Carousel>
+                    </Stack>
+                </Flex>
             </Container>
         </MantineProvider>
     )
+
+    /*
+    const changes = [
+        {
+            text: 'v1.20',
+            isLatest: true,
+            isUpcoming: false,
+            details: [
+                {
+                    secondaryText: '(Cytrus) Added Azahar settings to the settings screen',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(Cytrus) Added support for the left and right rear cameras',
+                    tertiaryText: 'Left uses Telephoto, right uses Wide (Main)'
+                },
+                {
+                    secondaryText: '(Cytrus) Added a new screen for multiplayer rooms',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(Lychee) Added support for booting exe files',
+                    tertiaryText: 'These are mainly used for testing PlayStation 1 emulators'
+                },
+                {
+                    secondaryText: 'Changed the layout of the import games and settings menus',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(All) Changed skins so they actually work with Nintendo and PlayStation button names',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(All) Changed how emulation notifications are handled for application state and controller connections',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(Cytrus) Changed the core from Cytrus to CytrusAzahar',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(Cytrus) Changed how the settings screen is handled',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(Cytrus) Changed how multiplayer rooms are handled',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(Grape) Changed how the settings screen is handled',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(All) Fixed an issue where changing orientation would remove the settings button\'s menu',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: '(Lychee) Fixed an issue where rendering would be broken when in 24-bit mode',
+                    tertiaryText: 'This mainly affects MDEC videos'
+                },
+                {
+                    secondaryText: '(Lychee) Fixed a crash related to the RGB24 rendering mode',
+                    tertiaryText: null
+                }
+            ]
+        },
+        {
+            text: 'v1.19',
+            isLatest: false,
+            isUpcoming: false,
+            details: [
+                {
+                    secondaryText: 'Added haptic feedback when loading and saving states when emulating with Cytrus, Grape and NewGrape, feedback is different for a failed or successful load or save',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: 'Added the ability to load and save states to the NewGrape core (melonDS)',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: 'Added audio output support for the NewGrape core (melonDS)',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: 'Added HQx upscaling support for the Grape and NewGrape cores',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: 'Fixed crashing in NewGrape (melonDS) when pressing buttons',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: 'Fixed minor errors related to the C and CXX dialect update below',
+                    tertiaryText: null
+                },
+                {
+                    secondaryText: 'Updated all packages and targets to c2x and cxx2b',
+                    tertiaryText: null
+                }
+            ]
+        }
+    ];
+
+    const items = changes.map((item) => {
+        const listItems = item.details.map((detail) => (
+            <List.Item>
+                <Text>
+                    {detail.secondaryText}
+                </Text>
+                <Text c={'dimmed'} size="sm" hidden={detail.tertiaryText == '' || detail.tertiaryText == null}>
+                    {detail.tertiaryText}
+                </Text>
+            </List.Item>
+        ));
+
+        return (
+            <Accordion.Item key={item.text} value={item.text}>
+                <Accordion.Control>
+                    <Group justify='space-between' pr={'md'}>
+                        <Text>
+                            {item.text}
+                        </Text>
+                        <Badge color={item.isLatest ? theme.primaryColor : item.isUpcoming ? 'violet' : 'red'}>
+                            {item.isLatest ? 'Latest' : item.isUpcoming ? 'Upcoming' : 'Outdated'}
+                        </Badge>
+                    </Group>
+                </Accordion.Control>
+                <Accordion.Panel>
+                    <List>
+                        {listItems}
+                    </List>
+                </Accordion.Panel>
+            </Accordion.Item>
+        );
+    });
+
+    const date = new Date();
+
+    return (
+        <MantineProvider theme={theme} forceColorScheme={date.getHours() >= 7 && date.getHours() <= 19 ? "light" : "dark"}>
+            <Container my={'xl'}>
+                <Stack>
+                    <Anchor href='https://twitter.com/antique_codes' ta={'center'} target='_blank'>
+                        @antique_codes
+                    </Anchor>
+                    <Title order={1} ta={'center'}>
+                        Folium
+                    </Title>
+                    <Text c={'dimmed'} ta={'center'}>
+                        Beautifully designed, high performing multi-system emulation in the palm of your hands
+                    </Text>
+                    <Flex align={'center'} gap={'md'} justify={'center'} direction={'row'} wrap={'wrap'}>
+                        <Button component='a' href='https://apps.apple.com/au/app/folium/id6498623389' color='blue' radius={'xl'} variant='filled'>Open App Store</Button>
+                        <Button component='a' href='https://reddit.com/r/foliumapp' color='red' radius={'xl'}>Join Reddit</Button>
+                        <Button component='a' href='https://github.com/folium-app' color='gray' radius={'xl'} variant='filled'>Open GitHub</Button>
+                        <Button component='a' href='https://github.com/emuplace/folium.emuplace.app/releases/download/v1.20/folium-sideload-v1.20.ipa.zip' color='teal' radius={'xl'} variant='filled'>Sideload (v1.20)</Button>
+                    </Flex>
+                    <Title order={2}>
+                        Changes
+                    </Title>
+                    <Accordion classNames={classes} radius={'md'} variant="contained">
+                        {items}
+                    </Accordion>
+                </Stack>
+            </Container>
+        </MantineProvider>
+    );*/
 }
