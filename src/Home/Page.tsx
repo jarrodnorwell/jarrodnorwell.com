@@ -1,4 +1,5 @@
 import { ActionIcon, Anchor, Avatar, AvatarGroup, Card, Container, Grid, Group, Space, Stack, Text, Title, useMantineTheme } from "@mantine/core";
+import { useOs } from "@mantine/hooks";
 import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconBrandTwitch, IconCode, IconDeviceGamepad2 } from "@tabler/icons-react";
 
 interface LanguageProp {
@@ -60,7 +61,7 @@ export function ProjectCard(prop: ProjectProp) {
                             {prop.subtitle}
                         </Text>
                     </Stack>
-                    <Avatar radius={'0%'} size={'lg'} src={`/${prop.image}.png`} />
+                    <Avatar display={['android', 'ios'].includes(useOs()) ? 'none' : undefined} radius={'0%'} size={'lg'} src={`/${prop.image}.png`} />
                 </Group>
                 <Group justify={'space-between'}>
                     <Group gap={'xs'}>
@@ -83,32 +84,32 @@ export function Page() {
 
     return (
         <Container my={'xl'} size={'xl'}>
-            <Stack>
-                <Group justify={'space-between'}>
+            <Group justify={'space-between'}>
+                <Stack>
                     <Title>
                         Jarrod Norwell
                     </Title>
-                    <Group>
-                        {
-                            [
-                                { color: theme.colors.gray[7], icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell' },
-                                { color: theme.colors.red[7], icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
-                                { color: theme.colors.indigo[7], icon: <IconBrandTwitch />, link: 'https://twitch.tv/antique_codes' },
-                                { color: theme.colors.blue[7], icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }
-                            ].map((element) => {
-                                return (
-                                    <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
-                                        {element.icon}
-                                    </ActionIcon>
-                                )
-                            })
-                        }
-                    </Group>
+                    <Text c={'dimmed'}>
+                        Human. Gamer. Software Developer.
+                    </Text>
+                </Stack>
+                <Group>
+                    {
+                        [
+                            { color: theme.colors.gray[7], icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell' },
+                            { color: theme.colors.red[7], icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
+                            { color: theme.colors.indigo[7], icon: <IconBrandTwitch />, link: 'https://twitch.tv/antique_codes' },
+                            { color: theme.colors.blue[7], icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }
+                        ].map((element) => {
+                            return (
+                                <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
+                                    {element.icon}
+                                </ActionIcon>
+                            )
+                        })
+                    }
                 </Group>
-                <Text c={'dimmed'}>
-                    Human. Gamer. Software Developer.
-                </Text>
-            </Stack>
+            </Group>
 
             <Space h={'xl'} />
             <Space h={'xl'} />
@@ -126,7 +127,7 @@ export function Page() {
                 <Title order={2}>
                     About
                 </Title>
-                <Text c={'dimmed'}>
+                <Text c={'dimmed'} ta={'center'}>
                     Jarrod Norwell is a Software Developer from Australia with over 15 years of experience spanning across over 8 languages
                 </Text>
             </Stack>
@@ -153,7 +154,7 @@ export function Page() {
                             { language: 'TypeScript', yoe: 3 }
                         ].map((element) => {
                             return (
-                                <Grid.Col span={{ base: 3 }}>
+                                <Grid.Col span={{ base: 12, lg: 3 }}>
                                     <LanguageCard language={element.language} yoe={element.yoe} />
                                 </Grid.Col>
                             )
@@ -178,7 +179,7 @@ export function Page() {
                             { image: 'noctiloquy', impressions: '#', link: undefined, project: 'Noctiloquy', subtitle: 'Simple sleep recording for snoring, talking, etc' }
                         ].map((element) => {
                             return (
-                                <Grid.Col span={{ base: 6 }}>
+                                <Grid.Col span={{ base: 12, lg: 6 }}>
                                     <ProjectCard image={element.image} impressions={element.impressions} link={element.link} project={element.project} subtitle={element.subtitle} />
                                 </Grid.Col>
                             )
