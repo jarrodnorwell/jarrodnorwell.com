@@ -57,6 +57,7 @@ export function ProjectCard(prop: ProjectProp) {
         <Card padding={'lg'} radius={'xl'} withBorder>
             <Stack>
                 <Group justify={'space-between'}>
+                    <Avatar display={['android', 'ios'].includes(useOs()) ? undefined : 'none'} radius={'0%'} size={'lg'} src={`/${prop.image}.png`} />
                     <Stack>
                         <Title order={3}>
                             {prop.project}
@@ -106,6 +107,9 @@ export function WorkCard(prop: WorkProp) {
         <Card padding={'lg'} radius={'xl'} withBorder>
             <Stack>
                 <Group justify={'space-between'}>
+                    <Card display={['android', 'ios'].includes(useOs()) ? undefined : 'none'} padding={'xs'} radius={'lg'} withBorder>
+                        <Avatar radius={'md'} src={prop.image} />
+                    </Card>
                     <Stack>
                         <Title order={3}>
                             {prop.company}
@@ -114,7 +118,9 @@ export function WorkCard(prop: WorkProp) {
                             {prop.subtitle}
                         </Text>
                     </Stack>
-                    <Avatar display={['android', 'ios'].includes(useOs()) ? 'none' : undefined} radius={'lg'} size={'lg'} src={prop.image} />
+                    <Card display={['android', 'ios'].includes(useOs()) ? 'none' : undefined} padding={'xs'} radius={'lg'} withBorder>
+                        <Avatar radius={'md'} src={prop.image} />
+                    </Card>
                 </Group>
                 <Group justify={'space-between'}>
                     <Group gap={'xs'}>
@@ -125,7 +131,7 @@ export function WorkCard(prop: WorkProp) {
                     <AnchorOrText />
                 </Group>
             </Stack>
-        </Card>
+        </Card >
     )
 }
 
@@ -235,6 +241,7 @@ export function Page() {
                             { image: 'colourcam', impressions: '47K', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', subtitle: 'Capture real world colour information' },
                             { image: 'folium', impressions: '42M', link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', subtitle: 'Retro gaming in the palm of your hands' },
                             { image: 'fuely', impressions: 'Unknown', link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', subtitle: 'Up-to-date fuel prices around Western Australa' },
+                            { image: 'loca', impressions: 'Unknown', link: undefined, project: 'Loca', subtitle: 'Browse a map of your friends' },
                             { image: 'noctiloquy', impressions: 'Unknown', link: undefined, project: 'Noctiloquy', subtitle: 'Simple sleep recording for snoring, talking, etc' }
                         ].map((element) => {
                             return (
