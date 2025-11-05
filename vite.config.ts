@@ -14,7 +14,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: resolve(__dirname, 'index.html'),
-                colourcam: resolve(__dirname, 'colourcam/index.html')
+                colourcam: resolve(__dirname, 'colourcam/index.html'),
+                loca: resolve(__dirname, 'loca/index.html')
             }
         }
     }
