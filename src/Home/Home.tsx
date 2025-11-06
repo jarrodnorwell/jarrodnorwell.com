@@ -11,7 +11,7 @@ interface LanguageProp {
 
 interface ProjectProp {
     image: string, impressions: string
-    link?: string
+    detailsLink?: string, link?: string
     project: string, subtitle: string
 }
 
@@ -37,18 +37,40 @@ export function LanguageCard(prop: LanguageProp) {
 }
 
 export function ProjectCard(prop: ProjectProp) {
-    function AnchorOrText() {
-        if (prop.link) {
+    function AnchorOrText2() {
+        if (prop.detailsLink) {
             return (
-                <Anchor c={'blue'} href={prop.link} target={'_blank'}>
-                    Open in App Store
+                <Anchor c={theme.primaryColor} href={prop.detailsLink} target={'_blank'}>
+                    Details
                 </Anchor>
             )
         } else {
             return (
                 <Text c={'dimmed'}>
-                    Coming Soon
+                    No Details
                 </Text>
+            )
+        }
+    }
+
+    function AnchorOrText() {
+        if (prop.link) {
+            return (
+                <Group>
+                    <AnchorOrText2 />
+                    <Anchor c={'blue'} href={prop.link} target={'_blank'}>
+                        Open in App Store
+                    </Anchor>
+                </Group>
+            )
+        } else {
+            return (
+                <Group>
+                    <AnchorOrText2 />
+                    <Text c={'dimmed'}>
+                        Coming Soon
+                    </Text>
+                </Group>
             )
         }
     }
@@ -235,15 +257,15 @@ export default function Home() {
                     <Grid>
                         {
                             [
-                                { image: 'colourcam', impressions: '47K', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', subtitle: 'Capture real world colour information' },
-                                { image: 'folium', impressions: '42M', link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', subtitle: 'Retro gaming in the palm of your hands' },
-                                { image: 'fuely', impressions: 'Unknown', link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', subtitle: 'Up-to-date fuel prices around Western Australa' },
-                                { image: 'loca', impressions: 'Unknown', link: undefined, project: 'Loca', subtitle: 'Browse a map of your friends' },
-                                { image: 'noctiloquy', impressions: 'Unknown', link: undefined, project: 'Noctiloquy', subtitle: 'Simple sleep recording for snoring, talking, etc' }
+                                { image: 'colourcam/colourcam_square', impressions: '47K', detailsLink: '/colourcam', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', subtitle: 'Capture real world colour information' },
+                                { image: 'folium/folium_square', impressions: '42M', detailsLink: undefined, link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', subtitle: 'Retro gaming in the palm of your hands' },
+                                { image: 'fuely/fuely_square', impressions: 'Unknown', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', subtitle: 'Up-to-date fuel prices around Western Australa' },
+                                { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/loca', link: undefined, project: 'Loca', subtitle: 'Browse a map of your friends' },
+                                { image: 'noctiloquy/noctiloquy_square', impressions: 'Unknown', detailsLink: undefined, link: undefined, project: 'Noctiloquy', subtitle: 'Simple sleep recording for snoring, talking, etc' }
                             ].map((element) => {
                                 return (
                                     <Grid.Col span={{ base: 12, lg: 6 }}>
-                                        <ProjectCard image={element.image} impressions={element.impressions} link={element.link} project={element.project} subtitle={element.subtitle} />
+                                        <ProjectCard image={element.image} impressions={element.impressions} detailsLink={element.detailsLink} link={element.link} project={element.project} subtitle={element.subtitle} />
                                     </Grid.Col>
                                 )
                             })
@@ -279,9 +301,14 @@ export default function Home() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <Title order={2} ta={'center'}>
-                    Under Development
-                </Title>
+                <Stack align={'center'}>
+                    <Title order={2} ta={'center'}>
+                        Under Development
+                    </Title>
+                    <Text c={'dimmed'}>
+                        Please note, this website is always being worked on. Check back occasionally to see new changes
+                    </Text>
+                </Stack>
             </Container>
         </MantineProvider>
     )
