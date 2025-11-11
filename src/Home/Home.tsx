@@ -156,8 +156,10 @@ export function WorkCard(prop: WorkProp) {
 }
 
 export default function Home() {
+    const date = new Date()
+
     return (
-        <MantineProvider theme={theme}>
+        <MantineProvider theme={theme} forceColorScheme={date.getHours() >= 7 && date.getHours() <= 19 ? 'light' : 'dark'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
@@ -261,6 +263,7 @@ export default function Home() {
                                 { image: 'folium/folium_square', impressions: '42M', detailsLink: undefined, link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', subtitle: 'Retro gaming in the palm of your hands' },
                                 { image: 'fuely/fuely_square', impressions: 'Unknown', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', subtitle: 'Up-to-date fuel prices around Western Australa' },
                                 { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/loca', link: undefined, project: 'Loca', subtitle: 'Browse a map of your friends' },
+                                { image: 'keyr/keyr_square', impressions: 'Unknown', detailsLink: '/keyr', link: undefined, project: 'Keyr', subtitle: 'Beautifully designed, simple 2-factor authentication' },
                                 { image: 'noctiloquy/noctiloquy_square', impressions: 'Unknown', detailsLink: undefined, link: undefined, project: 'Noctiloquy', subtitle: 'Simple sleep recording for snoring, talking, etc' }
                             ].map((element) => {
                                 return (

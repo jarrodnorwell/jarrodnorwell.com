@@ -15,7 +15,8 @@ export default defineConfig({
             input: {
                 index: resolve(__dirname, 'index.html'),
                 colourcam: resolve(__dirname, 'colourcam/index.html'),
-                loca: resolve(__dirname, 'loca/index.html')
+                loca: resolve(__dirname, 'loca/index.html'),
+                keyr: resolve(__dirname, 'keyr/index.html')
             }
         }
     }
