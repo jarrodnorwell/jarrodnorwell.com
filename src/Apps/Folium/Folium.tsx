@@ -16,7 +16,7 @@ import { theme } from '../../theme';
 import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
-export default function Keyr() {
+export default function Folium() {
     const date = new Date()
     const os = useOs()
 
@@ -27,17 +27,17 @@ export default function Keyr() {
                     <Group>
                         <Stack>
                             <Title>
-                                Keyr
+                                Folium
                             </Title>
                             <Text c={'dimmed'}>
-                                Beautifully designed, simple 2-factor authentication
+                                Multi-system emulation in the palm of your hands
                             </Text>
                         </Stack>
                     </Group>
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/keyr' }
+                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/folium' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -57,13 +57,13 @@ export default function Keyr() {
                         <Avatar radius={'xl'} size={'lg'}>
                             <IconCode />
                         </Avatar>
-                        <Avatar radius={'xl'} size={'lg'} src={'/keyr/keyr_circle.png'} />
+                        <Avatar radius={'xl'} size={'lg'} src={'/folium/folium_circle.png'} />
                     </AvatarGroup>
                     <Title order={2}>
                         About
                     </Title>
                     <Text c={'dimmed'} ta={'center'}>
-                        Keyr is a small, simplicity focused application designed to store one-time passcodes for users accounts
+                        Folium is a beautifully designed, high performing multi-system emulation app bringing retro gaming to Apple devices
                     </Text>
                 </Stack>
 
@@ -78,7 +78,7 @@ export default function Keyr() {
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
                                     <AspectRatio ratio={9 / 19.5}>
-                                        <Image src={`/keyr/${image}.heic`} fit='contain' />
+                                        <Image src={`/folium/${image}.heic`} fit='contain' />
                                     </AspectRatio>
                                 </Paper>
                             </Carousel.Slide>
@@ -94,7 +94,7 @@ export default function Keyr() {
                         Privacy Policy
                     </Title>
                     <Text c={'dimmed'}>
-                        Keyr may use website names for the functionality of the app. Absolutely no information is sent or stored off device. Absolutely no information is shared with or sold to other companies or entities
+                        Folium uses camera and a username provided by the user for the functionality of the app. Absolutely no images are saved off-device. Absolutely no information is shared with or sold to other companies or entities
                     </Text>
                 </Stack>
 
@@ -111,8 +111,8 @@ export default function Keyr() {
                     <Group>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/keyr' },
-                                { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Keyr' },
+                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/folium' },
+                                { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Folium' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }
                             ].map((element) => {

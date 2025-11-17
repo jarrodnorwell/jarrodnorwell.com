@@ -259,11 +259,11 @@ export default function Home() {
                     <Grid>
                         {
                             [
-                                { image: 'colourcam/colourcam_square', impressions: '47K', detailsLink: '/colourcam', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', subtitle: 'Capture real world colour information' },
-                                { image: 'folium/folium_square', impressions: '42M', detailsLink: undefined, link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', subtitle: 'Retro gaming in the palm of your hands' },
-                                { image: 'fuely/fuely_square', impressions: 'Unknown', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', subtitle: 'Up-to-date fuel prices around Western Australa' },
+                                { image: 'colourcam/colourcam_square', impressions: '50K', detailsLink: '/colourcam', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', subtitle: 'Capture real world colour information' },
+                                { image: 'folium/folium_square', impressions: '44M', detailsLink: '/folium', link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', subtitle: 'Multi-system emulation in the palm of your hands' },
+                                { image: 'fuely/fuely_square', impressions: '5K', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', subtitle: 'Up-to-date fuel prices around Western Australa' },
                                 { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/loca', link: undefined, project: 'Loca', subtitle: 'Browse a map of your friends' },
-                                { image: 'keyr/keyr_square', impressions: 'Unknown', detailsLink: '/keyr', link: undefined, project: 'Keyr', subtitle: 'Beautifully designed, simple 2-factor authentication' },
+                                { image: 'keyr/keyr_square', impressions: 'Unknown', detailsLink: '/keyr', link: 'https://apps.apple.com/au/app/keyr/id6755037755', project: 'Keyr', subtitle: 'Beautifully designed, simple 2-factor authentication' },
                                 { image: 'noctiloquy/noctiloquy_square', impressions: 'Unknown', detailsLink: undefined, link: undefined, project: 'Noctiloquy', subtitle: 'Simple sleep recording for snoring, talking, etc' }
                             ].map((element) => {
                                 return (

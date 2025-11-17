@@ -13,7 +13,7 @@ import {
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
 import { theme } from '../../theme';
-import { IconBrandGithub, IconCode } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Loca() {
@@ -78,7 +78,7 @@ export default function Loca() {
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
                                     <AspectRatio ratio={9 / 19.5}>
-                                        <Image src={`/loca/${image}.heic`} fit='contain' loading='lazy' />
+                                        <Image src={`/loca/${image}.heic`} fit='contain' />
                                     </AspectRatio>
                                 </Paper>
                             </Carousel.Slide>
@@ -96,6 +96,34 @@ export default function Loca() {
                     <Text c={'dimmed'}>
                         Loca uses location, battery and weather information and your name for the functionality of the app. All information is saved to Firebase and can only be seen by friends whom you have shared your friend code with. Absolutely no information is shared with or sold to other companies or entities
                     </Text>
+                </Stack>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack>
+                    <Title order={2}>
+                        Support
+                    </Title>
+                    <Text c={'dimmed'}>
+                        Got a question, want to request a feature or submit an issue? Reach out using the buttons below
+                    </Text>
+                    <Group>
+                        {
+                            [
+                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/loca' },
+                                { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Loca' },
+                                { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
+                                { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }
+                            ].map((element) => {
+                                return (
+                                    <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
+                                        {element.icon}
+                                    </ActionIcon>
+                                )
+                            })
+                        }
+                    </Group>
                 </Stack>
             </Container>
         </MantineProvider>
