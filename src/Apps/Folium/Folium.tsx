@@ -9,12 +9,92 @@ import {
     MantineProvider,
     Paper,
     Space,
-    Stack, Text, Title, Image
+    Stack, Text, Title, Image,
+    Card,
+    Grid,
+    VisuallyHidden,
+    Tooltip,
+    Badge
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
 import { theme } from '../../theme';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconExternalLink, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
+
+interface CoreProp {
+    colour: string, core: string
+    console: string, link?: string
+    beta: boolean
+}
+
+interface ExtensionProp {
+    core: string, console: string
+    extensions: Array<string>
+}
+
+export function CoreCard(prop: CoreProp) {
+    function ActionIconOrText() {
+        if (prop.link) {
+            return (
+                <Tooltip label={`https://github.com/folium-app/${prop.link}`}>
+                    <ActionIcon component={'a'} href={`https://github.com/folium-app/${prop.link}`} target={'_blank'} variant={'transparent'}>
+                        <IconExternalLink />
+                    </ActionIcon>
+                </Tooltip>
+            )
+        } else {
+            return (
+                <VisuallyHidden />
+            )
+        }
+    }
+
+    return (
+        <Card padding={'lg'} radius={'lg'} withBorder>
+            <Group justify={'space-between'}>
+                <Group>
+                    <Title order={3}>
+                        {prop.core}
+                    </Title>
+                    <Text c={'dimmed'}>
+                        {prop.console}
+                    </Text>
+                </Group>
+                <ActionIconOrText />
+            </Group>
+        </Card>
+    )
+}
+
+export function ExtensionCard(prop: ExtensionProp) {
+    return (
+        <Card padding={'lg'} radius={'lg'} withBorder>
+            <Stack>
+                <Group>
+                    <Title order={3}>
+                        {prop.core}
+                    </Title>
+                    <Text c={'dimmed'}>
+                        {prop.console}
+                    </Text>
+                </Group>
+                <Grid justify={'flex-start'}>
+                    {
+                        prop.extensions.map((element) => {
+                            return (
+                                <Grid.Col span={'content'}>
+                                    <Badge size={'lg'}>
+                                        {element}
+                                    </Badge>
+                                </Grid.Col>
+                            )
+                        })
+                    }
+                </Grid>
+            </Stack>
+        </Card>
+    )
+}
 
 export default function Folium() {
     const date = new Date()
@@ -85,6 +165,64 @@ export default function Folium() {
                         ))
                     }
                 </Carousel>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack>
+                    <Title order={2}>
+                        Supported Cores
+                    </Title>
+                    <Grid>
+                        {
+                            [
+                                { colour: 'yellow', core: 'Cytrus', console: '3DS', link: 'cytrus', beta: false },
+                                { colour: 'purple', core: 'Grape', console: 'DS', link: 'grape', beta: false },
+                                { colour: 'red', core: 'Guava', console: 'NES', link: 'guava', beta: false },
+                                { colour: 'green', core: 'Kiwi', console: 'GB', link: 'kiwi', beta: false },
+                                { colour: 'orange', core: 'Mandarine', console: 'PS1', link: 'mandarine', beta: false },
+                                { colour: 'yellow', core: 'Mango', console: 'SNES', link: 'mango', beta: true },
+                                { colour: 'purple', core: 'Plum', console: 'GENESIS', link: 'plum', beta: true },
+                                { colour: 'red', core: 'Tomato', console: 'GBA', link: 'tomato', beta: false }
+                            ].map((element) => {
+                                return (
+                                    <Grid.Col span={{ base: 12, lg: 3 }}>
+                                        <CoreCard {...element} />
+                                    </Grid.Col>
+                                )
+                            })
+                        }
+                    </Grid>
+                </Stack>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack>
+                    <Title order={2}>
+                        Supported Extensions
+                    </Title>
+                    <Grid>
+                        {
+                            [
+                                { core: 'Cytrus', console: '3DS', extensions: ['3ds', 'app', 'cci', 'cia', 'cxi'] },
+                                { core: 'Grape', console: 'DS', extensions: ['ds', 'srl'] },
+                                { core: 'Guava', console: 'NES', extensions: ['nes'] },
+                                { core: 'Kiwi', console: 'GB', extensions: ['gb', 'gbc'] },
+                                { core: 'Mandarine', console: 'PS1', extensions: ['chd', 'cue', 'exe', 'img', 'iso'] },
+                                { core: 'Mango', console: 'SNES', extensions: ['sfc', 'smc'] },
+                                { core: 'Plum', console: 'GENESIS', extensions: ['gen', 'md', 'smd'] },
+                                { core: 'Tomato', console: 'GBA', extensions: ['gba'] }
+                            ].map((element) => {
+                                return (
+                                    <Grid.Col span={{ base: 12, lg: 4 }}>
+                                        <ExtensionCard {...element} />
+                                    </Grid.Col>
+                                )
+                            })
+                        }
+                    </Grid>
+                </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
