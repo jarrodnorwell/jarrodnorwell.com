@@ -17,8 +17,7 @@ import {
     Badge
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { theme } from '../../theme';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconExternalLink, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 interface CoreProp {
@@ -28,6 +27,7 @@ interface CoreProp {
 }
 
 interface ExtensionProp {
+    span: number
     core: string, console: string
     extensions: Array<string>
 }
@@ -37,8 +37,8 @@ export function CoreCard(prop: CoreProp) {
         if (prop.link) {
             return (
                 <Tooltip label={`https://github.com/folium-app/${prop.link}`}>
-                    <ActionIcon component={'a'} href={`https://github.com/folium-app/${prop.link}`} target={'_blank'} variant={'transparent'}>
-                        <IconExternalLink />
+                    <ActionIcon color={'gray'} component={'a'} href={`https://github.com/folium-app/${prop.link}`} target={'_blank'} variant={'transparent'}>
+                        <IconBrandGithub />
                     </ActionIcon>
                 </Tooltip>
             )
@@ -52,15 +52,15 @@ export function CoreCard(prop: CoreProp) {
     return (
         <Card padding={'lg'} radius={'lg'} withBorder>
             <Group justify={'space-between'}>
+                <Title order={3}>
+                    {prop.core}
+                </Title>
                 <Group>
-                    <Title order={3}>
-                        {prop.core}
-                    </Title>
-                    <Text c={'dimmed'}>
+                    <Title c={'dimmed'} fw={'normal'} order={3}>
                         {prop.console}
-                    </Text>
+                    </Title>
+                    <ActionIconOrText />
                 </Group>
-                <ActionIconOrText />
             </Group>
         </Card>
     )
@@ -70,15 +70,10 @@ export function ExtensionCard(prop: ExtensionProp) {
     return (
         <Card padding={'lg'} radius={'lg'} withBorder>
             <Stack>
-                <Group>
-                    <Title order={3}>
-                        {prop.core}
-                    </Title>
-                    <Text c={'dimmed'}>
-                        {prop.console}
-                    </Text>
-                </Group>
-                <Grid justify={'flex-start'}>
+                <Title order={3}>
+                    {prop.core}
+                </Title>
+                <Grid>
                     {
                         prop.extensions.map((element) => {
                             return (
@@ -101,7 +96,7 @@ export default function Folium() {
     const os = useOs()
 
     return (
-        <MantineProvider theme={theme} forceColorScheme={date.getHours() >= 7 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={{ primaryColor: 'green' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
@@ -205,17 +200,17 @@ export default function Folium() {
                     <Grid>
                         {
                             [
-                                { core: 'Cytrus', console: '3DS', extensions: ['3ds', 'app', 'cci', 'cia', 'cxi'] },
-                                { core: 'Grape', console: 'DS', extensions: ['ds', 'srl'] },
-                                { core: 'Guava', console: 'NES', extensions: ['nes'] },
-                                { core: 'Kiwi', console: 'GB', extensions: ['gb', 'gbc'] },
-                                { core: 'Mandarine', console: 'PS1', extensions: ['chd', 'cue', 'exe', 'img', 'iso'] },
-                                { core: 'Mango', console: 'SNES', extensions: ['sfc', 'smc'] },
-                                { core: 'Plum', console: 'GENESIS', extensions: ['gen', 'md', 'smd'] },
-                                { core: 'Tomato', console: 'GBA', extensions: ['gba'] }
+                                { span: 4, core: 'Cytrus', console: '3DS', extensions: ['3ds', 'app', 'cci', 'cia', 'cxi'] },
+                                { span: 4, core: 'Grape', console: 'DS', extensions: ['ds', 'srl'] },
+                                { span: 4, core: 'Guava', console: 'NES', extensions: ['nes'] },
+                                { span: 4, core: 'Kiwi', console: 'GB', extensions: ['gb', 'gbc'] },
+                                { span: 4, core: 'Mandarine', console: 'PS1', extensions: ['chd', 'cue', 'exe', 'img', 'iso'] },
+                                { span: 4, core: 'Mango', console: 'SNES', extensions: ['sfc', 'smc'] },
+                                { span: 4, core: 'Plum', console: 'GENESIS', extensions: ['gen', 'md', 'smd'] },
+                                { span: 4, core: 'Tomato', console: 'GBA', extensions: ['gba'] }
                             ].map((element) => {
                                 return (
-                                    <Grid.Col span={{ base: 12, lg: 4 }}>
+                                    <Grid.Col span={{ base: 12, lg: element.span }}>
                                         <ExtensionCard {...element} />
                                     </Grid.Col>
                                 )

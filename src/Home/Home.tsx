@@ -159,7 +159,7 @@ export default function Home() {
     const date = new Date()
 
     return (
-        <MantineProvider theme={theme} forceColorScheme={date.getHours() >= 7 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={theme} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>

@@ -12,7 +12,6 @@ import {
     Stack, Text, Title, Image
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { theme } from '../../theme';
 import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
@@ -21,7 +20,7 @@ export default function Keyr() {
     const os = useOs()
 
     return (
-        <MantineProvider theme={theme} forceColorScheme={date.getHours() >= 7 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={{ primaryColor: 'yellow' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
