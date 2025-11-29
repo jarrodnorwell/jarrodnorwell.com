@@ -14,7 +14,8 @@ import {
     Grid,
     VisuallyHidden,
     Tooltip,
-    Badge
+    Badge,
+    Button
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
 import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
@@ -140,6 +141,20 @@ export default function Folium() {
                     <Text c={'dimmed'} ta={'center'}>
                         Folium is a beautifully designed, high performing multi-system emulation app bringing retro gaming to Apple devices
                     </Text>
+
+                    <Space />
+
+                    <Group>
+                        <Button color={'blue'} component={'a'} href={'https://apps.apple.com/us/app/folium/id6498623389'} radius={'xl'} target={'_blank'}>
+                            App Store
+                        </Button>
+                        <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/pRGScBR7'} radius={'xl'} target={'_blank'}>
+                            TestFlight
+                        </Button>
+                        <Button color={'gray'} component={'a'} href={'https://github.com/folium-app/Folium/releases/download/1.35/Folium.ipa'} radius={'xl'} target={'_blank'}>
+                            Sideload
+                        </Button>
+                    </Group>
                 </Stack>
 
                 <Space h={'xl'} />
