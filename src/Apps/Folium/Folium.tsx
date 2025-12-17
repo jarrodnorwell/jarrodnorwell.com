@@ -168,7 +168,7 @@ export default function Folium() {
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
                                     <AspectRatio ratio={9 / 19.5}>
-                                        <Image src={`/folium/${image}.heic`} fit='contain' />
+                                        <Image src={`/folium/${image}.png`} fit='contain' />
                                     </AspectRatio>
                                 </Paper>
                             </Carousel.Slide>
