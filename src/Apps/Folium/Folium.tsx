@@ -113,7 +113,7 @@ export default function Folium() {
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/folium' }
+                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -259,7 +259,7 @@ export default function Folium() {
                     <Group>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/folium' },
+                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Folium' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }
