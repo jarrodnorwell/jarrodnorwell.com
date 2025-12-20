@@ -62,7 +62,7 @@ export default function Loca() {
                         About
                     </Title>
                     <Text c={'dimmed'} ta={'center'}>
-                        ColourCam is a small, camera-based app allowing users to capture colour information from the world, this colour can then be saved to the Photo Library as a background image, saved as a HEX or RGBA value or used in a fluid gradient with 8 or more colours which can then be saved to the Photo Library as a background image
+                        ColourCam is a small, camera-based app allowing users to capture colour information from the world, this colour can then be saved to the Photo Library as a background image, saved as a HEX or RGBA value or used in an amimated gradient with 8 other colours which can then be saved to the Photo Library as a background image
                     </Text>
                 </Stack>
 
@@ -77,7 +77,7 @@ export default function Loca() {
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
                                     <AspectRatio ratio={9 / 19.5}>
-                                        <Image src={`/colourcam/${image}.heic`} fit='contain' />
+                                        <Image src={`/colourcam/${image}.png`} fit='contain' />
                                     </AspectRatio>
                                 </Paper>
                             </Carousel.Slide>
