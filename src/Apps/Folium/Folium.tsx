@@ -15,10 +15,12 @@ import {
     VisuallyHidden,
     Tooltip,
     Badge,
-    Button
+    Button,
+    Accordion,
+    List
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail, IconSquareRounded, IconSquareRoundedCheckFilled } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 interface CoreProp {
@@ -155,6 +157,63 @@ export default function Folium() {
                             Sideload
                         </Button>
                     </Group>
+                </Stack>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack>
+                    <Title order={2}>
+                        Coming in 1.37
+                    </Title>
+                    <Accordion radius={'lg'} variant={'contained'}>
+                        <Accordion.Item key={'game-controllers'} value={'game-controllers'}>
+                            <Accordion.Control>
+                                Game Controllers
+                            </Accordion.Control>
+                            <Accordion.Panel>
+                                <List>
+                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Add support for several partially or fully unsupported game controllers</List.Item>
+                                </List>
+                            </Accordion.Panel>
+                        </Accordion.Item>
+                        <Accordion.Item key={'in-game-saves'} value={'in-game-saves'}>
+                            <Accordion.Control>
+                                In-Game Saves
+                            </Accordion.Control>
+                            <Accordion.Panel>
+                                <List>
+                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Add support for compressing and exporting all in-game saves</List.Item>
+                                </List>
+                            </Accordion.Panel>
+                        </Accordion.Item>
+                        <Accordion.Item key={'on-screen-controls'} value={'on-screen-controls'}>
+                            <Accordion.Control>
+                                On-Screen Controls
+                            </Accordion.Control>
+                            <Accordion.Panel>
+                                <List>
+                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Add a new option to change the transparency of buttons</List.Item>
+                                    <List.Item icon={<IconSquareRoundedCheckFilled stroke={1} />}>Swap the A and B, X and Y buttons to correctly match the 3DS ABXY button layout</List.Item>
+                                </List>
+                            </Accordion.Panel>
+                        </Accordion.Item>
+                        <Accordion.Item key={'save-states'} value={'save-states'}>
+                            <Accordion.Control>
+                                Save States
+                            </Accordion.Control>
+                            <Accordion.Panel>
+                                <List>
+                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Fix an issue where old save states cannot be used with newer versions of the app</List.Item>
+                                </List>
+                            </Accordion.Panel>
+                        </Accordion.Item>
+                        <Accordion.Item key={'skins-2.0'} value={'skins-2.0'}>
+                            <Accordion.Control>
+                                Skins 2.0
+                            </Accordion.Control>
+                        </Accordion.Item>
+                    </Accordion>
                 </Stack>
 
                 <Space h={'xl'} />
