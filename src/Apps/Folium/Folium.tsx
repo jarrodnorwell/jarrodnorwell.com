@@ -203,6 +203,7 @@ export default function Folium() {
                             </Accordion.Control>
                             <Accordion.Panel>
                                 <List>
+                                    <List.Item>Add a new controller layout for keypad support, currently used for ColorVision</List.Item>
                                     <List.Item>Add a new option to change the transparency of buttons</List.Item>
                                     <List.Item>Swap the A and B, X and Y buttons to correctly match the 3DS ABXY button layout</List.Item>
                                 </List>
