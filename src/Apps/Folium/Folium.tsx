@@ -20,7 +20,7 @@ import {
     List
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail, IconSquareRounded, IconSquareRoundedCheckFilled } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 interface CoreProp {
@@ -173,7 +173,7 @@ export default function Folium() {
                             </Accordion.Control>
                             <Accordion.Panel>
                                 <List>
-                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Add support for several partially or fully unsupported game controllers</List.Item>
+                                    <List.Item>Add support for several partially or fully unsupported game controllers</List.Item>
                                 </List>
                             </Accordion.Panel>
                         </Accordion.Item>
@@ -183,7 +183,17 @@ export default function Folium() {
                             </Accordion.Control>
                             <Accordion.Panel>
                                 <List>
-                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Add support for compressing and exporting all in-game saves</List.Item>
+                                    <List.Item>Add support for compressing and exporting all in-game saves</List.Item>
+                                </List>
+                            </Accordion.Panel>
+                        </Accordion.Item>
+                        <Accordion.Item key={'colorvision-support'} value={'colorvision-support'}>
+                            <Accordion.Control>
+                                ColorVision Support
+                            </Accordion.Control>
+                            <Accordion.Panel>
+                                <List>
+                                    <List.Item>Add support for compressing and exporting all in-game saves</List.Item>
                                 </List>
                             </Accordion.Panel>
                         </Accordion.Item>
@@ -193,8 +203,8 @@ export default function Folium() {
                             </Accordion.Control>
                             <Accordion.Panel>
                                 <List>
-                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Add a new option to change the transparency of buttons</List.Item>
-                                    <List.Item icon={<IconSquareRoundedCheckFilled stroke={1} />}>Swap the A and B, X and Y buttons to correctly match the 3DS ABXY button layout</List.Item>
+                                    <List.Item>Add a new option to change the transparency of buttons</List.Item>
+                                    <List.Item>Swap the A and B, X and Y buttons to correctly match the 3DS ABXY button layout</List.Item>
                                 </List>
                             </Accordion.Panel>
                         </Accordion.Item>
@@ -204,7 +214,7 @@ export default function Folium() {
                             </Accordion.Control>
                             <Accordion.Panel>
                                 <List>
-                                    <List.Item icon={<IconSquareRounded stroke={1} />}>Fix an issue where old save states cannot be used with newer versions of the app</List.Item>
+                                    <List.Item>Fix an issue where old save states cannot be used with newer versions of the app</List.Item>
                                 </List>
                             </Accordion.Panel>
                         </Accordion.Item>
@@ -245,6 +255,7 @@ export default function Folium() {
                     <Grid>
                         {
                             [
+                                { colour: 'red', core: 'Cherry', console: 'COL', link: 'cherry', beta: true },
                                 { colour: 'yellow', core: 'Cytrus', console: '3DS', link: 'cytrus', beta: false },
                                 { colour: 'purple', core: 'Grape', console: 'DS', link: 'grape', beta: false },
                                 { colour: 'red', core: 'Guava', console: 'NES', link: 'guava', beta: false },
@@ -274,6 +285,7 @@ export default function Folium() {
                     <Grid>
                         {
                             [
+                                { span: 4, core: 'Cherry', console: 'COL', extensions: ['col'] },
                                 { span: 4, core: 'Cytrus', console: '3DS', extensions: ['3ds', 'app', 'cci', 'cia', 'cxi'] },
                                 { span: 4, core: 'Grape', console: 'DS', extensions: ['ds', 'srl'] },
                                 { span: 4, core: 'Guava', console: 'NES', extensions: ['nes'] },
