@@ -12,7 +12,7 @@ interface LanguageProp {
 interface ProjectProp {
     image: string, impressions: string
     detailsLink?: string, link?: string
-    project: string, subtitle: string
+    project: string, price: string, subtitle: string
 }
 
 interface WorkProp {
@@ -81,9 +81,14 @@ export function ProjectCard(prop: ProjectProp) {
                 <Group justify={'space-between'}>
                     <Avatar display={['android', 'ios'].includes(useOs()) ? undefined : 'none'} radius={'0%'} size={'lg'} src={`/${prop.image}.png`} />
                     <Stack>
-                        <Title order={3}>
-                            {prop.project}
-                        </Title>
+                        <Group>
+                            <Title order={3}>
+                                {prop.project}
+                            </Title>
+                            <Title order={3} c={'dimmed'}>
+                                {prop.price}
+                            </Title>
+                        </Group>
                         <Text c={'dimmed'}>
                             {prop.subtitle}
                         </Text>
@@ -259,16 +264,16 @@ export default function Home() {
                     <Grid>
                         {
                             [
-                                { image: 'colourcam/colourcam_square', impressions: '50K', detailsLink: '/colourcam', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', subtitle: 'Capture real world colour information' },
-                                { image: 'folium/folium_square', impressions: '44M', detailsLink: '/folium', link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', subtitle: 'Multi-system emulation in the palm of your hands' },
-                                { image: 'fuely/fuely_square', impressions: '5K', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', subtitle: 'Up-to-date fuel prices around Western Australa' },
-                                { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/loca', link: undefined, project: 'Loca', subtitle: 'Browse a map of your friends' },
-                                { image: 'keyr/keyr_square', impressions: 'Unknown', detailsLink: '/keyr', link: 'https://apps.apple.com/au/app/keyr/id6755037755', project: 'Keyr', subtitle: 'Beautifully designed, simple 2-factor authentication' },
-                                { image: 'noctiloquy/noctiloquy_square', impressions: 'Unknown', detailsLink: undefined, link: undefined, project: 'Noctiloquy', subtitle: 'Simple sleep recording for snoring, talking, etc' }
+                                { image: 'colourcam/colourcam_square', impressions: '50K', detailsLink: '/colourcam', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', price: '', subtitle: 'Capture real world colour information' },
+                                { image: 'folium/folium_square', impressions: '44M', detailsLink: '/folium', link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', price: '$2.99', subtitle: 'Multi-system emulation in the palm of your hands' },
+                                { image: 'fuely/fuely_square', impressions: '5K', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', price: '', subtitle: 'Up-to-date fuel prices around Western Australia' },
+                                { image: 'lavvy/lavvy_square', impressions: 'Unknown', detailsLink: '/lavvy', link: undefined, project: 'Lavvy', price: '$0.99', subtitle: 'Browse a map of public toilets all across Australia' },
+                                { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/loca', link: undefined, project: 'Loca', price: '', subtitle: 'Browse a map of your friends' },
+                                { image: 'keyr/keyr_square', impressions: 'Unknown', detailsLink: '/keyr', link: 'https://apps.apple.com/au/app/keyr/id6755037755', project: 'Keyr', price: '', subtitle: 'Beautifully designed, simple 2-factor authentication' }
                             ].map((element) => {
                                 return (
                                     <Grid.Col span={{ base: 12, lg: 6 }}>
-                                        <ProjectCard image={element.image} impressions={element.impressions} detailsLink={element.detailsLink} link={element.link} project={element.project} subtitle={element.subtitle} />
+                                        <ProjectCard image={element.image} impressions={element.impressions} detailsLink={element.detailsLink} link={element.link} project={element.project} price={element.price} subtitle={element.subtitle} />
                                     </Grid.Col>
                                 )
                             })
