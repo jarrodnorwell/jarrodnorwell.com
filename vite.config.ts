@@ -18,7 +18,9 @@ export default defineConfig({
                 folium: resolve(__dirname, 'folium/index.html'),
                 lavvy: resolve(__dirname, 'lavvy/index.html'),
                 loca: resolve(__dirname, 'loca/index.html'),
-                keyr: resolve(__dirname, 'keyr/index.html')
+                keyr: resolve(__dirname, 'keyr/index.html'),
+
+                applerepairs: resolve(__dirname, 'applerepairs/index.html')
             }
         }
     }

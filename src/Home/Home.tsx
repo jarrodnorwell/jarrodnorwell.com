@@ -1,164 +1,12 @@
 import '@mantine/core/styles.css';
-import { ActionIcon, Anchor, Avatar, AvatarGroup, Card, Container, Grid, Group, MantineProvider, Space, Stack, Text, Title } from '@mantine/core';
+import { ActionIcon, Avatar, AvatarGroup, Container, Grid, Group, MantineProvider, Space, Stack, Text, Title } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
 import { IconBrandGithub, IconBrandReddit, IconBrandTwitch, IconBrandTwitter, IconDeviceGamepad2, IconCode } from '@tabler/icons-react';
 import { theme } from '../theme';
 
-interface LanguageProp {
-    language: string
-    yoe: number
-}
-
-interface ProjectProp {
-    image: string, impressions: string
-    detailsLink?: string, link?: string
-    project: string, price: string, subtitle: string
-}
-
-interface WorkProp {
-    image: string
-    link?: string
-    company: string, role: string, subtitle: string
-}
-
-export function LanguageCard(prop: LanguageProp) {
-    return (
-        <Card padding={'lg'} radius={'lg'} withBorder>
-            <Group justify={'space-between'}>
-                <Title order={3}>
-                    {prop.language}
-                </Title>
-                <Text c={'dimmed'}>
-                    {`${prop.yoe} years`}
-                </Text>
-            </Group>
-        </Card>
-    )
-}
-
-export function ProjectCard(prop: ProjectProp) {
-    function AnchorOrText2() {
-        if (prop.detailsLink) {
-            return (
-                <Anchor c={theme.primaryColor} href={prop.detailsLink} target={'_blank'}>
-                    Details
-                </Anchor>
-            )
-        } else {
-            return (
-                <Text c={'dimmed'}>
-                    No Details
-                </Text>
-            )
-        }
-    }
-
-    function AnchorOrText() {
-        if (prop.link) {
-            return (
-                <Group>
-                    <AnchorOrText2 />
-                    <Anchor c={'blue'} href={prop.link} target={'_blank'}>
-                        Open in App Store
-                    </Anchor>
-                </Group>
-            )
-        } else {
-            return (
-                <Group>
-                    <AnchorOrText2 />
-                    <Text c={'dimmed'}>
-                        Coming Soon
-                    </Text>
-                </Group>
-            )
-        }
-    }
-
-    return (
-        <Card padding={'lg'} radius={'xl'} withBorder>
-            <Stack>
-                <Group justify={'space-between'}>
-                    <Avatar display={['android', 'ios'].includes(useOs()) ? undefined : 'none'} radius={'0%'} size={'lg'} src={`/${prop.image}.png`} />
-                    <Stack>
-                        <Group>
-                            <Title order={3}>
-                                {prop.project}
-                            </Title>
-                            <Title order={3} c={'dimmed'}>
-                                {prop.price}
-                            </Title>
-                        </Group>
-                        <Text c={'dimmed'}>
-                            {prop.subtitle}
-                        </Text>
-                    </Stack>
-                    <Avatar display={['android', 'ios'].includes(useOs()) ? 'none' : undefined} radius={'0%'} size={'lg'} src={`/${prop.image}.png`} />
-                </Group>
-                <Group justify={'space-between'}>
-                    <Group gap={'xs'}>
-                        <Text fw={700}>
-                            {prop.impressions}
-                        </Text>
-                        <Text c={'dimmed'}>
-                            impressions
-                        </Text>
-                    </Group>
-                    <AnchorOrText />
-                </Group>
-            </Stack>
-        </Card>
-    )
-}
-
-export function WorkCard(prop: WorkProp) {
-    function AnchorOrText() {
-        if (prop.link) {
-            return (
-                <Anchor c={'blue'} href={prop.link} target={'_blank'}>
-                    Open in Browser
-                </Anchor>
-            )
-        } else {
-            return (
-                <Text c={'dimmed'}>
-                    Link is unavailable
-                </Text>
-            )
-        }
-    }
-
-    return (
-        <Card padding={'lg'} radius={'xl'} withBorder>
-            <Stack>
-                <Group justify={'space-between'}>
-                    <Card display={['android', 'ios'].includes(useOs()) ? undefined : 'none'} padding={'xs'} radius={'lg'} withBorder>
-                        <Avatar radius={'md'} src={prop.image} />
-                    </Card>
-                    <Stack>
-                        <Title order={3}>
-                            {prop.company}
-                        </Title>
-                        <Text c={'dimmed'}>
-                            {prop.subtitle}
-                        </Text>
-                    </Stack>
-                    <Card display={['android', 'ios'].includes(useOs()) ? 'none' : undefined} padding={'xs'} radius={'lg'} withBorder>
-                        <Avatar radius={'md'} src={prop.image} />
-                    </Card>
-                </Group>
-                <Group justify={'space-between'}>
-                    <Group gap={'xs'}>
-                        <Text fw={700}>
-                            {prop.role}
-                        </Text>
-                    </Group>
-                    <AnchorOrText />
-                </Group>
-            </Stack>
-        </Card >
-    )
-}
+import { LanguageCard } from './LanguageCard';
+import { ProjectCard } from './ProjectCard';
+import { WorkCard } from './WorkCard';
 
 export default function Home() {
     const date = new Date()
@@ -221,6 +69,9 @@ export default function Home() {
                     <Text c={'dimmed'} ta={'center'}>
                         Jarrod Norwell is a Software Developer from Australia with over 15 years of experience spanning across over 8 languages
                     </Text>
+                    <Text c={'dimmed'} ta={'center'}>
+                        Jarrod is best known for being the first to port Citra and Yuzu to Apple devices, Folium, a multi-system emulator for iPad and iPhone and Sudachi, a Nintendo Switch emulator for Android, Linux, macOS and Windows
+                    </Text>
                 </Stack>
 
                 <Space h={'xl'} />
@@ -239,13 +90,13 @@ export default function Home() {
                                 { language: 'HTML', yoe: 3 },
                                 { language: 'JavaScript', yoe: 3 },
                                 { language: 'Kotlin', yoe: 5 },
-                                { language: 'Objective-C/++', yoe: 12 },
+                                { language: 'Objective-C', yoe: 12 },
                                 { language: 'Python', yoe: 8 },
                                 { language: 'Swift', yoe: 10 },
                                 { language: 'TypeScript', yoe: 3 }
                             ].map((element) => {
                                 return (
-                                    <Grid.Col span={{ base: 12, lg: 3 }}>
+                                    <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
                                         <LanguageCard language={element.language} yoe={element.yoe} />
                                     </Grid.Col>
                                 )
@@ -264,12 +115,12 @@ export default function Home() {
                     <Grid>
                         {
                             [
-                                { image: 'colourcam/colourcam_square', impressions: '50K', detailsLink: '/colourcam', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', price: '', subtitle: 'Capture real world colour information' },
-                                { image: 'folium/folium_square', impressions: '44M', detailsLink: '/folium', link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', price: '$2.99', subtitle: 'Multi-system emulation in the palm of your hands' },
-                                { image: 'fuely/fuely_square', impressions: '5K', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', price: '', subtitle: 'Up-to-date fuel prices around Western Australia' },
+                                { image: 'colourcam/colourcam_square', impressions: '59K', detailsLink: '/colourcam', link: 'https://apps.apple.com/au/app/colourcam/id6745690307', project: 'ColourCam', price: '', subtitle: 'Capture real world colour information' },
+                                { image: 'folium/folium_square', impressions: '46M', detailsLink: '/folium', link: 'https://apps.apple.com/au/app/folium/id6498623389', project: 'Folium', price: '$2.99', subtitle: 'Multi-system emulation in the palm of your hands' },
+                                { image: 'fuely/fuely_square', impressions: '10K', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', price: '', subtitle: 'Up-to-date fuel prices around Western Australia' },
                                 { image: 'lavvy/lavvy_square', impressions: 'Unknown', detailsLink: '/lavvy', link: undefined, project: 'Lavvy', price: '$0.99', subtitle: 'Browse a map of public toilets all across Australia' },
                                 { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/loca', link: undefined, project: 'Loca', price: '', subtitle: 'Browse a map of your friends' },
-                                { image: 'keyr/keyr_square', impressions: 'Unknown', detailsLink: '/keyr', link: 'https://apps.apple.com/au/app/keyr/id6755037755', project: 'Keyr', price: '', subtitle: 'Beautifully designed, simple 2-factor authentication' }
+                                { image: 'keyr/keyr_square', impressions: '12K', detailsLink: '/keyr', link: 'https://apps.apple.com/au/app/keyr/id6755037755', project: 'Keyr', price: '', subtitle: 'Beautifully designed, simple 2-factor authentication' }
                             ].map((element) => {
                                 return (
                                     <Grid.Col span={{ base: 12, lg: 6 }}>
@@ -288,13 +139,41 @@ export default function Home() {
                     <Title order={2}>
                         Work Experience
                     </Title>
+                    <Title order={3}>
+                        Active
+                    </Title>
+                    <Text c={'dimmed'}>
+                        Below is a list of experiences where the project is still being developed
+                    </Text>
+                    <Grid>
+                        {
+                            [
+                                { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkupaWwXqoIPNdq5fWsXKpPeEMP5vdpDLbqw&s', link: undefined, company: 'Blueprint Health & Fitness', role: 'Software Developer', subtitle: 'Personal trainer in the Brisbane CBD, Australia' },
+                                { image: 'https://texts.com/icon.png', link: 'https://texts.com', company: 'Texts', role: 'Software Developer', subtitle: 'All of your messages. In one inbox' }
+                            ].map((element) => {
+                                return (
+                                    <Grid.Col span={{ base: 12, lg: 6 }}>
+                                        <WorkCard image={element.image} link={element.link} company={element.company} role={element.role} subtitle={element.subtitle} />
+                                    </Grid.Col>
+                                )
+                            })
+                        }
+                    </Grid>
+
+                    <Space h={'xl'} />
+
+                    <Title order={3}>
+                        Inactive
+                    </Title>
+                    <Text c={'dimmed'}>
+                        Below is a list of experiences where the project is no longer being developed
+                    </Text>
                     <Grid>
                         {
                             [
                                 { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9gAb4f-DQLxUQH5XMGLozpvdj9OPbe3BCYg&s', link: undefined, company: 'Australian Karaoke', role: 'Software Developer', subtitle: 'iPad controlled pro-karaoke systems' },
-                                { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkupaWwXqoIPNdq5fWsXKpPeEMP5vdpDLbqw&s', link: undefined, company: 'Blueprint Health & Fitness', role: 'Software Developer', subtitle: 'Personal trainer in the Brisbane CBD, Australia' },
-                                { image: 'https://texts.com/icon.png', link: 'https://texts.com', company: 'Texts', role: 'Software Developer', subtitle: 'All of your messages. In one inbox' },
-                                { image: 'https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/51/ba/d0/51bad02a-2ec2-1303-ef01-b0dcf0dc28bf/source/256x256bb.jpg', link: undefined, company: 'Wopadu', role: 'Designer', subtitle: 'Wopadu is a new menu restaurant app' }
+                                { image: '/we/orderthai.png', link: 'https://www.honeycombsoftwares.com/portfolio/orderthai', company: 'Order Thai', role: 'Software Developer', subtitle: 'Restaurant ordering system for dine-in and takeaway' },
+                                { image: 'https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/51/ba/d0/51bad02a-2ec2-1303-ef01-b0dcf0dc28bf/source/256x256bb.jpg', link: undefined, company: 'Wopadu', role: 'Designer', subtitle: 'Restaurant ordering system for dine-in and takeaway' }
                             ].map((element) => {
                                 return (
                                     <Grid.Col span={{ base: 12, lg: 6 }}>
