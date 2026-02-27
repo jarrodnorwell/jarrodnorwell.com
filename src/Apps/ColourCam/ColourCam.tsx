@@ -72,7 +72,7 @@ export default function Loca() {
                 <Carousel align={'start'} slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
                     {
                         [
-                            'ss_one', 'ss_two', 'ss_three', 'ss_four'
+                            'ss_one', 'ss_two', 'ss_three', 'ss_four', 'ss_five', 'ss_six', 'ss_seven'
                         ].map((image) => (
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
