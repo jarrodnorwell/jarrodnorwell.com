@@ -177,25 +177,15 @@ export default function Folium() {
                                 </List>
                             </Accordion.Panel>
                         </Accordion.Item>
-                        <Accordion.Item key={'in-game-saves'} value={'in-game-saves'}>
+                        <Accordion.Item key={'colecovision-support'} value={'colecovision-support'}>
                             <Accordion.Control>
-                                In-Game Saves
+                                ColecoVision Support
                             </Accordion.Control>
-                            <Accordion.Panel>
-                                <List>
-                                    <List.Item>Add support for compressing and exporting all in-game saves</List.Item>
-                                </List>
-                            </Accordion.Panel>
                         </Accordion.Item>
-                        <Accordion.Item key={'colorvision-support'} value={'colorvision-support'}>
+                        <Accordion.Item key={'nintendo-wifi-connection-support'} value={'nintendo-wifi-connection-support'}>
                             <Accordion.Control>
-                                ColorVision Support
+                                Nintendo Wi-Fi Connection Support
                             </Accordion.Control>
-                            <Accordion.Panel>
-                                <List>
-                                    <List.Item>Add support for compressing and exporting all in-game saves</List.Item>
-                                </List>
-                            </Accordion.Panel>
                         </Accordion.Item>
                         <Accordion.Item key={'on-screen-controls'} value={'on-screen-controls'}>
                             <Accordion.Control>
@@ -203,7 +193,7 @@ export default function Folium() {
                             </Accordion.Control>
                             <Accordion.Panel>
                                 <List>
-                                    <List.Item>Add a new controller layout for keypad support, currently used for ColorVision</List.Item>
+                                    <List.Item>Add a new controller layout for keypad support, currently used for ColecoVision</List.Item>
                                     <List.Item>Add a new option to change the transparency of buttons</List.Item>
                                     <List.Item>Swap the A and B, X and Y buttons to correctly match the 3DS ABXY button layout</List.Item>
                                 </List>
@@ -218,11 +208,6 @@ export default function Folium() {
                                     <List.Item>Fix an issue where old save states cannot be used with newer versions of the app</List.Item>
                                 </List>
                             </Accordion.Panel>
-                        </Accordion.Item>
-                        <Accordion.Item key={'skins-2.0'} value={'skins-2.0'}>
-                            <Accordion.Control>
-                                Skins 2.0
-                            </Accordion.Control>
                         </Accordion.Item>
                     </Accordion>
                 </Stack>
