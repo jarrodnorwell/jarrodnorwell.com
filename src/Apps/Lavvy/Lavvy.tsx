@@ -69,7 +69,7 @@ export default function Lavvy() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <Carousel align={'start'} slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
+                <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
                     {
                         [
                             'ss_one', 'ss_two', 'ss_three', 'ss_four', 'ss_five', 'ss_six', 'ss_seven', 'ss_eight'

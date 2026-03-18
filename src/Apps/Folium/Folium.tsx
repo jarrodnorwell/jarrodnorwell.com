@@ -15,12 +15,10 @@ import {
     VisuallyHidden,
     Tooltip,
     Badge,
-    Button,
-    Accordion,
-    List
+    Button
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 interface CoreProp {
@@ -143,7 +141,7 @@ export default function Folium() {
                     <Text c={'dimmed'} ta={'center'}>
                         Folium is a beautifully designed, high performing multi-system emulation app bringing retro gaming to Apple devices
                     </Text>
-
+                    {/*
                     <Space />
 
                     <Group>
@@ -157,65 +155,41 @@ export default function Folium() {
                             Sideload
                         </Button>
                     </Group>
+                    */}
                 </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <Stack>
+                <Stack align={'center'}>
+                    <AvatarGroup spacing={'lg'}>
+                        <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                            <IconCheck />
+                        </Avatar>
+                    </AvatarGroup>
                     <Title order={2}>
-                        Coming in 1.37
+                        Release Status
                     </Title>
-                    <Accordion radius={'lg'} variant={'contained'}>
-                        <Accordion.Item key={'game-controllers'} value={'game-controllers'}>
-                            <Accordion.Control>
-                                Game Controllers
-                            </Accordion.Control>
-                            <Accordion.Panel>
-                                <List>
-                                    <List.Item>Add support for several partially or fully unsupported game controllers</List.Item>
-                                </List>
-                            </Accordion.Panel>
-                        </Accordion.Item>
-                        <Accordion.Item key={'colecovision-support'} value={'colecovision-support'}>
-                            <Accordion.Control>
-                                ColecoVision Support
-                            </Accordion.Control>
-                        </Accordion.Item>
-                        <Accordion.Item key={'nintendo-wifi-connection-support'} value={'nintendo-wifi-connection-support'}>
-                            <Accordion.Control>
-                                Nintendo Wi-Fi Connection Support
-                            </Accordion.Control>
-                        </Accordion.Item>
-                        <Accordion.Item key={'on-screen-controls'} value={'on-screen-controls'}>
-                            <Accordion.Control>
-                                On-Screen Controls
-                            </Accordion.Control>
-                            <Accordion.Panel>
-                                <List>
-                                    <List.Item>Add a new controller layout for keypad support, currently used for ColecoVision</List.Item>
-                                    <List.Item>Add a new option to change the transparency of buttons</List.Item>
-                                    <List.Item>Swap the A and B, X and Y buttons to correctly match the 3DS ABXY button layout</List.Item>
-                                </List>
-                            </Accordion.Panel>
-                        </Accordion.Item>
-                        <Accordion.Item key={'save-states'} value={'save-states'}>
-                            <Accordion.Control>
-                                Save States
-                            </Accordion.Control>
-                            <Accordion.Panel>
-                                <List>
-                                    <List.Item>Fix an issue where old save states cannot be used with newer versions of the app</List.Item>
-                                </List>
-                            </Accordion.Panel>
-                        </Accordion.Item>
-                    </Accordion>
+                    <Text c={'dimmed'} ta={'center'}>
+                        Distributed
+                    </Text>
+
+                    <Space />
+
+                    <Group>
+                        <Button color={'blue'} component={'a'} href={'https://apps.apple.com/us/app/folium/id6498623389'} radius={'xl'} target={'_blank'} variant={'light'}>
+                            App Store
+                        </Button>
+                        <Button color={'yellow'} component={'a'} href={'https://www.icloud.com/notes/03dUu7FRmok3vLrl1XdZlUpFg'} radius={'xl'} target={'_blank'} variant={'light'}>
+                            Changelog
+                        </Button>
+                    </Group>
                 </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <Carousel align={'start'} slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
+                <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
                     {
                         [
                             'ss_one', 'ss_two', 'ss_three', 'ss_four'
