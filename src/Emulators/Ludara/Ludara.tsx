@@ -26,7 +26,7 @@ interface GameItem {
 }
 
 export default function Ludara() {
-    // const date = new Date()
+    const date = new Date()
 
     const database = fetch(`https://raw.githubusercontent.com/ludara-emu/GameIcons/refs/heads/main/database.json`)
         .then((response) => response.json())
@@ -39,7 +39,7 @@ export default function Ludara() {
     })
 
     return (
-        <MantineProvider theme={{ primaryColor: 'violet' }} forceColorScheme={'dark' /*date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'*/}>
+        <MantineProvider theme={{ primaryColor: 'violet' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
