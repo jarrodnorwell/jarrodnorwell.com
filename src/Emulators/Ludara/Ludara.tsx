@@ -26,6 +26,7 @@ interface GameItem {
 
 export default function Ludara() {
     const date = new Date()
+    const lightMode = date.getHours() >= 6 && date.getHours() <= 19
 
     const database = fetch(`https://raw.githubusercontent.com/ludara-emu/GameIcons/refs/heads/main/database.json`)
         .then((response) => response.json())
@@ -38,7 +39,7 @@ export default function Ludara() {
     })
 
     return (
-        <MantineProvider theme={{ primaryColor: 'violet' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={{ primaryColor: 'violet' }} forceColorScheme={lightMode ? 'light' : 'dark'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
@@ -98,7 +99,7 @@ export default function Ludara() {
                             ].map((image) => (
                                 <Carousel.Slide>
                                     <Paper style={{ overflow: 'hidden' }} withBorder>
-                                        <Image src={`/ludara/${image}.png`} fit='contain' />
+                                        <Image src={`/ludara/${image}${lightMode ? '' : '_dark'}.png`} fit='contain' />
                                     </Paper>
                                 </Carousel.Slide>
                             ))
@@ -170,7 +171,7 @@ export default function Ludara() {
                             [
                                 { color: 'gray', icon: <IconBrandGithub />, link: '' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Ludara' },
-                                { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
+                                { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/r/ludaraemulator' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }
                             ].map((element) => {
                                 return (
