@@ -6,18 +6,19 @@ import {
     Container,
     Group,
     MantineProvider,
-    Grid,
     Space,
     Stack, Text, TextInput, Title,
     Image,
     Paper,
-    Flex,
     Button,
-    Center
+    SimpleGrid,
+    Center,
+    AspectRatio
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail, IconUpload } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail, IconPlus } from '@tabler/icons-react';
 import { useState } from 'react';
+import { Carousel } from '@mantine/carousel';
 
 interface GameItem {
     game_id: string;
@@ -32,6 +33,10 @@ export default function Ludara() {
         .then((data) => data)
 
     var [games, setGames] = useState<GameItem[]>([])
+
+    window.addEventListener('load', (_) => {
+        database.then(elements => setGames(elements))
+    })
 
     return (
         <MantineProvider theme={{ primaryColor: 'violet' }} forceColorScheme={'dark' /*date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'*/}>
@@ -78,58 +83,82 @@ export default function Ludara() {
                     <Text c={'dimmed'} ta={'center'}>
                         Ludara is a continuation of Sudachi, a Nintendo Switch emulator focused on accuracy, clean code, compatibility and performance
                     </Text>
-
-                    <Text c={'orange'} ta={'center'}>
-                        Use Search below to find out whether the icons for the games you play exist in the database and see whether you can submit your own game icons
-                    </Text>
                 </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <Grid>
-                    <Grid.Col span={['android', 'ios'].includes(useOs()) ? 0 : 3}></Grid.Col>
-                    <Grid.Col span={['android', 'ios'].includes(useOs()) ? 12 : 6}>
-                        <Center>
-                            <Group>
-                                <TextInput onChange={(event) => {
-                                    setGames([])
-                                    const value = event.currentTarget.value
-                                    if (value.length > 0) {
-                                        database.then((elements) => { // [{}, {}, {}]
-                                            for (const element of elements) {
-                                                if (element["game_name"].startsWith(value)) {
-                                                    setGames((previous) => [...previous, element])
-                                                }
-                                            }
-                                        })
-                                    }
-                                }} placeholder="Search" radius={'xl'} size={'lg'} />
-                                <Space h={'md'} />
-                                <Button component={'a'} href={'https://github.com/ludara-emu/GameIcons'} radius={'xl'} size={'lg'} target={'_blank'}>
-                                    <IconUpload />
-                                </Button>
-                            </Group>
-                        </Center>
-                    </Grid.Col>
-                    <Grid.Col span={['android', 'ios'].includes(useOs()) ? 0 : 3}></Grid.Col>
-                </Grid>
+                <Stack>
+                    <Title order={2}>
+                        Screenshots
+                    </Title>
+                    <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(useOs()) ? '100%' : '50%'}>
+                        {
+                            [
+                                'ss_one', 'ss_two'
+                            ].map((image) => (
+                                <Carousel.Slide>
+                                    <Paper radius={['android', 'ios'].includes(useOs()) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
+                                        <AspectRatio ratio={160 / 97}>
+                                            <Image src={`/ludara/${image}.png`} fit='contain' />
+                                        </AspectRatio>
+                                    </Paper>
+                                </Carousel.Slide>
+                            ))
+                        }
+                    </Carousel>
+                </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <Flex align={'center'} gap={'xl'} justify={'center'} wrap={'wrap'}>
-                    {
-                        games.map((game) => (
-                            <Stack>
-                                <Paper radius={'xl'} style={{ overflow: 'hidden' }} withBorder>
-                                    <Image src={`https://raw.githubusercontent.com/ludara-emu/GameIcons/refs/heads/main/${game.game_id}.png`} />
-                                </Paper>
-                                <Text>{game.game_name}</Text>
-                            </Stack>
-                        ))
-                    }
-                </Flex>
+                <Stack>
+                    <Title order={2}>
+                        Search
+                    </Title>
+                    <Text c={'orange'}>
+                        Search a game below to see if its icon exists. Click ( + ) to submit a new icon on the GameIcons GitHub repository via a pull request
+                    </Text>
+                    <TextInput onChange={(event) => {
+                        setGames([])
+                        const value = event.currentTarget.value
+                        if (value.length > 0) {
+                            database.then((elements: [GameItem]) => { // [{}, {}, {}]
+                                setGames(elements.filter(element => element.game_name.startsWith(value)))
+                            })
+                        } else {
+                            database.then(elements => setGames(elements))
+                        }
+                    }} placeholder="Search" radius={'xl'} size={'lg'} />
+
+                    <Space h={'xl'} />
+
+                    <Center>
+                        <Button component={'a'} href={'https://github.com/ludara-emu/GameIcons'} radius={'xl'} target={'_blank'}>
+                            <IconPlus size={20} />
+                        </Button>
+                    </Center>
+                </Stack>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack>
+                    <Title order={2}>
+                        Game Icons
+                    </Title>
+                    <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 2 : 8} spacing={'lg'} verticalSpacing={'lg'}>
+                        {
+                            games.map((game) => (
+                                <Stack>
+                                    <Paper radius={'xl'} style={{ overflow: 'hidden' }} withBorder>
+                                        <Image src={`https://raw.githubusercontent.com/ludara-emu/GameIcons/refs/heads/main/${game.game_id}.png`} />
+                                    </Paper>
+                                </Stack>
+                            ))
+                        }
+                    </SimpleGrid>
+                </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
