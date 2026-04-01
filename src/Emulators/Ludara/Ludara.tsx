@@ -12,8 +12,7 @@ import {
     Paper,
     Button,
     SimpleGrid,
-    Center,
-    AspectRatio
+    Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
 import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail, IconPlus } from '@tabler/icons-react';
@@ -75,7 +74,7 @@ export default function Ludara() {
                         <Avatar radius={'xl'} size={'lg'}>
                             <IconCode />
                         </Avatar>
-                        <Avatar radius={'xl'} size={'lg'} src={'/jarrodnorwell.png'} />
+                        <Avatar radius={'xl'} size={'lg'} src={'/ludara/ludara_circle.png'} />
                     </AvatarGroup>
                     <Title order={2}>
                         About
@@ -92,16 +91,14 @@ export default function Ludara() {
                     <Title order={2}>
                         Screenshots
                     </Title>
-                    <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(useOs()) ? '100%' : '50%'}>
+                    <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(useOs()) ? '100%' : '33%'}>
                         {
                             [
-                                'ss_one', 'ss_two'
+                                'ss_one', 'ss_two', 'ss_three'
                             ].map((image) => (
                                 <Carousel.Slide>
-                                    <Paper radius={['android', 'ios'].includes(useOs()) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
-                                        <AspectRatio ratio={160 / 97}>
-                                            <Image src={`/ludara/${image}.png`} fit='contain' />
-                                        </AspectRatio>
+                                    <Paper style={{ overflow: 'hidden' }} withBorder>
+                                        <Image src={`/ludara/${image}.png`} fit='contain' />
                                     </Paper>
                                 </Carousel.Slide>
                             ))
@@ -131,11 +128,9 @@ export default function Ludara() {
                         }
                     }} placeholder="Search" radius={'xl'} size={'lg'} />
 
-                    <Space h={'xl'} />
-
                     <Center>
                         <Button component={'a'} href={'https://github.com/ludara-emu/GameIcons'} radius={'xl'} target={'_blank'}>
-                            <IconPlus size={20} />
+                            <IconPlus size={20} strokeWidth={3} />
                         </Button>
                     </Center>
                 </Stack>
