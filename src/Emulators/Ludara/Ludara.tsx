@@ -15,7 +15,7 @@ import {
     Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail, IconPlus } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail, IconPlus } from '@tabler/icons-react';
 import { useState } from 'react';
 import { Carousel } from '@mantine/carousel';
 
@@ -83,6 +83,29 @@ export default function Ludara() {
                     <Text c={'dimmed'} ta={'center'}>
                         Ludara is a continuation of Sudachi, a Nintendo Switch emulator focused on accuracy, clean code, compatibility and performance
                     </Text>
+                </Stack>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack align={'center'}>
+                    <AvatarGroup spacing={'lg'}>
+                        <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                            <IconCheck />
+                        </Avatar>
+                    </AvatarGroup>
+                    <Title order={2}>
+                        Release Status
+                    </Title>
+                    <Text c={'dimmed'} ta={'center'}>
+                        Distributed
+                    </Text>
+
+                    <Space />
+
+                    <Button color={'gray'} component={'a'} href={'https://github.com/ludara-emu/Releases/releases/latest'} radius={'xl'} target={'_blank'} variant={'light'}>
+                        GitHub Release
+                    </Button>
                 </Stack>
 
                 <Space h={'xl'} />
