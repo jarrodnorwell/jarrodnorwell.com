@@ -14,6 +14,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: resolve(__dirname, 'index.html'),
+                alune: resolve(__dirname, 'alune/index.html'),
                 colourcam: resolve(__dirname, 'colourcam/index.html'),
                 folium: resolve(__dirname, 'folium/index.html'),
                 lavvy: resolve(__dirname, 'lavvy/index.html'),
