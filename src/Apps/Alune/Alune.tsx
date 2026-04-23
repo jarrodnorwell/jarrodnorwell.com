@@ -17,11 +17,10 @@ import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode
 import { Carousel } from '@mantine/carousel';
 
 export default function Alune() {
-    const date = new Date()
     const os = useOs()
 
     return (
-        <MantineProvider theme={{ primaryColor: 'green' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={{ primaryColor: 'green' }} forceColorScheme={'light'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
@@ -87,7 +86,7 @@ export default function Alune() {
 
                 <Stack align={'center'}>
                     <AvatarGroup spacing={'lg'}>
-                        <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                        <Avatar color={'orange'} radius={'xl'} size={'lg'}>
                             <IconCheck />
                         </Avatar>
                     </AvatarGroup>
@@ -95,7 +94,7 @@ export default function Alune() {
                         Release Status
                     </Title>
                     <Text c={'dimmed'} ta={'center'}>
-                        Distributed
+                        Waiting for Review
                     </Text>
 
                     <Space />
