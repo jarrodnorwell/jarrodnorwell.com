@@ -13,7 +13,7 @@ import {
     Button
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconClock, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Alune() {
@@ -87,7 +87,7 @@ export default function Alune() {
                 <Stack align={'center'}>
                     <AvatarGroup spacing={'lg'}>
                         <Avatar color={'orange'} radius={'xl'} size={'lg'}>
-                            <IconCheck />
+                            <IconClock />
                         </Avatar>
                     </AvatarGroup>
                     <Title order={2}>
