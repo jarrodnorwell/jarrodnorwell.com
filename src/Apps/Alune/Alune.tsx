@@ -13,7 +13,7 @@ import {
     Button
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconClock, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Alune() {
@@ -86,21 +86,21 @@ export default function Alune() {
 
                 <Stack align={'center'}>
                     <AvatarGroup spacing={'lg'}>
-                        <Avatar color={'orange'} radius={'xl'} size={'lg'}>
-                            <IconClock />
+                        <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                            <IconCheck />
                         </Avatar>
                     </AvatarGroup>
                     <Title order={2}>
                         Release Status
                     </Title>
                     <Text c={'dimmed'} ta={'center'}>
-                        Waiting for Review
+                        Ready for Testing
                     </Text>
 
                     <Space />
 
                     <Group>
-                        <Button color={'blue'} component={'a'} href={''} radius={'xl'} target={'_blank'} variant={'light'} disabled>
+                        <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/jDZ4BM99'} radius={'xl'} target={'_blank'} variant={'light'} disabled>
                             TestFlight
                         </Button>
                         <Button color={'yellow'} component={'a'} href={''} radius={'xl'} target={'_blank'} variant={'light'} disabled>
