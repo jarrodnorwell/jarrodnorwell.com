@@ -100,6 +100,9 @@ export default function Alune() {
                     <Space />
 
                     <Group>
+                        <Button color={'indigo'} component={'a'} href={'https://github.com/alune-app/Releases/releases/download/1.0.1/Alune.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
+                            Sideload
+                        </Button>
                         <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/jDZ4BM99'} radius={'xl'} target={'_blank'} variant={'light'}>
                             TestFlight
                         </Button>
