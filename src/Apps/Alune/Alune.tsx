@@ -100,7 +100,7 @@ export default function Alune() {
                     <Space />
 
                     <Group>
-                        <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/jDZ4BM99'} radius={'xl'} target={'_blank'} variant={'light'} disabled>
+                        <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/jDZ4BM99'} radius={'xl'} target={'_blank'} variant={'light'}>
                             TestFlight
                         </Button>
                         <Button color={'yellow'} component={'a'} href={''} radius={'xl'} target={'_blank'} variant={'light'} disabled>
