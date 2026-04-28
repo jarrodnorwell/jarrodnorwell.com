@@ -10,10 +10,12 @@ import {
     Paper,
     Space,
     Stack, Text, Title, Image,
-    Button
+    Button,
+    SimpleGrid,
+    Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconClock, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Alune() {
@@ -84,33 +86,60 @@ export default function Alune() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <Stack align={'center'}>
-                    <AvatarGroup spacing={'lg'}>
-                        <Avatar color={'green'} radius={'xl'} size={'lg'}>
-                            <IconCheck />
-                        </Avatar>
-                    </AvatarGroup>
-                    <Title order={2}>
-                        Release Status
-                    </Title>
-                    <Text c={'dimmed'} ta={'center'}>
-                        Ready for Testing
-                    </Text>
+                <SimpleGrid cols={{ base: 1, md: 2 }} spacing={'xl'}>
+                    <Stack align={'center'}>
+                        <AvatarGroup spacing={'lg'}>
+                            <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                                <IconCheck />
+                            </Avatar>
+                        </AvatarGroup>
+                        <Title order={2}>
+                            Release Status
+                        </Title>
+                        <Text c={'dimmed'} ta={'center'}>
+                            Ready for Testing
+                        </Text>
 
-                    <Space />
+                        <Space />
 
-                    <Group>
-                        <Button color={'indigo'} component={'a'} href={'https://github.com/alune-app/Releases/releases/download/1.0.1/Alune.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
-                            Sideload
-                        </Button>
-                        <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/jDZ4BM99'} radius={'xl'} target={'_blank'} variant={'light'}>
-                            TestFlight
-                        </Button>
-                        <Button color={'yellow'} component={'a'} href={''} radius={'xl'} target={'_blank'} variant={'light'} disabled>
-                            Changelog
-                        </Button>
-                    </Group>
-                </Stack>
+                        <Group>
+                            <Button color={'indigo'} component={'a'} href={'https://github.com/alune-app/Releases/releases/download/1.0.1/Alune-1.0.1.5.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
+                                Sideload
+                            </Button>
+                        </Group>
+                    </Stack>
+
+                    <Stack align={'center'}>
+                        <AvatarGroup spacing={'lg'}>
+                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
+                                <IconClock />
+                            </Avatar>
+                        </AvatarGroup>
+                        <Title order={2}>
+                            Release Status
+                        </Title>
+                        <Text c={'dimmed'} ta={'center'}>
+                            Waiting for Release
+                        </Text>
+
+                        <Space />
+
+                        <Group>
+                            <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/jDZ4BM99'} radius={'xl'} target={'_blank'} variant={'light'}>
+                                TestFlight
+                            </Button>
+                        </Group>
+                    </Stack>
+                </SimpleGrid>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Center>
+                    <Button color={'yellow'} component={'a'} href={'https://www.icloud.com/notes/07aKLAgo5Uvxxd81PRmriLUag'} radius={'xl'} target={'_blank'} variant={'light'}>
+                        Changelog
+                    </Button>
+                </Center>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
