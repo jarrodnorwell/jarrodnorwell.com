@@ -103,7 +103,7 @@ export default function Alune() {
                         <Space />
 
                         <Group>
-                            <Button color={'indigo'} component={'a'} href={'https://github.com/alune-app/Releases/releases/download/1.0.1/Alune-1.0.1.5.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
+                            <Button color={'indigo'} component={'a'} href={'https://github.com/alune-app/Releases/releases/download/1.0/Alune-1.0-build-5.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
                                 Sideload
                             </Button>
                         </Group>
