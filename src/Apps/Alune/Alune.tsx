@@ -15,7 +15,7 @@ import {
     Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconClock, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Alune() {
@@ -103,7 +103,7 @@ export default function Alune() {
                         <Space />
 
                         <Group>
-                            <Button color={'indigo'} component={'a'} href={'https://github.com/alune-app/Releases/releases/download/1.0/Alune-1.0-build-5.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
+                            <Button color={'indigo'} component={'a'} href={'https://github.com/alune-app/Releases/releases/download/1.0/Alune-1.0-build-7.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
                                 Sideload
                             </Button>
                         </Group>
@@ -111,15 +111,15 @@ export default function Alune() {
 
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
-                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
-                                <IconClock />
+                            <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                                <IconCheck />
                             </Avatar>
                         </AvatarGroup>
                         <Title order={2}>
                             Release Status
                         </Title>
                         <Text c={'dimmed'} ta={'center'}>
-                            Waiting for Release
+                            Ready for Testing
                         </Text>
 
                         <Space />
