@@ -15,7 +15,7 @@ import {
     Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconClock, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconClock, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Vion() {
@@ -170,6 +170,7 @@ export default function Vion() {
                     <Group>
                         {
                             [
+                                { color: 'indigo', icon: <IconBrandDiscord />, link: 'https://discord.gg/q6aG5c2Y8C' },
                                 { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/vion-app-org/vion' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Vion' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
