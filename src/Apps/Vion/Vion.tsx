@@ -15,7 +15,7 @@ import {
     Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconClock, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Vion() {
@@ -88,7 +88,7 @@ export default function Vion() {
                         <Space />
 
                         <Group>
-                            <Button color={'indigo'} component={'a'} href={'https://github.com/vion-app-org/Releases/releases/download/1.0/Vion-1.0-build-2.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
+                            <Button color={'indigo'} component={'a'} href={'https://github.com/vion-app-org/Releases/releases/download/1.0/Vion-1.0-build-3.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
                                 Sideload
                             </Button>
                         </Group>
@@ -96,21 +96,21 @@ export default function Vion() {
 
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
-                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
-                                <IconClock />
+                            <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                                <IconCheck />
                             </Avatar>
                         </AvatarGroup>
                         <Title order={2}>
                             Release Status
                         </Title>
                         <Text c={'dimmed'} ta={'center'}>
-                            Waiting for Release
+                            Ready for Testing
                         </Text>
 
                         <Space />
 
                         <Group>
-                            <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/TXJCfKCa'} radius={'xl'} target={'_blank'} variant={'light'} disabled>
+                            <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/TXJCfKCa'} radius={'xl'} target={'_blank'} variant={'light'}>
                                 TestFlight
                             </Button>
                         </Group>
@@ -121,7 +121,7 @@ export default function Vion() {
                 <Space h={'xl'} />
 
                 <Center>
-                    <Button color={'yellow'} radius={'xl'} variant={'light'} disabled>
+                    <Button color={'yellow'} component={'a'} href={'https://www.icloud.com/notes/0efw-g_VKlVm3alLsKOhKmCAw'} radius={'xl'} target={'_blank'} variant={'light'}>
                         Changelog
                     </Button>
                 </Center>
@@ -132,7 +132,7 @@ export default function Vion() {
                 <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
                     {
                         [
-                            'ss_one', 'ss_two'
+                            'ss_one', 'ss_two', 'ss_three'
                         ].map((image) => (
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
