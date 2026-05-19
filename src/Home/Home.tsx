@@ -150,7 +150,6 @@ export default function Home() {
                     <Grid>
                         {
                             [
-                                { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkupaWwXqoIPNdq5fWsXKpPeEMP5vdpDLbqw&s', link: undefined, company: 'Blueprint Health & Fitness', role: 'Software Developer', subtitle: 'Personal trainer in the Brisbane CBD, Australia' },
                                 { image: 'https://texts.com/icon.png', link: 'https://texts.com', company: 'Texts', role: 'Software Developer', subtitle: 'All of your messages. In one inbox' }
                             ].map((element) => {
                                 return (
@@ -174,6 +173,7 @@ export default function Home() {
                         {
                             [
                                 { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9gAb4f-DQLxUQH5XMGLozpvdj9OPbe3BCYg&s', link: undefined, company: 'Australian Karaoke', role: 'Software Developer', subtitle: 'iPad controlled pro-karaoke systems' },
+                                { image: 'https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d6/ca/56/d6ca56d6-88f3-2d9b-9afb-3825533a7d16/Placeholder.mill/400x400bb-75.webp', link: 'https://www.blueprinthealthandfitness.com.au', company: 'Blueprint Health & Fitness', role: 'Software Developer', subtitle: 'Personal trainer in the Brisbane CBD, Australia' },
                                 { image: '/we/orderthai.png', link: 'https://www.honeycombsoftwares.com/portfolio/orderthai', company: 'Order Thai', role: 'Software Developer', subtitle: 'Restaurant ordering system for dine-in and takeaway' },
                                 { image: 'https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/51/ba/d0/51bad02a-2ec2-1303-ef01-b0dcf0dc28bf/source/256x256bb.jpg', link: undefined, company: 'Wopadu', role: 'Designer', subtitle: 'Restaurant ordering system for dine-in and takeaway' }
                             ].map((element) => {
