@@ -110,7 +110,7 @@ export default function Vion() {
                         <Space />
 
                         <Group>
-                            <Button color={'blue'} radius={'xl'} variant={'light'} disabled>
+                            <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/TXJCfKCa'} radius={'xl'} target={'_blank'} variant={'light'} disabled>
                                 TestFlight
                             </Button>
                         </Group>
