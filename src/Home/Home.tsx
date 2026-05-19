@@ -121,7 +121,8 @@ export default function Home() {
                                 { image: 'fuely/fuely_square', impressions: '5K', detailsLink: undefined, link: 'https://apps.apple.com/au/app/fuely/id6753147277', project: 'Fuely', price: '', subtitle: 'Up-to-date fuel prices around Western Australia' },
                                 { image: 'lavvy/lavvy_square', impressions: 'Unknown', detailsLink: '/lavvy', link: undefined, project: 'Lavvy', price: '', subtitle: 'Browse a map of public toilets all across Australia' },
                                 { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/loca', link: undefined, project: 'Loca', price: '', subtitle: 'Browse a map of your friends' },
-                                { image: 'keyr/keyr_square', impressions: '12K', detailsLink: '/keyr', link: 'https://apps.apple.com/au/app/keyr/id6755037755', project: 'Keyr', price: '', subtitle: 'Beautifully designed, simple 2-factor authentication' }
+                                { image: 'keyr/keyr_square', impressions: '12K', detailsLink: '/keyr', link: 'https://apps.apple.com/au/app/keyr/id6755037755', project: 'Keyr', price: '', subtitle: 'Beautifully designed, simple 2-factor authentication' },
+                                { image: 'vion/vion_square', impressions: 'Unknown', detailsLink: '/vion', link: undefined, project: 'Vion', price: '', subtitle: 'PlayStation Vita emulation in the palm of your hands' },
                             ].map((element) => {
                                 return (
                                     <Grid.Col span={{ base: 12, lg: 6 }}>

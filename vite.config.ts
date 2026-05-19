@@ -14,12 +14,14 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: resolve(__dirname, 'index.html'),
+
                 alune: resolve(__dirname, 'alune/index.html'),
                 colourcam: resolve(__dirname, 'colourcam/index.html'),
                 folium: resolve(__dirname, 'folium/index.html'),
                 lavvy: resolve(__dirname, 'lavvy/index.html'),
                 loca: resolve(__dirname, 'loca/index.html'),
                 keyr: resolve(__dirname, 'keyr/index.html'),
+                vion: resolve(__dirname, 'vion/index.html'),
 
                 ludara: resolve(__dirname, 'ludara/index.html'),
             }
