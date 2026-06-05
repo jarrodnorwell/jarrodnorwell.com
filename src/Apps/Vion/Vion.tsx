@@ -15,7 +15,7 @@ import {
     Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconClock, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Vion() {
@@ -74,22 +74,22 @@ export default function Vion() {
                 <SimpleGrid cols={{ base: 1, md: 2 }} spacing={'xl'}>
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
-                            <Avatar color={'green'} radius={'xl'} size={'lg'}>
-                                <IconCheck />
+                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
+                                <IconClock />
                             </Avatar>
                         </AvatarGroup>
                         <Title order={2}>
                             Release Status
                         </Title>
                         <Text c={'dimmed'} ta={'center'}>
-                            Ready for Testing
+                            Waiting for Review
                         </Text>
 
                         <Space />
 
                         <Group>
-                            <Button color={'indigo'} component={'a'} href={'https://github.com/vion-app-org/Releases/releases/download/1.0/Vion-1.0-build-3.ipa.zip'} radius={'xl'} target={'_blank'} variant={'light'}>
-                                Sideload
+                            <Button color={'blue'} radius={'xl'} variant={'light'} disabled>
+                                App Store
                             </Button>
                         </Group>
                     </Stack>
@@ -132,7 +132,7 @@ export default function Vion() {
                 <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
                     {
                         [
-                            'ss_one', 'ss_two', 'ss_three'
+                            'ss_one', 'ss_two', 'ss_three', 'ss_four', 'ss_five'
                         ].map((image) => (
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
@@ -153,7 +153,7 @@ export default function Vion() {
                         Privacy Policy
                     </Title>
                     <Text c={'dimmed'}>
-                        Vion uses Bluetooth for the functionality of the app. Absolutely no information is shared with or sold to other companies or entities
+                        Vion uses Bluetooth and the Camera for the functionality of the app. Absolutely no images are saved off-device. Absolutely no information is shared with or sold to other companies or entities
                     </Text>
                 </Stack>
 
