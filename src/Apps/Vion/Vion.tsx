@@ -71,7 +71,7 @@ export default function Vion() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <SimpleGrid cols={{ base: 1, md: 2 }} spacing={'xl'}>
+                <SimpleGrid cols={{ base: 1, md: 3 }} spacing={'xl'}>
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
                             <Avatar color={'orange'} radius={'xl'} size={'lg'}>
@@ -90,6 +90,28 @@ export default function Vion() {
                         <Group>
                             <Button color={'blue'} radius={'xl'} variant={'light'} disabled>
                                 App Store
+                            </Button>
+                        </Group>
+                    </Stack>
+
+                    <Stack align={'center'}>
+                        <AvatarGroup spacing={'lg'}>
+                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
+                                <IconClock />
+                            </Avatar>
+                        </AvatarGroup>
+                        <Title order={2}>
+                            Release Status
+                        </Title>
+                        <Text c={'dimmed'} ta={'center'}>
+                            Waiting for App Store
+                        </Text>
+
+                        <Space />
+
+                        <Group>
+                            <Button color={'indigo'} radius={'xl'} variant={'light'} disabled>
+                                Sideload (JIT-less)
                             </Button>
                         </Group>
                     </Stack>
