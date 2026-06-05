@@ -22,7 +22,7 @@ export default function Vion() {
     const os = useOs()
 
     return (
-        <MantineProvider theme={{ primaryColor: 'green' }} forceColorScheme={'light'}>
+        <MantineProvider theme={{ primaryColor: 'blue' }} defaultColorScheme={'auto'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
