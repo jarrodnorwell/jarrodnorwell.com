@@ -82,13 +82,13 @@ export default function Vion() {
                             Release Status
                         </Title>
                         <Text c={'dimmed'} ta={'center'}>
-                            Waiting for Review
+                            In Review
                         </Text>
 
                         <Space />
 
                         <Group>
-                            <Button color={'blue'} radius={'xl'} variant={'light'} disabled>
+                            <Button color={'blue'} component={'a'} href={'https://apps.apple.com/au/app/vion/id6770823399'} radius={'xl'} target={'_blank'} variant={'light'}>
                                 App Store
                             </Button>
                         </Group>

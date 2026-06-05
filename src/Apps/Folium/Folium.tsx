@@ -177,7 +177,7 @@ export default function Folium() {
                     <Space />
 
                     <Group>
-                        <Button color={'blue'} component={'a'} href={'https://apps.apple.com/us/app/folium/id6498623389'} radius={'xl'} target={'_blank'} variant={'light'}>
+                        <Button color={'blue'} component={'a'} href={'https://apps.apple.com/au/app/folium/id6498623389'} radius={'xl'} target={'_blank'} variant={'light'}>
                             App Store
                         </Button>
                         <Button color={'yellow'} component={'a'} href={'https://www.icloud.com/notes/03dUu7FRmok3vLrl1XdZlUpFg'} radius={'xl'} target={'_blank'} variant={'light'}>
