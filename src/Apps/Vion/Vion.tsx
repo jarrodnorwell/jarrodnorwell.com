@@ -15,7 +15,7 @@ import {
     Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconClock, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
 import { Carousel } from '@mantine/carousel';
 
 export default function Vion() {
@@ -71,18 +71,18 @@ export default function Vion() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <SimpleGrid cols={{ base: 1, md: 3 }} spacing={'xl'}>
+                <SimpleGrid cols={{ base: 1, md: 2 }} spacing={'xl'}>
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
-                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
-                                <IconClock />
+                            <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                                <IconCheck />
                             </Avatar>
                         </AvatarGroup>
                         <Title order={2}>
                             Release Status
                         </Title>
                         <Text c={'dimmed'} ta={'center'}>
-                            In Review
+                            Distributed
                         </Text>
 
                         <Space />
@@ -94,6 +94,7 @@ export default function Vion() {
                         </Group>
                     </Stack>
 
+                    {/*
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
                             <Avatar color={'orange'} radius={'xl'} size={'lg'}>
@@ -115,6 +116,7 @@ export default function Vion() {
                             </Button>
                         </Group>
                     </Stack>
+                    */}
 
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>

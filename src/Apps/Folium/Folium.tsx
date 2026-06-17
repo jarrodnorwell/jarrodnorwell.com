@@ -1,25 +1,23 @@
 import '@mantine/core/styles.css';
 import {
     ActionIcon,
-    AspectRatio,
     Avatar,
     AvatarGroup,
     Container,
     Group,
     MantineProvider,
-    Paper,
     Space,
-    Stack, Text, Title, Image,
+    Stack, Text, Title,
     Card,
     Grid,
     VisuallyHidden,
     Tooltip,
     Badge,
+    SimpleGrid,
     Button
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
-import { Carousel } from '@mantine/carousel';
+import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconClock, IconCode, IconMail } from '@tabler/icons-react';
 
 interface CoreProp {
     colour: string, core: string
@@ -94,7 +92,6 @@ export function ExtensionCard(prop: ExtensionProp) {
 
 export default function Folium() {
     const date = new Date()
-    const os = useOs()
 
     return (
         <MantineProvider theme={{ primaryColor: 'green' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
@@ -141,25 +138,83 @@ export default function Folium() {
                     <Text c={'dimmed'} ta={'center'}>
                         Folium is a beautifully designed, high performing multi-system emulation app bringing retro gaming to Apple devices
                     </Text>
-                    {/*
-                    <Space />
-
-                    <Group>
-                        <Button color={'blue'} component={'a'} href={'https://apps.apple.com/us/app/folium/id6498623389'} radius={'xl'} target={'_blank'}>
-                            App Store
-                        </Button>
-                        <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/pRGScBR7'} radius={'xl'} target={'_blank'}>
-                            TestFlight
-                        </Button>
-                        <Button color={'gray'} component={'a'} href={'https://github.com/folium-app/Folium/releases/download/1.35/Folium.ipa'} radius={'xl'} target={'_blank'}>
-                            Sideload
-                        </Button>
-                    </Group>
-                    */}
                 </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
+
+                <SimpleGrid cols={{ base: 1, md: 3 }} spacing={'xl'}>
+                    <Stack align={'center'}>
+                        <AvatarGroup spacing={'lg'}>
+                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
+                                <IconClock />
+                            </Avatar>
+                        </AvatarGroup>
+                        <Title order={2}>
+                            Release Status
+                        </Title>
+                        <Text c={'dimmed'} ta={'center'}>
+                            Waiting for Review
+                        </Text>
+
+                        <Space />
+
+                        <Group>
+                            <Button color={'blue'} radius={'xl'} variant={'light'} disabled>
+                                App Store
+                            </Button>
+                        </Group>
+                    </Stack>
+
+                    <Stack align={'center'}>
+                        <AvatarGroup spacing={'lg'}>
+                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
+                                <IconClock />
+                            </Avatar>
+                        </AvatarGroup>
+                        <Title order={2}>
+                            Release Status
+                        </Title>
+                        <Text c={'dimmed'} ta={'center'}>
+                            Waiting for App Store
+                        </Text>
+
+                        <Space />
+
+                        <Group>
+                            <Button color={'indigo'} radius={'xl'} variant={'light'} disabled>
+                                Sideload
+                            </Button>
+                        </Group>
+                    </Stack>
+
+                    <Stack align={'center'}>
+                        <AvatarGroup spacing={'lg'}>
+                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
+                                <IconClock />
+                            </Avatar>
+                        </AvatarGroup>
+                        <Title order={2}>
+                            Release Status
+                        </Title>
+                        <Text c={'dimmed'} ta={'center'}>
+                            Waiting for Review
+                        </Text>
+
+                        <Space />
+
+                        <Group>
+                            <Button color={'blue'} radius={'xl'} variant={'light'} disabled>
+                                TestFlight
+                            </Button>
+                        </Group>
+                    </Stack>
+                </SimpleGrid>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                {/*
 
                 <Stack align={'center'}>
                     <AvatarGroup spacing={'lg'}>
@@ -268,6 +323,8 @@ export default function Folium() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
+                */}
+
                 <Stack>
                     <Title order={2}>
                         Privacy Policy
@@ -290,6 +347,7 @@ export default function Folium() {
                     <Group>
                         {
                             [
+                                { color: 'indigo', icon: <IconBrandDiscord />, link: 'https://discord.gg/skA8ENHNsm' },
                                 { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Folium' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
