@@ -7,17 +7,23 @@ import {
     Group,
     MantineProvider,
     Space,
-    Stack, Text, Title,
+    Text,
+    Title,
     Card,
     Grid,
     VisuallyHidden,
     Tooltip,
     Badge,
     SimpleGrid,
-    Button
+    Button,
+    AspectRatio,
+    Paper,
+    Image,
+    Stack
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
-import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconClock, IconCode, IconMail } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconClock, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
+import { Carousel } from '@mantine/carousel';
 
 interface CoreProp {
     colour: string, core: string
@@ -91,10 +97,10 @@ export function ExtensionCard(prop: ExtensionProp) {
 }
 
 export default function Folium() {
-    const date = new Date()
+    const os = useOs()
 
     return (
-        <MantineProvider theme={{ primaryColor: 'green' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={{ primaryColor: 'indigo' }} forceColorScheme={'light'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
@@ -103,7 +109,7 @@ export default function Folium() {
                                 Folium
                             </Title>
                             <Text c={'dimmed'}>
-                                Multi-system emulation in the palm of your hands
+                                Generations of gaming in the palm of your hands
                             </Text>
                         </Stack>
                     </Group>
@@ -143,7 +149,7 @@ export default function Folium() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                <SimpleGrid cols={{ base: 1, md: 3 }} spacing={'xl'}>
+                <SimpleGrid cols={{ base: 1, md: 2 }} spacing={'xl'}>
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
                             <Avatar color={'orange'} radius={'xl'} size={'lg'}>
@@ -154,7 +160,7 @@ export default function Folium() {
                             Release Status
                         </Title>
                         <Text c={'dimmed'} ta={'center'}>
-                            Waiting for Review
+                            In-Development
                         </Text>
 
                         <Space />
@@ -168,43 +174,21 @@ export default function Folium() {
 
                     <Stack align={'center'}>
                         <AvatarGroup spacing={'lg'}>
-                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
-                                <IconClock />
+                            <Avatar color={'green'} radius={'xl'} size={'lg'}>
+                                <IconCheck />
                             </Avatar>
                         </AvatarGroup>
                         <Title order={2}>
                             Release Status
                         </Title>
                         <Text c={'dimmed'} ta={'center'}>
-                            Waiting for App Store
+                            Distributed
                         </Text>
 
                         <Space />
 
                         <Group>
-                            <Button color={'indigo'} radius={'xl'} variant={'light'} disabled>
-                                Sideload
-                            </Button>
-                        </Group>
-                    </Stack>
-
-                    <Stack align={'center'}>
-                        <AvatarGroup spacing={'lg'}>
-                            <Avatar color={'orange'} radius={'xl'} size={'lg'}>
-                                <IconClock />
-                            </Avatar>
-                        </AvatarGroup>
-                        <Title order={2}>
-                            Release Status
-                        </Title>
-                        <Text c={'dimmed'} ta={'center'}>
-                            Waiting for Review
-                        </Text>
-
-                        <Space />
-
-                        <Group>
-                            <Button color={'blue'} radius={'xl'} variant={'light'} disabled>
+                            <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/Nxfyd62y'} radius={'xl'} target={'_blank'} variant={'light'}>
                                 TestFlight
                             </Button>
                         </Group>
@@ -214,36 +198,29 @@ export default function Folium() {
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
-                {/*
-
-                <Stack align={'center'}>
-                    <AvatarGroup spacing={'lg'}>
-                        <Avatar color={'green'} radius={'xl'} size={'lg'}>
-                            <IconCheck />
-                        </Avatar>
-                    </AvatarGroup>
-                    <Title order={2}>
-                        Release Status
-                    </Title>
-                    <Text c={'dimmed'} ta={'center'}>
-                        Distributed
-                    </Text>
-
-                    <Space />
-
-                    <Group>
-                        <Button color={'blue'} component={'a'} href={'https://apps.apple.com/au/app/folium/id6498623389'} radius={'xl'} target={'_blank'} variant={'light'}>
-                            App Store
-                        </Button>
-                        <Button color={'yellow'} component={'a'} href={'https://www.icloud.com/notes/03dUu7FRmok3vLrl1XdZlUpFg'} radius={'xl'} target={'_blank'} variant={'light'}>
-                            Changelog
-                        </Button>
-                    </Group>
+                <Stack>
+                    <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
+                        {
+                            [
+                                'ss_one', 'ss_two', 'ss_three', 'ss_four', 'ss_five'
+                            ].map((image) => (
+                                <Carousel.Slide>
+                                    <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
+                                        <AspectRatio ratio={9 / 19.5}>
+                                            <Image src={`/folium/${image}.png`} fit='contain' />
+                                        </AspectRatio>
+                                    </Paper>
+                                </Carousel.Slide>
+                            ))
+                        }
+                    </Carousel>
+                    <Text c={'dimmed'}>Screenshots are currently outdated</Text>
                 </Stack>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
 
+                {/*
                 <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
                     {
                         [
@@ -330,7 +307,7 @@ export default function Folium() {
                         Privacy Policy
                     </Title>
                     <Text c={'dimmed'}>
-                        Folium uses camera and a username provided by the user for the functionality of the app. Absolutely no images are saved off-device. Absolutely no information is shared with or sold to other companies or entities
+                        Folium uses Bluetooth, Camera and Motion for the functionality of the app. Absolutely no information is shared with or sold to other companies or entities
                     </Text>
                 </Stack>
 

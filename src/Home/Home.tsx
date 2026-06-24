@@ -9,10 +9,8 @@ import { ProjectCard } from './ProjectCard';
 import { WorkCard } from './WorkCard';
 
 export default function Home() {
-    const date = new Date()
-
     return (
-        <MantineProvider theme={theme} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={theme} forceColorScheme={'light'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
@@ -116,13 +114,13 @@ export default function Home() {
                         {
                             [
                                 { image: 'alune/alune_square', impressions: 'Unknown', detailsLink: '/apps/alune', link: undefined, project: 'Alune', price: '', subtitle: 'PlayStation 2 emulation in the palm of your hands' },
-                                { image: 'colourcam/colourcam_square', impressions: '50K', detailsLink: '/apps/colourcam', link: 'https://apps.apple.com/us/app/colourcam/id6745690307', project: 'ColourCam', price: '', subtitle: 'Capture real world colour information' },
-                                { image: 'folium/folium_square', impressions: '44M', detailsLink: '/apps/folium', link: 'https://apps.apple.com/us/app/folium/id6498623389', project: 'Folium', price: '$2.99', subtitle: 'Multi-system emulation in the palm of your hands' },
-                                { image: 'fuely/fuely_square', impressions: '5K', detailsLink: undefined, link: 'https://apps.apple.com/us/app/fuely/id6753147277', project: 'Fuely', price: '', subtitle: 'Up-to-date fuel prices around Western Australia' },
-                                { image: 'lavvy/lavvy_square', impressions: 'Unknown', detailsLink: '/apps/lavvy', link: 'https://apps.apple.com/us/app/lavvy/id6758861444', project: 'Lavvy', price: '', subtitle: 'Browse a map of public toilets all across Australia' },
+                                { image: 'colourcam/colourcam_square', impressions: '73K', detailsLink: '/apps/colourcam', link: 'https://apps.apple.com/us/app/colourcam/id6745690307', project: 'ColourCam', price: '', subtitle: 'Capture real world colour information' },
+                                { image: 'folium/folium_square', impressions: '49.2M', detailsLink: '/apps/folium', link: 'https://apps.apple.com/us/app/folium/id6498623389', project: 'Folium', price: '$2.99', subtitle: 'Generations of gaming in the palm of your hands' },
+                                { image: 'fuely/fuely_square', impressions: '23.1K', detailsLink: undefined, link: 'https://apps.apple.com/us/app/fuely/id6753147277', project: 'Fuely', price: '', subtitle: 'Up-to-date fuel prices around Western Australia' },
+                                { image: 'lavvy/lavvy_square', impressions: '9K', detailsLink: '/apps/lavvy', link: 'https://apps.apple.com/us/app/lavvy/id6758861444', project: 'Lavvy', price: '', subtitle: 'Browse a map of public toilets all across Australia' },
                                 { image: 'loca/loca_square', impressions: 'Unknown', detailsLink: '/apps/loca', link: undefined, project: 'Loca', price: '', subtitle: 'Browse a map of your friends' },
-                                { image: 'keyr/keyr_square', impressions: '12K', detailsLink: '/apps/keyr', link: 'https://apps.apple.com/us/app/keyr/id6755037755', project: 'Keyr', price: '', subtitle: 'Beautifully designed, simple 2-factor authentication' },
-                                { image: 'vion/vion_square', impressions: 'Unknown', detailsLink: '/apps/vion', link: 'https://apps.apple.com/us/app/vion/id6770823399', project: 'Vion', price: '$1.99', subtitle: 'PlayStation Vita emulation in the palm of your hands' },
+                                { image: 'keyr/keyr_square', impressions: '22.2K', detailsLink: '/apps/keyr', link: 'https://apps.apple.com/us/app/keyr/id6755037755', project: 'Keyr', price: '', subtitle: 'Beautifully designed, simple 2-factor authentication' },
+                                { image: 'vion/vion_square', impressions: '13.8K', detailsLink: '/apps/vion', link: 'https://apps.apple.com/us/app/vion/id6770823399', project: 'Vion', price: '$2.99', subtitle: 'PlayStation Vita emulation in the palm of your hands' },
                             ].map((element) => {
                                 return (
                                     <Grid.Col span={{ base: 12, lg: 6 }}>

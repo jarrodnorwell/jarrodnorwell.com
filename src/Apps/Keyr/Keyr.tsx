@@ -16,11 +16,10 @@ import { IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCode, IconMail 
 import { Carousel } from '@mantine/carousel';
 
 export default function Keyr() {
-    const date = new Date()
     const os = useOs()
 
     return (
-        <MantineProvider theme={{ primaryColor: 'yellow' }} forceColorScheme={date.getHours() >= 6 && date.getHours() <= 19 ? 'light' : 'dark'}>
+        <MantineProvider theme={{ primaryColor: 'yellow' }} forceColorScheme={'light'}>
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
