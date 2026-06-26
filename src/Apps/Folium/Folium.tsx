@@ -19,7 +19,8 @@ import {
     AspectRatio,
     Paper,
     Image,
-    Stack
+    Stack,
+    Center
 } from '@mantine/core';
 import { useOs } from '@mantine/hooks';
 import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconClock, IconCheck, IconCode, IconMail } from '@tabler/icons-react';
@@ -194,6 +195,15 @@ export default function Folium() {
                         </Group>
                     </Stack>
                 </SimpleGrid>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Center>
+                    <Button color={'yellow'} component={'a'} href={'https://www.icloud.com/notes/017lgq0s5s-blp0-A6H0vegpg'} radius={'xl'} target={'_blank'} variant={'light'}>
+                        Changelog
+                    </Button>
+                </Center>
 
                 <Space h={'xl'} />
                 <Space h={'xl'} />
