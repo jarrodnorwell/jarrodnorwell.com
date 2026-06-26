@@ -202,7 +202,7 @@ export default function Folium() {
                     <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '50%' : '25%'} withIndicators>
                         {
                             [
-                                'ss_one', 'ss_two', 'ss_three', 'ss_four', 'ss_five'
+                                'ss_one', 'ss_two', 'ss_three', 'ss_four', 'ss_five', 'ss_six', 'ss_seven', 'ss_eight'
                             ].map((image) => (
                                 <Carousel.Slide>
                                     <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
@@ -214,7 +214,7 @@ export default function Folium() {
                             ))
                         }
                     </Carousel>
-                    <Text c={'dimmed'}>Screenshots are currently outdated</Text>
+                    <Text c={'dimmed'}>Screenshots are a work in progress</Text>
                 </Stack>
 
                 <Space h={'xl'} />
@@ -307,7 +307,7 @@ export default function Folium() {
                         Privacy Policy
                     </Title>
                     <Text c={'dimmed'}>
-                        Folium uses Bluetooth, Camera and Motion for the functionality of the app. Absolutely no information is shared with or sold to other companies or entities
+                        Folium uses Bluetooth, Camera, Local Network and Motion for the functionality of the app. Absolutely no information is shared with or sold to other companies or entities
                     </Text>
                 </Stack>
 
