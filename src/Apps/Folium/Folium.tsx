@@ -231,6 +231,28 @@ export default function Folium() {
                 <Space h={'xl'} />
 
                 <Stack>
+                    <Carousel slideGap={'lg'} slideSize={['android', 'ios'].includes(os) ? '100%' : '50%'} withIndicators>
+                        {
+                            [
+                                'ss_one_ls', 'ss_two_ls', 'ss_three_ls', 'ss_four_ls'
+                            ].map((image) => (
+                                <Carousel.Slide>
+                                    <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
+                                        <AspectRatio ratio={19.5 / 9}>
+                                            <Image src={`/folium/${image}.png`} fit='contain' />
+                                        </AspectRatio>
+                                    </Paper>
+                                </Carousel.Slide>
+                            ))
+                        }
+                    </Carousel>
+                    <Text c={'dimmed'}>Screenshots are a work in progress</Text>
+                </Stack>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack>
                     <Title order={2}>
                         Privacy Policy
                     </Title>
