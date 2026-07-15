@@ -114,7 +114,7 @@ export default function Home() {
                         {
                             [
                                 { image: 'alune/alune_square', impressions: 'Unknown', detailsLink: '/apps/alune', link: undefined, project: 'Alune', price: '', subtitle: 'PlayStation 2 emulation in the palm of your hands' },
-                                { image: 'colourcam/colourcam_square', impressions: '73K', detailsLink: '/apps/colourcam', link: 'https://apps.apple.com/us/app/colourcam/id6745690307', project: 'ColourCam', price: '', subtitle: 'Capture real world colour information' },
+                                { image: 'colourcam/colourcam_square', impressions: '73K', detailsLink: '/apps/colourcam', link: 'https://apps.apple.com/us/app/colourcam/id6745690307', project: 'ColourCam', price: '', subtitle: 'Capture snapshots of colour from the environment' },
                                 { image: 'folium/folium_square', impressions: '49.2M', detailsLink: '/apps/folium', link: 'https://apps.apple.com/us/app/folium/id6498623389', project: 'Folium', price: '$2.99', subtitle: 'Generations of gaming in the palm of your hands' },
                                 { image: 'fuely/fuely_square', impressions: '23.1K', detailsLink: undefined, link: 'https://apps.apple.com/us/app/fuely/id6753147277', project: 'Fuely', price: '', subtitle: 'Up-to-date fuel prices around Western Australia' },
                                 { image: 'lavvy/lavvy_square', impressions: '9K', detailsLink: '/apps/lavvy', link: 'https://apps.apple.com/us/app/lavvy/id6758861444', project: 'Lavvy', price: '', subtitle: 'Browse a map of public toilets all across Australia' },

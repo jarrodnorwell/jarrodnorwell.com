@@ -28,7 +28,7 @@ export default function Loca() {
                                 ColourCam
                             </Title>
                             <Text c={'dimmed'}>
-                                Capture colour information from the environment around you in real-time
+                                Capture snapshots of colour from the environment
                             </Text>
                         </Stack>
                     </Group>
@@ -61,7 +61,7 @@ export default function Loca() {
                         About
                     </Title>
                     <Text c={'dimmed'} ta={'center'}>
-                        ColourCam is a small, camera-based app allowing users to capture colour information from the world, this colour can then be saved to the Photo Library as a background image, saved as a HEX or RGBA value or used in an amimated gradient with 8 other colours which can then be saved to the Photo Library as a background image
+                        ColourCam is a small, camera-based app allowing users to capture colour information from the environment, this colour can then be saved to the Photo Library as an image, copied as a HEX or RGBA value or used in an amimated gradient with 8 other colours which can then be saved to the Photo Library as an image
                     </Text>
                 </Stack>
 
