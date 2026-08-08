@@ -21,6 +21,7 @@ export default defineConfig({
                 lavvy: resolve(__dirname, 'apps/lavvy/index.html'),
                 loca: resolve(__dirname, 'apps/loca/index.html'),
                 keyr: resolve(__dirname, 'apps/keyr/index.html'),
+                paintbrush: resolve(__dirname, 'apps/paintbrush/index.html'),
                 vion: resolve(__dirname, 'apps/vion/index.html'),
 
                 ludara: resolve(__dirname, 'ludara/index.html'),

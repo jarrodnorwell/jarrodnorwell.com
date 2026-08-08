@@ -137,6 +137,28 @@ export default function Home() {
 
                 <Stack>
                     <Title order={2}>
+                        Projects (Cont.)
+                    </Title>
+                    <Grid>
+                        {
+                            [
+                                { image: 'paintbrush/paintbrush_square', impressions: 'Unknown', detailsLink: '/apps/paintbrush', link: undefined, project: 'Paintbrush', price: '', subtitle: 'Revival of the original simple paint program for macOS' }
+                            ].map((element) => {
+                                return (
+                                    <Grid.Col span={{ base: 12, lg: 6 }}>
+                                        <ProjectCard image={element.image} impressions={element.impressions} detailsLink={element.detailsLink} link={element.link} project={element.project} price={element.price} subtitle={element.subtitle} />
+                                    </Grid.Col>
+                                )
+                            })
+                        }
+                    </Grid>
+                </Stack>
+
+                <Space h={'xl'} />
+                <Space h={'xl'} />
+
+                <Stack>
+                    <Title order={2}>
                         Work Experience
                     </Title>
                     <Title order={3}>
