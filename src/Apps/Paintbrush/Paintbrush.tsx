@@ -254,7 +254,7 @@ export default function Paintbrush() {
                                 Check For Updates
                             </Title>
                             <Text c={'dimmed'}>
-                                Use the File &gt; Check For Updates menu item to check for updates, if an update is available a prompt will be displayed with the changelog and several options to choose from
+                                Use the Paintbrush &gt; Check For Updates menu item to check for updates, if an update is available a prompt will be displayed with the changelog and several options to choose from
                             </Text>
                         </Stack>
                     </Group>
