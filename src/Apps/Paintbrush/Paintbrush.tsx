@@ -272,6 +272,40 @@ export default function Paintbrush() {
                     </Text>
 
                     <Title order={3}>
+                        Release 4.1
+                    </Title>
+                    <List>
+                        <List.Item>Added
+                            <List>
+                                <List.Item>
+                                    Added Fill Style support to the toolbox allowing for no-fill, borderless and filled shapes
+                                </List.Item>
+                            </List>
+                        </List.Item>
+                        <List.Item>Changed
+                            <List>
+                                <List.Item>
+                                    Changed the design of the save panel to be more consistent with the rest of the app
+                                </List.Item>
+                            </List>
+                        </List.Item>
+                        <List.Item>Fixed
+                            <List>
+                                <List.Item>
+                                    Fixed an issue where saving as JPEG or TIFF would "fail" due to being unable to read the saved file
+                                </List.Item>
+                            </List>
+                        </List.Item>
+                        <List.Item>Miscellaneous
+                            <List>
+                                <List.Item>
+                                    Rewrote the Ellipse tool in Swift replacing the original Objective-C implementation
+                                </List.Item>
+                            </List>
+                        </List.Item>
+                    </List>
+
+                    <Title order={3}>
                         Release 4.0
                     </Title>
                     <Text c={'orange'} size={'sm'}>
