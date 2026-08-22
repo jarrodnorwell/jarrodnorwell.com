@@ -1,16 +1,171 @@
 import '@mantine/core/styles.css';
-import { ActionIcon, Avatar, AvatarGroup, Container, Grid, Group, MantineProvider, Space, Stack, Text, Title } from '@mantine/core';
-import { useOs } from '@mantine/hooks';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitch, IconBrandTwitter, IconDeviceGamepad2, IconCode } from '@tabler/icons-react';
+import { ActionIcon, Anchor, Container, Flex, Group, MantineProvider, Stack, Text, Title, Tooltip, Avatar, SimpleGrid, Space } from '@mantine/core';
 import { theme } from '../theme';
+import { IconBrandGithub, IconBrandReddit, IconBrandTwitch, IconBrandTwitter } from '@tabler/icons-react';
+import { useOs } from '@mantine/hooks';
 
-import { LanguageCard } from './LanguageCard';
-import { ProjectCard } from './ProjectCard';
-import { WorkCard } from './WorkCard';
 
+/*
+C/C++
+CSS
+HTML
+JavaScript
+Kotlin
+Objective-C
+Python
+Swift
+TypeScript
+
+<Container mt={'xl'} size={'xl'}>
+                <Group>
+                    <Stack>
+                        <Title order={1} ta={'left'}>Jarrod Norwell</Title>
+                        <Text c={'dimmed'} ta={'left'}>Software Developer</Text>
+                    </Stack>
+                </Group>
+            </Container>
+
+            <Container size={'xl'}>
+                <Center>
+                    <Stack>
+                        <AvatarGroup>
+                            {
+                                [
+                                    { colour: 'violet.1', icon: <IconDeviceGamepad2 /> },
+                                    { colour: 'gray.1', icon: <IconCode /> }
+                                ].map((element) => (
+                                    <Avatar color={element.colour} size={'lg'}>
+                                        {element.icon}
+                                    </Avatar>
+                                ))
+                            }
+                            <Avatar size={'lg'} src={'/jarrodnorwell.png'} />
+                        </AvatarGroup>
+                    </Stack>
+                </Center>
+            </Container>
+
+            <Space h={'lg'} />
+
+            <Container size={'xl'}>
+                <Stack>
+                    <Title order={1} ta={'center'}>About</Title>
+                    <Text c={'dimmed'} ta={'center'}>
+                        Jarrod is a 28-year-old, self-taught software developer based in Perth, Western Australia, with more than 16 years of programming experience spanning approximately 9 programming languages
+                    </Text>
+                </Stack>
+            </Container>
+
+            <Container size={'xxl'}>
+
+            </Container>
+
+<Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
+                                {
+                                    [
+                                        { colour: 'gray', icon: <IconBrandGithub />, url: 'github.com/jarrodnorwell' },
+                                        { colour: 'red', icon: <IconBrandReddit />, url: 'reddit.com/u/antique_codes' },
+                                        { colour: 'violet', icon: <IconBrandTwitch />, url: 'twitch.tv/antique_codes' },
+                                        { colour: 'blue', icon: <IconBrandTwitter />, url: 'twitter.com/antique_codes' }
+                                    ].map((element) => (
+                                        <Tooltip label={element.url}>
+                                            <ActionIcon color={element.colour} component={'a'} href={`https://${element.url}`} variant={'transparent'}>
+                                                {element.icon}
+                                            </ActionIcon>
+                                        </Tooltip>
+                                    ))
+                                }
+                            </Group>
+*/
 export default function Home() {
     return (
         <MantineProvider theme={theme} forceColorScheme={'light'}>
+            <Container h={'100dvh'}>
+                <Flex align={'center'} direction={'column'} h={'100%'} justify={'center'} w={'100%'}>
+                    <Group>
+                        {
+                            [
+                                { colour: 'gray', icon: <IconBrandGithub />, url: 'github.com/jarrodnorwell' },
+                                { colour: 'red', icon: <IconBrandReddit />, url: 'reddit.com/u/antique_codes' },
+                                { colour: 'violet', icon: <IconBrandTwitch />, url: 'twitch.tv/antique_codes' },
+                                { colour: 'blue', icon: <IconBrandTwitter />, url: 'twitter.com/antique_codes' }
+                            ].map((element) => (
+                                <Tooltip label={element.url}>
+                                    <ActionIcon color={element.colour} component={'a'} href={`https://${element.url}`} variant={'transparent'}>
+                                        {element.icon}
+                                    </ActionIcon>
+                                </Tooltip>
+                            ))
+                        }
+                    </Group>
+
+                    <Space h={'xl'} />
+
+                    <Group>
+                        <Stack>
+                            <Title order={1} ta={'center'}>Jarrod Norwell</Title>
+                            <Text c={'dimmed'} ta={'center'}>
+                                Jarrod is a 28-year-old, self-taught software developer based in Perth, Western Australia, with more than 16 years of programming experience spanning approximately 9 programming languages
+                            </Text>
+                        </Stack>
+                    </Group>
+
+                    <Space h={'xl'} />
+
+                    <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 4 : 8}>
+                        {
+                            [
+                                { icon: 'alune/alune_square', url: 'jarrodnorwell.com/apps/alune' },
+                                { icon: 'colourcam/colourcam_square', url: 'jarrodnorwell.com/apps/colourcam' },
+                                { icon: 'folium/folium_square', url: 'jarrodnorwell.com/apps/folium' },
+                                { icon: 'fuely/fuely_square', url: 'jarrodnorwell.com/apps/fuely' },
+                                { icon: 'lavvy/lavvy_square', url: 'jarrodnorwell.com/apps/lavvy' },
+                                { icon: 'loca/loca_square', url: 'jarrodnorwell.com/apps/loca' },
+                                { icon: 'keyr/keyr_square', url: 'jarrodnorwell.com/apps/keyr' },
+                                { icon: 'vion/vion_square', url: 'jarrodnorwell.com/apps/vion' }
+                            ].map((element) => (
+                                <Tooltip label={element.url}>
+                                    <Anchor href={`https://${element.url}`} target='_self' underline={'never'}>
+                                        <Avatar radius={'md'} size={'md'} src={`/${element.icon}.png`} />
+                                    </Anchor>
+                                </Tooltip>
+                            ))
+                        }
+                    </SimpleGrid>
+
+                    <Space h={'xl'} />
+
+                    <Group>
+                        <Stack>
+                            <Title order={2}>Previous Companies</Title>
+
+                            <Group justify={'center'}>
+                                {
+                                    [
+                                        { colour: 'blue', icon: 'we/texts', initals: undefined, radius: 0, title: 'Texts', url: 'texts.com' },
+                                        { colour: 'orange', icon: undefined, initials: 'UV', radius: 'md', title: 'UseVerb', url: 'useverb.com' },
+                                        { colour: 'green', icon: undefined, initials: 'W', radius: 'md', title: 'Wopadu', url: 'wopadu.com' }
+                                    ].map((element) => (
+                                        <Tooltip label={element.url}>
+                                            <Anchor href={`https://${element.url}`} target='_self' underline={'never'}>
+                                                <Avatar color={element.colour} radius={element.radius} size={'md'} src={`/${element.icon}.png`}>{element.initials}</Avatar>
+                                            </Anchor>
+                                        </Tooltip>
+                                    ))
+                                }
+                            </Group>
+                        </Stack>
+                    </Group>
+
+                    <Space h={'xl'} />
+                    <Text c={'gray.3'}>
+                        Please note, this website is always being worked on. Check back occasionally to see new changes
+                    </Text>
+                </Flex>
+            </Container>
+
+
+            {/*
             <Container my={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
@@ -219,6 +374,7 @@ export default function Home() {
                     </Text>
                 </Stack>
             </Container>
+            */}
         </MantineProvider>
     )
 }
