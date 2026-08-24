@@ -85,13 +85,18 @@ export default function Home() {
                     <Group>
                         {
                             [
-                                { colour: 'gray', icon: <IconBrandGithub />, url: 'github.com/jarrodnorwell' },
-                                { colour: 'red', icon: <IconBrandReddit />, url: 'reddit.com/u/antique_codes' },
-                                { colour: 'violet', icon: <IconBrandTwitch />, url: 'twitch.tv/antique_codes' },
-                                { colour: 'blue', icon: <IconBrandTwitter />, url: 'twitter.com/antique_codes' }
+                                { colour: 'gray', icon: <IconBrandGithub />, title: 'GitHub', url: 'github.com/jarrodnorwell' },
+                                { colour: 'red', icon: <IconBrandReddit />, title: 'Reddit', url: 'reddit.com/u/antique_codes' },
+                                { colour: 'violet', icon: <IconBrandTwitch />, title: 'Twitch', url: 'twitch.tv/antique_codes' },
+                                { colour: 'blue', icon: <IconBrandTwitter />, title: 'Twitter', url: 'twitter.com/antique_codes' }
                             ].map((element) => (
-                                <Tooltip label={element.url}>
-                                    <ActionIcon color={element.colour} component={'a'} href={`https://${element.url}`} variant={'transparent'}>
+                                <Tooltip label={
+                                    <Stack gap={0}>
+                                        <Text>{element.title}</Text>
+                                        <Text c={'gray'} size={'sm'}>{element.url}</Text>
+                                    </Stack>
+                                }>
+                                    <ActionIcon color={element.colour} component={'a'} href={`https://${element.url}`} size={'md'} variant={'transparent'}>
                                         {element.icon}
                                     </ActionIcon>
                                 </Tooltip>
@@ -104,7 +109,7 @@ export default function Home() {
                     <Group>
                         <Stack>
                             <Title order={1} ta={'center'}>Jarrod Norwell</Title>
-                            <Text c={'dimmed'} ta={'center'}>
+                            <Text c={'gray'} ta={'center'}>
                                 Jarrod is a 28-year-old, self-taught software developer based in Perth, Western Australia, with more than 16 years of programming experience spanning approximately 9 programming languages
                             </Text>
                         </Stack>
@@ -115,16 +120,21 @@ export default function Home() {
                     <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 4 : 8}>
                         {
                             [
-                                { icon: 'alune/alune_square', url: 'jarrodnorwell.com/apps/alune' },
-                                { icon: 'colourcam/colourcam_square', url: 'jarrodnorwell.com/apps/colourcam' },
-                                { icon: 'folium/folium_square', url: 'jarrodnorwell.com/apps/folium' },
-                                { icon: 'fuely/fuely_square', url: 'jarrodnorwell.com/apps/fuely' },
-                                { icon: 'lavvy/lavvy_square', url: 'jarrodnorwell.com/apps/lavvy' },
-                                { icon: 'loca/loca_square', url: 'jarrodnorwell.com/apps/loca' },
-                                { icon: 'keyr/keyr_square', url: 'jarrodnorwell.com/apps/keyr' },
-                                { icon: 'vion/vion_square', url: 'jarrodnorwell.com/apps/vion' }
+                                { icon: 'alune/alune_square', title: 'Alune', url: 'jarrodnorwell.com/apps/alune' },
+                                { icon: 'colourcam/colourcam_square', title: 'ColourCam', url: 'jarrodnorwell.com/apps/colourcam' },
+                                { icon: 'folium/folium_square', title: 'Folium', url: 'jarrodnorwell.com/apps/folium' },
+                                { icon: 'fuely/fuely_square', title: 'Fuely', url: 'jarrodnorwell.com/apps/fuely' },
+                                { icon: 'lavvy/lavvy_square', title: 'Lavvy', url: 'jarrodnorwell.com/apps/lavvy' },
+                                { icon: 'loca/loca_square', title: 'Loca', url: 'jarrodnorwell.com/apps/loca' },
+                                { icon: 'keyr/keyr_square', title: 'Keyr', url: 'jarrodnorwell.com/apps/keyr' },
+                                { icon: 'vion/vion_square', title: 'Vion', url: 'jarrodnorwell.com/apps/vion' }
                             ].map((element) => (
-                                <Tooltip label={element.url}>
+                                <Tooltip label={
+                                    <Stack gap={0}>
+                                        <Text>{element.title}</Text>
+                                        <Text c={'gray'} size={'sm'}>{element.url}</Text>
+                                    </Stack>
+                                }>
                                     <Anchor href={`https://${element.url}`} target='_self' underline={'never'}>
                                         <Avatar radius={'md'} size={'md'} src={`/${element.icon}.png`} />
                                     </Anchor>
@@ -142,12 +152,19 @@ export default function Home() {
                             <Group justify={'center'}>
                                 {
                                     [
-                                        { colour: 'blue', icon: 'we/texts', initals: undefined, radius: 0, title: 'Texts', url: 'texts.com' },
+                                        { colour: 'violet', icon: 'we/australiankaraoke', initials: 'AK', radius: 'md', title: 'Australian Karaoke', url: 'australiankaraoke.com.au' },
+                                        { colour: 'blue', icon: undefined, initials: 'BHF', radius: 'md', title: 'Blueprint Health & Fitness', url: undefined },
+                                        { colour: 'blue', icon: 'we/texts', initials: undefined, radius: 0, title: 'Texts', url: 'texts.com' },
                                         { colour: 'orange', icon: undefined, initials: 'UV', radius: 'md', title: 'UseVerb', url: 'useverb.com' },
-                                        { colour: 'green', icon: undefined, initials: 'W', radius: 'md', title: 'Wopadu', url: 'wopadu.com' }
+                                        { colour: 'green', icon: undefined, initials: 'W', radius: 'md', title: 'Wopadu', url: undefined }
                                     ].map((element) => (
-                                        <Tooltip label={element.url}>
-                                            <Anchor href={`https://${element.url}`} target='_self' underline={'never'}>
+                                        <Tooltip label={
+                                            <Stack gap={0}>
+                                                <Text>{element.title}</Text>
+                                                <Text c={'gray'} size={'sm'}>{element.url}</Text>
+                                            </Stack>
+                                        }>
+                                            <Anchor href={element.url ? undefined : `https://${element.url}`} target={element.url ? undefined : '_self'} underline={'never'}>
                                                 <Avatar color={element.colour} radius={element.radius} size={'md'} src={`/${element.icon}.png`}>{element.initials}</Avatar>
                                             </Anchor>
                                         </Tooltip>
@@ -158,7 +175,7 @@ export default function Home() {
                     </Group>
 
                     <Space h={'xl'} />
-                    <Text c={'gray.3'}>
+                    <Text c={'gray.3'} ta={'center'}>
                         Please note, this website is always being worked on. Check back occasionally to see new changes
                     </Text>
                 </Flex>
