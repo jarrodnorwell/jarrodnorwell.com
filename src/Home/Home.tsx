@@ -1,7 +1,7 @@
 import '@mantine/core/styles.css';
 import { ActionIcon, Anchor, Container, Flex, Group, MantineProvider, Stack, Text, Title, Tooltip, Avatar, SimpleGrid, Space } from '@mantine/core';
 import { theme } from '../theme';
-import { IconBrandGithub, IconBrandReddit, IconBrandTwitch, IconBrandTwitter } from '@tabler/icons-react';
+import { IconBrandCpp, IconBrandCss3, IconBrandGithub, IconBrandHtml5, IconBrandJavascript, IconBrandKotlin, IconBrandPython, IconBrandReddit, IconBrandSwift, IconBrandTwitch, IconBrandTwitter, IconBrandTypescript, IconPlus, IconQuestionMark } from '@tabler/icons-react';
 import { useOs } from '@mantine/hooks';
 
 
@@ -147,12 +147,12 @@ export default function Home() {
 
                     <Group>
                         <Stack>
-                            <Title order={2}>Previous Companies</Title>
+                            <Title order={2} ta={'center'}>Previous Companies</Title>
 
                             <Group justify={'center'}>
                                 {
                                     [
-                                        { colour: 'violet', icon: 'we/australiankaraoke', initials: 'AK', radius: 'md', title: 'Australian Karaoke', url: 'australiankaraoke.com.au' },
+                                        { colour: 'violet', icon: undefined, initials: 'AK', radius: 'md', title: 'Australian Karaoke', url: 'australiankaraoke.com.au' },
                                         { colour: 'blue', icon: undefined, initials: 'BHF', radius: 'md', title: 'Blueprint Health & Fitness', url: undefined },
                                         { colour: 'blue', icon: 'we/texts', initials: undefined, radius: 0, title: 'Texts', url: 'texts.com' },
                                         { colour: 'orange', icon: undefined, initials: 'UV', radius: 'md', title: 'UseVerb', url: 'useverb.com' },
@@ -173,6 +173,33 @@ export default function Home() {
                             </Group>
                         </Stack>
                     </Group>
+
+                    <Space h={'xl'} />
+
+                    <Stack>
+                        <Title order={2} ta={'center'}>Programming Languages</Title>
+
+                        <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 5 : 10}>
+                            {
+                                [
+                                    { colour: 'gray', icon: <IconBrandCpp />, radius: 'md', title: 'C++' },
+                                    { colour: 'blue', icon: <IconBrandCss3 />, radius: 'md', title: 'CSS' },
+                                    { colour: 'orange', icon: <IconBrandHtml5 />, radius: 'md', title: 'HTML' },
+                                    { colour: 'yellow', icon: <IconBrandJavascript />, radius: 'md', title: 'JavaScript' },
+                                    { colour: 'violet', icon: <IconBrandKotlin />, radius: 'md', title: 'Kotlin' },
+                                    { colour: 'gray', icon: <IconQuestionMark />, radius: 'md', title: 'Objective-C' },
+                                    { colour: 'gray', icon: <IconBrandPython />, radius: 'md', title: 'Python' },
+                                    { colour: 'orange', icon: <IconBrandSwift />, radius: 'md', title: 'Swift' },
+                                    { colour: 'blue', icon: <IconBrandTypescript />, radius: 'md', title: 'TypeScript' },
+                                    { colour: 'gray', icon: <IconPlus />, radius: 'md', title: '+' }
+                                ].map((element) => (
+                                    <Tooltip label={element.title}>
+                                        <Avatar color={element.colour} radius={element.radius} size={'md'} src={`/${element.icon}.png`}>{element.icon}</Avatar>
+                                    </Tooltip>
+                                ))
+                            }
+                        </SimpleGrid>
+                    </Stack>
 
                     <Space h={'xl'} />
                     <Text c={'gray.3'} ta={'center'}>
