@@ -137,7 +137,7 @@ export default function Folium() {
                         <Avatar radius={'xl'} size={'lg'}>
                             <IconCode />
                         </Avatar>
-                        <Avatar radius={'xl'} size={'lg'} src={'/folium/folium_circle.png'} />
+                        <Avatar radius={'xl'} size={'lg'} src={'/folium/circle.png'} />
                     </AvatarGroup>
                     <Title order={2}>
                         About
