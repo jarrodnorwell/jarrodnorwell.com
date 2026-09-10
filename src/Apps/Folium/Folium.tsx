@@ -1,31 +1,32 @@
-import { ActionIcon, Container, Group, MantineProvider, Space, Stack, Text, Title, Tooltip, Avatar, AvatarGroup, Grid, AspectRatio, Image } from "@mantine/core";
+import { ActionIcon, Container, Group, MantineProvider, Space, Stack, Text, Title, Tooltip, Avatar, AvatarGroup, Grid, AspectRatio, Image, Popover } from "@mantine/core";
 import { theme } from "../../theme";
 
 import '@mantine/carousel/styles.css';
 import '@mantine/core/styles.css';
 import { useOs } from "@mantine/hooks";
-import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCodeDots, IconDeviceGamepad3, IconDeviceMobileRotated, IconHandClick, IconMail, IconMicrophone, IconVolume } from "@tabler/icons-react";
+import { IconBrandDiscord, IconBrandGithub, IconBrandReddit, IconBrandTwitter, IconCodeDots, IconDeviceGamepad3, IconDeviceMobileRotated, IconHandClick, IconInfoCircle, IconMail, IconMicrophone, IconVolume } from "@tabler/icons-react";
 import { Carousel } from "@mantine/carousel";
 
 export default function Folium() {
     return (
         <MantineProvider theme={{ ...theme, primaryColor: 'indigo' }}>
-            <Container my={'xl'} size={'xl'}>
+            <Container py={'xl'} size={'xl'}>
                 <Group justify={'space-between'}>
                     <Group>
                         <Stack>
-                            <Title order={1}>
-                                Folium
-                            </Title>
-                            <Text c={'dimmed'}>
-                                Generations of gaming in the palm of your hands
-                            </Text>
+                            <Title order={1}>Folium</Title>
+                            <Text c={'dimmed'}>Generations of gaming in the palm of your hands</Text>
                         </Stack>
                     </Group>
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium', title: 'Browse the Source Code' }
+                                {
+                                    color: 'gray',
+                                    icon: <IconBrandGithub />,
+                                    link: 'https://github.com/folium-app/folium',
+                                    title: 'Browse the Source Code'
+                                }
                             ].map((element) => {
                                 return (
                                     <Tooltip label={
@@ -34,19 +35,15 @@ export default function Folium() {
                                             <Text c={'dimmed'} size={'sm'}>{element.link.replace('https://', '').replace('mailto:', '')}</Text>
                                         </Stack>
                                     }>
-                                        <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
-                                            {element.icon}
-                                        </ActionIcon>
+                                        <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>{element.icon}</ActionIcon>
                                     </Tooltip>
                                 )
                             })
                         }
                     </Group>
                 </Group>
-
                 <Space h={'xl'} />
                 <Space h={'xl'} />
-
                 <Stack align={'center'}>
                     <AvatarGroup spacing={'lg'}>
                         <Avatar radius={'xl'} size={'lg'}>
@@ -57,454 +54,315 @@ export default function Folium() {
                         </Avatar>
                         <Avatar radius={'xl'} size={'lg'} src={'/folium/circle.png'} />
                     </AvatarGroup>
-                    <Title order={1}>
-                        About
-                    </Title>
-                    <Text c={'dimmed'} ta={'center'}>
-                        Folium is a beautifully designed, high performing multi-system emulation app bringing retro console and handheld gaming to Apple devices
-                    </Text>
+                    <Title order={1}>About</Title>
+                    <Text c={'dimmed'} ta={'center'}>Folium is a beautifully designed, high performing multi-system emulation app bringing retro console and handheld gaming to Apple devices</Text>
                 </Stack>
-
                 <Space h={'xl'} />
                 <Space h={'xl'} />
-
-                <Grid rowGap={'xl'}>
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Carousel slideGap={'lg'} withIndicators>
+                <Grid px={'md'} gap={'xl'}>
+                    {
+                        [
                             {
-                                [
-                                    'games', 'emulation'
-                                ].map((image) => (
-                                    <Carousel.Slide>
-                                        <AspectRatio ratio={1260 / 2736}>
-                                            <Image src={`/folium/bandai/${image}.png`} fit={'contain'} />
-                                        </AspectRatio>
-                                    </Carousel.Slide>
-                                ))
+                                color: '#4A5FA8',
+                                company: 'bandai',
+                                description: 'Introducing Durian, the new, fully featured WonderSwan emulation system',
+                                extensions: [
+                                    'ws',
+                                    'wsc'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+                                ],
+                                system: 'ws'
+                            },
+                            {
+                                color: '#C89B5A',
+                                company: 'coleco',
+                                description: 'Introducing Cherry, the new, fully featured ColecoVision emulation system',
+                                extensions: [
+                                    'col',
+                                    'rom'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+
+                                ],
+                                system: 'cv'
+                            },
+                            {
+                                color: '#5B8CC9',
+                                company: 'nintendo',
+                                description: 'Introducing Cytrus, the fully featured 3DS and New 3DS emulation system',
+                                extensions: [
+                                    '3ds',
+                                    'cci',
+                                    'cxi'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconMicrophone />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />,
+                                    <IconHandClick />
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+                                ],
+                                system: '3ds'
+                            },
+                            {
+                                color: '#4A7DB8',
+                                company: 'nintendo',
+                                description: 'Introducing Grape, the fully featured DS and DSi emulation system',
+                                extensions: [
+                                    'dsi',
+                                    'nds'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconMicrophone />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />,
+                                    <IconHandClick />
+
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+
+                                ],
+                                system: 'ds'
+                            },
+                            {
+                                color: '#71805A',
+                                company: 'nintendo',
+                                description: 'Introducing Kiwi, the new, fully featured Game Boy and Game Boy Color emulation system',
+                                extensions: [
+                                    'gb',
+                                    'gbc'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation',
+                                    'emulation_two'
+
+                                ],
+                                system: 'gb'
+                            },
+                            {
+                                color: '#8C6CC1',
+                                company: 'nintendo',
+                                description: 'Introducing Tomato, the new, fully featured Game Boy Advance emulation system',
+                                extensions: [
+                                    'gba'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+
+                                ],
+                                system: 'gba'
+                            },
+                            {
+                                color: '#9A3E32',
+                                company: 'nintendo',
+                                description: 'Introducing Mango, the new, fully featured Nintendo Entertainment System emulation system',
+                                extensions: [
+                                    'nes'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+
+                                ],
+                                system: 'nes'
+                            },
+                            {
+                                color: '#6B5B95',
+                                company: 'nintendo',
+                                description: 'Introducing Lychee, the new, fully featured Super Nintendo Entertainment System emulation system',
+                                extensions: [
+                                    'sfc',
+                                    'smc'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+
+                                ],
+                                system: 'snes'
+                            },
+                            {
+                                color: '#D52B2B',
+                                company: 'sega',
+                                description: 'Introducing Plum, the new, fully featured Genesis and Mega Drive emulation system',
+                                extensions: [
+                                    'gen',
+                                    'md'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+
+                                ],
+                                system: 'gen'
+                            },
+                            {
+                                color: '#2E4A7D',
+                                company: 'sony',
+                                description: 'Introducing Mandarine, the new, fully featured PlayStation 1 emulation system',
+                                extensions: [
+                                    'bin',
+                                    'cue'
+                                ],
+                                features: [
+                                    <IconDeviceGamepad3 />,
+                                    <IconVolume />,
+                                    <IconDeviceMobileRotated />
+                                ],
+                                images: [
+                                    'games',
+                                    'emulation'
+                                ],
+                                system: 'ps1'
                             }
-                        </Carousel>
-
-                        <Stack gap={'xs'}>
-                            <Group>
-                                <Title order={1}>
-                                    Bandai
-                                </Title>
-
-                                <Title c={'#4A5FA8'} order={1}>
-                                    WS
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#4A5FA8'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/coleco/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Coleco
-                                </Title>
-
-                                <Title c={'#C89B5A'} order={1}>
-                                    CV
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#C89B5A'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/nintendo/3ds/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Nintendo
-                                </Title>
-
-                                <Title c={'#5B8CC9'} order={1}>
-                                    3DS
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconMicrophone />, <IconVolume />, <IconDeviceMobileRotated />, <IconHandClick />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#5B8CC9'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/nintendo/ds/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Nintendo
-                                </Title>
-
-                                <Title c={'#4A7DB8'} order={1}>
-                                    DS
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconMicrophone />, <IconVolume />, <IconDeviceMobileRotated />, <IconHandClick />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#4A7DB8'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation', 'emulation_two'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/nintendo/gb/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Nintendo
-                                </Title>
-
-                                <Title c={'#71805A'} order={1}>
-                                    GB
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#71805A'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/nintendo/gba/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Nintendo
-                                </Title>
-
-                                <Title c={'#8C6CC1'} order={1}>
-                                    GBA
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#8C6CC1'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/nintendo/nes/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Nintendo
-                                </Title>
-
-                                <Title c={'#9A3E32'} order={1}>
-                                    NES
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#9A3E32'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/nintendo/snes/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Nintendo
-                                </Title>
-
-                                <Title c={'#6B5B95'} order={1}>
-                                    SNES
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#6B5B95'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/sega/genesis/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    SEGA
-                                </Title>
-
-                                <Title c={'#D52B2B'} order={1}>
-                                    GEN
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#D52B2B'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, md: 3 }}>
-                        <Stack gap={'xs'}>
-                            <Carousel slideGap={'lg'} withIndicators>
-                                {
-                                    [
-                                        'games', 'emulation'
-                                    ].map((image) => (
-                                        <Carousel.Slide>
-                                            <AspectRatio ratio={1260 / 2736}>
-                                                <Image src={`/folium/sony/ps1/${image}.png`} fit={'contain'} />
-                                            </AspectRatio>
-                                        </Carousel.Slide>
-                                    ))
-                                }
-                            </Carousel>
-
-                            <Group>
-                                <Title order={1}>
-                                    Sony
-                                </Title>
-
-                                <Title c={'#2E4A7D'} order={1}>
-                                    PS1
-                                </Title>
-                            </Group>
-
-                            <Grid justify={'flex-start'}>
-                                {
-                                    [<IconDeviceGamepad3 />, <IconVolume />, <IconDeviceMobileRotated />].map((element) => (
-                                        <Grid.Col span={{ base: 2 }}>
-                                            <ActionIcon color={'#2E4A7D'} variant={'transparent'}>
-                                                {element}
-                                            </ActionIcon>
-                                        </Grid.Col>
-                                    ))
-                                }
-                            </Grid>
-                        </Stack>
-                    </Grid.Col>
+                        ].map((element) => (
+                            <Grid.Col span={{ base: 12, md: 3 }}>
+                                <Stack>
+                                    <Carousel slideGap={'lg'} withIndicators>
+                                        {
+                                            element.images.map((image) => (
+                                                <Carousel.Slide>
+                                                    <AspectRatio ratio={460 / 960}>
+                                                        <Image src={`/folium/${element.company}/${element.system}/${image}.png`} fit={'contain'} />
+                                                    </AspectRatio>
+                                                </Carousel.Slide>
+                                            ))
+                                        }
+                                    </Carousel>
+                                    <Group justify={'space-between'}>
+                                        <Group gap={'xs'}>
+                                            <Title order={2}>{element.company.toUpperCase()}</Title>
+                                            <Title c={element.color} order={2}>{element.system.toUpperCase()}</Title>
+                                        </Group>
+                                        <Popover radius={'xl'} shadow={'xl'}>
+                                            <Popover.Target>
+                                                <ActionIcon color={element.color} variant={'transparent'}>
+                                                    <IconInfoCircle />
+                                                </ActionIcon>
+                                            </Popover.Target>
+                                            <Popover.Dropdown>
+                                                {`Supported extensions are: ${element.extensions.join(', ').toUpperCase()}`}
+                                            </Popover.Dropdown>
+                                        </Popover>
+                                    </Group>
+                                    <Grid justify={'flex-start'}>
+                                        {
+                                            element.features.map((feature) => (
+                                                <Grid.Col span={{ base: 2 }}>
+                                                    <ActionIcon color={element.color} variant={'transparent'}>{feature}</ActionIcon>
+                                                </Grid.Col>
+                                            ))
+                                        }
+                                    </Grid>
+                                    <Text c={'dimmed'}>{element.description}</Text>
+                                </Stack>
+                            </Grid.Col>
+                        ))
+                    }
                 </Grid>
-
                 <Space h={'xl'} />
                 <Space h={'xl'} />
-
                 <Stack>
-                    <Title order={1}>
-                        Privacy Policy
-                    </Title>
-
-                    <Text c={'dimmed'}>
-                        Folium requires several permissions for the functionality of the app, namely Bluetooth, Camera, Local Network, Microphone and Motion. Absolutely no information is shared with or sold to other companies or entities
-                    </Text>
+                    <Title order={1}>Privacy Policy</Title>
+                    <Text c={'dimmed'}>Folium requires several permissions for the functionality of the app, namely Bluetooth, Camera, Local Network, Microphone and Motion. Absolutely no information is shared with or sold to other companies or entities</Text>
                 </Stack>
-
                 <Space h={'xl'} />
                 <Space h={'xl'} />
-
                 <Group justify={'space-between'}>
                     <Group>
                         <Stack>
-                            <Title order={1}>
-                                Support
-                            </Title>
-                            <Text c={'dimmed'}>
-                                Got a question, want to request a feature or submit an issue? Reach out using the buttons below
-                            </Text>
+                            <Title order={1}>Support</Title>
+                            <Text c={'dimmed'}>Got a question, want to request a feature or submit an issue? Reach out using the buttons below</Text>
                         </Stack>
                     </Group>
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'indigo', icon: <IconBrandDiscord />, link: 'https://discord.gg/skA8ENHNsm', title: 'Discord' },
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium/issues', title: 'Create an Issue' },
-                                { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Folium', title: 'Send an Email' },
-                                { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes', title: 'Reddit' },
-                                { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes', title: 'Twitter' }
+                                {
+                                    color: 'indigo',
+                                    icon: <IconBrandDiscord />,
+                                    link: 'https://discord.gg/skA8ENHNsm',
+                                    title: 'Discord'
+                                },
+                                {
+                                    color: 'gray',
+                                    icon: <IconBrandGithub />,
+                                    link: 'https://github.com/folium-app/folium/issues',
+                                    title: 'Create an Issue'
+                                },
+                                {
+                                    color: 'yellow',
+                                    icon: <IconMail />,
+                                    link: 'mailto:official.antique@gmail.com?subject=Folium',
+                                    title: 'Send an Email'
+                                },
+                                {
+                                    color: 'red',
+                                    icon: <IconBrandReddit />,
+                                    link: 'https://reddit.com/u/antique_codes',
+                                    title: 'Reddit'
+                                },
+                                {
+                                    color: 'blue',
+                                    icon: <IconBrandTwitter />,
+                                    link: 'https://twitter.com/antique_codes',
+                                    title: 'Twitter'
+                                }
                             ].map((element) => {
                                 return (
                                     <Tooltip label={
@@ -513,9 +371,7 @@ export default function Folium() {
                                             <Text c={'dimmed'} size={'sm'}>{element.link.replace('https://', '').replace('mailto:', '')}</Text>
                                         </Stack>
                                     }>
-                                        <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
-                                            {element.icon}
-                                        </ActionIcon>
+                                        <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>{element.icon}</ActionIcon>
                                     </Tooltip>
                                 )
                             })
