@@ -22,7 +22,7 @@ export default function Folium() {
                         {
                             [
                                 {
-                                    color: 'gray',
+                                    color: 'dimmed',
                                     icon: <IconBrandGithub />,
                                     link: 'https://github.com/folium-app/folium',
                                     title: 'Browse the Source Code'
@@ -340,7 +340,7 @@ export default function Folium() {
                                     title: 'Discord'
                                 },
                                 {
-                                    color: 'gray',
+                                    color: 'dimmed',
                                     icon: <IconBrandGithub />,
                                     link: 'https://github.com/folium-app/folium/issues',
                                     title: 'Create an Issue'
@@ -504,7 +504,7 @@ export default function Folium() {
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium' }
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -662,7 +662,7 @@ export default function Folium() {
                         {
                             [
                                 { color: 'indigo', icon: <IconBrandDiscord />, link: 'https://discord.gg/skA8ENHNsm' },
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium' },
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/folium-app/folium' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Folium' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }

@@ -55,7 +55,7 @@ export default function Ludara() {
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: '' }
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: '' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -103,7 +103,7 @@ export default function Ludara() {
 
                     <Space />
 
-                    <Button color={'gray'} component={'a'} href={'https://github.com/ludara-emu/Releases/releases/latest'} radius={'xl'} target={'_blank'} variant={'light'}>
+                    <Button color={'dimmed'} component={'a'} href={'https://github.com/ludara-emu/Releases/releases/latest'} radius={'xl'} target={'_blank'} variant={'light'}>
                         GitHub Release
                     </Button>
                 </Stack>
@@ -192,7 +192,7 @@ export default function Ludara() {
                     <Group>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: '' },
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: '' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Ludara' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/r/ludaraemulator' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }

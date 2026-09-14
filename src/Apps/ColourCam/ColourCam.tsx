@@ -35,7 +35,7 @@ export default function Loca() {
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/colourcam' }
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/colourcam' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -109,7 +109,7 @@ export default function Loca() {
                     <Group>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/colourcam' },
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/colourcam' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=ColourCam' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }

@@ -35,7 +35,7 @@ export default function Loca() {
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/loca' }
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/loca' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -76,7 +76,7 @@ export default function Loca() {
                             <Carousel.Slide>
                                 <Paper radius={['android', 'ios'].includes(os) ? 'lg' : 'xl'} style={{ overflow: 'hidden' }} withBorder>
                                     <AspectRatio ratio={9 / 19.5}>
-                                        <Image src={`/loca/${image}.heic`} fit='contain' />
+                                        <Image src={`/loca/${image}.png`} fit='contain' />
                                     </AspectRatio>
                                 </Paper>
                             </Carousel.Slide>
@@ -109,7 +109,7 @@ export default function Loca() {
                     <Group>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/loca' },
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/jarrodnorwell/loca' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Loca' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }

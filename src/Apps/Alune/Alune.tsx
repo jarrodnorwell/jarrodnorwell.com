@@ -38,7 +38,7 @@ export default function Alune() {
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/alune-app/alune' }
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/alune-app/alune' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -76,7 +76,7 @@ export default function Alune() {
                         <Button color={'blue'} component={'a'} href={'https://testflight.apple.com/join/pRGScBR7'} radius={'xl'} target={'_blank'}>
                             TestFlight
                         </Button>
-                        <Button color={'gray'} component={'a'} href={'https://github.com/folium-app/Folium/releases/download/1.35/Folium.ipa'} radius={'xl'} target={'_blank'}>
+                        <Button color={'dimmed'} component={'a'} href={'https://github.com/folium-app/Folium/releases/download/1.35/Folium.ipa'} radius={'xl'} target={'_blank'}>
                             Sideload
                         </Button>
                     </Group>
@@ -185,7 +185,7 @@ export default function Alune() {
                     <Group>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/alune-app/alune' },
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/alune-app/alune' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Alune' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }

@@ -38,7 +38,7 @@ export default function Vion() {
                     <Group justify={['android', 'ios'].includes(useOs()) ? undefined : 'flex-end'}>
                         {
                             [
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/vion-app-org/vion' }
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/vion-app-org/vion' }
                             ].map((element) => {
                                 return (
                                     <ActionIcon color={element.color} component={'a'} href={element.link} variant={'transparent'}>
@@ -195,7 +195,7 @@ export default function Vion() {
                         {
                             [
                                 { color: 'indigo', icon: <IconBrandDiscord />, link: 'https://discord.gg/q6aG5c2Y8C' },
-                                { color: 'gray', icon: <IconBrandGithub />, link: 'https://github.com/vion-app-org/vion' },
+                                { color: 'dimmed', icon: <IconBrandGithub />, link: 'https://github.com/vion-app-org/vion' },
                                 { color: 'yellow', icon: <IconMail />, link: 'mailto:official.antique@gmail.com?subject=Vion' },
                                 { color: 'red', icon: <IconBrandReddit />, link: 'https://reddit.com/u/antique_codes' },
                                 { color: 'blue', icon: <IconBrandTwitter />, link: 'https://twitter.com/antique_codes' }

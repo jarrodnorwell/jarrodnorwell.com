@@ -1,9 +1,10 @@
 import '@mantine/core/styles.css';
-import { ActionIcon, Container, Flex, Group, MantineProvider, Stack, Text, Title, Avatar, SimpleGrid, Space, Menu, Tooltip, Button, Popover, Anchor } from '@mantine/core';
+import { ActionIcon, Container, Flex, Group, MantineProvider, Stack, Text, Title, Avatar, SimpleGrid, Menu, Tooltip, Anchor, Center, Space, Button } from '@mantine/core';
 import { theme } from '../theme';
 import { IconBrandCpp, IconBrandCss3, IconBrandGithub, IconBrandHtml5, IconBrandJavascript, IconBrandKotlin, IconBrandPython, IconBrandReddit, IconBrandSwift, IconBrandTwitch, IconBrandTwitter, IconBrandTypescript, IconPlus, IconQuestionMark } from '@tabler/icons-react';
 import { useDisclosure, useOs } from '@mantine/hooks';
 
+/*
 interface CompanyProp {
     colour: string
     icon?: string
@@ -21,7 +22,7 @@ function CompanyElement(prop: CompanyProp) {
             <Tooltip label={
                 <Stack gap={0}>
                     <Text>{prop.title}</Text>
-                    <Text c={'gray'} size={'sm'}>{prop.url}</Text>
+                    <Text c={'dimmed'} size={'sm'}>{prop.url}</Text>
                 </Stack>
             }>
                 <Anchor underline={'never'}>
@@ -42,7 +43,7 @@ function CompanyElement(prop: CompanyProp) {
             <Tooltip label={
                 <Stack gap={0}>
                     <Text>{prop.title}</Text>
-                    <Text c={'gray'} size={'sm'}>{prop.url}</Text>
+                    <Text c={'dimmed'} size={'sm'}>{prop.url}</Text>
                 </Stack>
             }>
                 <Anchor href={prop.url ? `https://${prop.url}` : undefined} target={prop.url ? '_self' : undefined} underline={'never'}>
@@ -52,18 +53,19 @@ function CompanyElement(prop: CompanyProp) {
         )
     }
 }
+    */
 
 export default function Home() {
     const [opened, { toggle }] = useDisclosure(true)
 
     return (
-        <MantineProvider theme={theme} forceColorScheme={'light'}>
+        <MantineProvider theme={{ ...theme, primaryColor: 'indigo' }} forceColorScheme={'light'}>
             <Container h={'100dvh'}>
                 <Flex align={'center'} direction={'column'} h={'100%'} justify={'center'} w={'100%'}>
                     <Group>
                         {
                             [
-                                { colour: 'gray', icon: <IconBrandGithub />, title: 'GitHub', url: 'github.com/jarrodnorwell' },
+                                { colour: 'dimmed', icon: <IconBrandGithub />, title: 'GitHub', url: 'github.com/jarrodnorwell' },
                                 { colour: 'red', icon: <IconBrandReddit />, title: 'Reddit', url: 'reddit.com/u/antique_codes' },
                                 { colour: 'violet', icon: <IconBrandTwitch />, title: 'Twitch', url: 'twitch.tv/antique_codes' },
                                 { colour: 'blue', icon: <IconBrandTwitter />, title: 'Twitter', url: 'twitter.com/antique_codes' }
@@ -71,7 +73,7 @@ export default function Home() {
                                 <Tooltip label={
                                     <Stack gap={0}>
                                         <Text>{element.title}</Text>
-                                        <Text c={'gray'} size={'sm'}>{element.url}</Text>
+                                        <Text c={'dimmed'} size={'sm'}>{element.url}</Text>
                                     </Stack>
                                 }>
                                     <ActionIcon color={element.colour} component={'a'} href={`https://${element.url}`} size={'md'} variant={'transparent'}>
@@ -86,33 +88,33 @@ export default function Home() {
 
                     <Stack>
                         <Title order={1} ta={'center'}>Jarrod Norwell</Title>
-                        <Text c={'gray'} ta={'center'}>
+                        <Text c={'dimmed'} ta={'center'}>
                             Jarrod is a 28-year-old, self-taught software developer based in Perth, Western Australia, with more than 16 years of programming experience spanning approximately 9 programming languages
                         </Text>
                     </Stack>
 
                     <Space h={'xl'} />
 
-                    <Stack>
-                        <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 4 : 9}>
+                    <Center>
+                        <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 4 : 8}>
                             {
                                 [
-                                    { icon: 'alune/alune_square', title: 'Alune', url: 'jarrodnorwell.com/apps/alune' },
-                                    { icon: 'colourcam/colourcam_square', title: 'ColourCam', url: 'jarrodnorwell.com/apps/colourcam' },
-                                    { icon: 'folium/small_square', title: 'Folium', url: 'jarrodnorwell.com/apps/folium' },
-                                    { icon: 'fuely/fuely_square', title: 'Fuely', url: 'jarrodnorwell.com/apps/fuely' },
-                                    { icon: 'lavvy/lavvy_square', title: 'Lavvy', url: 'jarrodnorwell.com/apps/lavvy' },
-                                    { icon: 'loca/loca_square', title: 'Loca', url: 'jarrodnorwell.com/apps/loca' },
-                                    { icon: 'keyr/keyr_square', title: 'Keyr', url: 'jarrodnorwell.com/apps/keyr' },
-                                    { icon: 'vion/vion_square', title: 'Vion', url: 'jarrodnorwell.com/apps/vion' }
+                                    { icon: 'alune/alune_square', title: 'Alune', url: '/apps/alune' },
+                                    { icon: 'colourcam/colourcam_square', title: 'ColourCam', url: '/apps/colourcam' },
+                                    { icon: 'folium/small_square', title: 'Folium', url: '/apps/folium' },
+                                    //{ icon: 'fuely/fuely_square', title: 'Fuely', url: '/apps/fuely' },
+                                    { icon: 'lavvy/lavvy_square', title: 'Lavvy', url: '/apps/lavvy' },
+                                    { icon: 'loca/loca_square', title: 'Loca', url: '/apps/loca' },
+                                    { icon: 'keyr/keyr_square', title: 'Keyr', url: '/apps/keyr' },
+                                    { icon: 'vion/vion_square', title: 'Vion', url: '/apps/vion' }
                                 ].map((element) => (
                                     <Tooltip label={
                                         <Stack gap={0}>
                                             <Text>{element.title}</Text>
-                                            <Text c={'gray'} size={'sm'}>{element.url}</Text>
+                                            <Text c={'dimmed'} size={'sm'}>{`${window.location.host}${element.url}`}</Text>
                                         </Stack>
                                     }>
-                                        <Anchor href={`https://${element.url}`} target='_self' underline={'never'}>
+                                        <Anchor href={`${element.url}`} target='_self' underline={'never'}>
                                             <Avatar radius={'md'} size={'md'} src={`/${element.icon}.png`} />
                                         </Anchor>
                                     </Tooltip>
@@ -141,14 +143,14 @@ export default function Home() {
                                                 </Menu.Sub.Target>
 
                                                 <Menu.Sub.Dropdown>
-                                                    <Menu.Item>Nintendo 3DS</Menu.Item>
-                                                    <Menu.Item>Nintendo Switch</Menu.Item>
+                                                    <Menu.Item>3DS</Menu.Item>
+                                                    <Menu.Item>Switch</Menu.Item>
                                                 </Menu.Sub.Dropdown>
                                             </Menu.Sub>
 
                                             <Menu.Sub>
                                                 <Menu.Sub.Target>
-                                                    <Menu.Sub.Item>PlayStation</Menu.Sub.Item>
+                                                    <Menu.Sub.Item>Sony</Menu.Sub.Item>
                                                 </Menu.Sub.Target>
 
                                                 <Menu.Sub.Dropdown>
@@ -160,11 +162,50 @@ export default function Home() {
                                 </Menu.Dropdown>
                             </Menu>
                         </SimpleGrid>
-                    </Stack>
+                    </Center>
 
-                    <Space h={'xl'} />
+                    <div hidden={opened}>
+                        <Space h={'xl'} />
 
-                    <Button color={'gray'} onClick={toggle} radius={'xl'} size={'md'} variant={'light'}>{opened ? 'Show More' : 'Show Less'}</Button>
+                        <Button onClick={toggle} radius={'xl'} size={'md'} variant={'light'}>{opened ? 'Show More' : 'Show Less'}</Button>
+
+                        <Stack>
+                            <Title order={2} ta={'center'}>Programming Languages</Title>
+
+                            <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 5 : 10}>
+                                {
+                                    [
+                                        { colour: 'gray', icon: <IconBrandCpp />, radius: 'md', title: 'C++', years: '7' },
+                                        { colour: 'blue', icon: <IconBrandCss3 />, radius: 'md', title: 'CSS', years: '4' },
+                                        { colour: 'orange', icon: <IconBrandHtml5 />, radius: 'md', title: 'HTML', years: '4' },
+                                        { colour: 'yellow', icon: <IconBrandJavascript />, radius: 'md', title: 'JavaScript', years: '4' },
+                                        { colour: 'violet', icon: <IconBrandKotlin />, radius: 'md', title: 'Kotlin', years: '6' },
+                                        { colour: 'gray', icon: <IconQuestionMark />, radius: 'md', title: 'Objective-C', years: '13' },
+                                        { colour: 'gray', icon: <IconBrandPython />, radius: 'md', title: 'Python', years: '9' },
+                                        { colour: 'orange', icon: <IconBrandSwift />, radius: 'md', title: 'Swift', years: '11' },
+                                        { colour: 'blue', icon: <IconBrandTypescript />, radius: 'md', title: 'TypeScript', years: '4' }
+                                    ].map((element) => (
+                                        <Tooltip label={
+                                            <Stack gap={0}>
+                                                <Text>{element.title}</Text>
+                                                <Text c={'dimmed'} size={'sm'}>{`${element.years} years`}</Text>
+                                            </Stack>
+                                        }>
+                                            <Avatar color={element.colour} radius={element.radius} size={'md'} src={`/${element.icon}.png`}>{element.icon}</Avatar>
+                                        </Tooltip>
+                                    ))
+                                }
+
+                                <Avatar color={'gray'} radius={'md'} size={'md'}>
+                                    <IconPlus />
+                                </Avatar>
+                            </SimpleGrid>
+                        </Stack>
+                    </div>
+
+                    {/*<Space h={'xl'} />
+
+                    <Button color={'dimmed'} onClick={toggle} radius={'xl'} size={'md'} variant={'light'}>{opened ? 'Show More' : 'Show Less'}</Button>
 
                     <div hidden={opened}>
                         <Space h={'xl'} />
@@ -196,20 +237,20 @@ export default function Home() {
                             <SimpleGrid cols={['android', 'ios'].includes(useOs()) ? 5 : 10}>
                                 {
                                     [
-                                        { colour: 'gray', icon: <IconBrandCpp />, radius: 'md', title: 'C++', years: '7' },
+                                        { colour: 'dimmed', icon: <IconBrandCpp />, radius: 'md', title: 'C++', years: '7' },
                                         { colour: 'blue', icon: <IconBrandCss3 />, radius: 'md', title: 'CSS', years: '4' },
                                         { colour: 'orange', icon: <IconBrandHtml5 />, radius: 'md', title: 'HTML', years: '4' },
                                         { colour: 'yellow', icon: <IconBrandJavascript />, radius: 'md', title: 'JavaScript', years: '4' },
                                         { colour: 'violet', icon: <IconBrandKotlin />, radius: 'md', title: 'Kotlin', years: '6' },
-                                        { colour: 'gray', icon: <IconQuestionMark />, radius: 'md', title: 'Objective-C', years: '13' },
-                                        { colour: 'gray', icon: <IconBrandPython />, radius: 'md', title: 'Python', years: '9' },
+                                        { colour: 'dimmed', icon: <IconQuestionMark />, radius: 'md', title: 'Objective-C', years: '13' },
+                                        { colour: 'dimmed', icon: <IconBrandPython />, radius: 'md', title: 'Python', years: '9' },
                                         { colour: 'orange', icon: <IconBrandSwift />, radius: 'md', title: 'Swift', years: '11' },
                                         { colour: 'blue', icon: <IconBrandTypescript />, radius: 'md', title: 'TypeScript', years: '4' }
                                     ].map((element) => (
                                         <Tooltip label={
                                             <Stack gap={0}>
                                                 <Text>{element.title}</Text>
-                                                <Text c={'gray'} size={'sm'}>{`${element.years} years`}</Text>
+                                                <Text c={'dimmed'} size={'sm'}>{`${element.years} years`}</Text>
                                             </Stack>
                                         }>
                                             <Avatar color={element.colour} radius={element.radius} size={'md'} src={`/${element.icon}.png`}>{element.icon}</Avatar>
@@ -217,12 +258,12 @@ export default function Home() {
                                     ))
                                 }
 
-                                <Avatar color={'gray'} radius={'md'} size={'md'}>
+                                <Avatar color={'dimmed'} radius={'md'} size={'md'}>
                                     <IconPlus />
                                 </Avatar>
                             </SimpleGrid>
                         </Stack>
-                    </div>
+                    </div>*/}
                 </Flex>
             </Container>
         </MantineProvider>
