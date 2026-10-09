@@ -2,14 +2,19 @@ import { defineConfig } from "vite";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import react from "@vitejs/plugin-react";
 import { resolve } from 'path';
+import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
+        mkcert(),
         react(),
         vanillaExtractPlugin()
     ],
     mode: 'production',
+    server: {
+        https: true
+    },
     build: {
         rollupOptions: {
             input: {
