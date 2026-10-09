@@ -21,7 +21,8 @@
         "embla-carousel-react": "^8.6.0",
         "octokit": "^5.0.5",
         "react": "^19.3.0",
-        "react-dom": "^19.3.0"
+        "react-dom": "^19.3.0",
+        "vite-plugin-mkcert": "^2.1.0"
     },
     "devDependencies": {
         "@types/react": "^19.3.0",
