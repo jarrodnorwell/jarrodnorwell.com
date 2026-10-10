@@ -1,9 +1,9 @@
-import { ActionIcon, AspectRatio, Avatar, AvatarGroup, Blockquote, Card, Container, Grid, Group, MantineProvider, Space, Stack, Text, Title, Tooltip } from '@mantine/core';
+import { ActionIcon, AspectRatio, Avatar, AvatarGroup, Blockquote, Card, Container, Grid, Group, MantineProvider, Space, Stack, Table, Text, Title, Tooltip } from '@mantine/core';
 
 
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
-import { IconDeviceDesktop, IconDeviceMobile, IconDevices2, IconHammer, IconInfoCircle, IconPhone, IconShield } from '@tabler/icons-react';
+import { IconDeviceDesktop, IconDeviceDesktopPlus, IconDeviceDesktopUp, IconDeviceMobile, IconHammer, IconInfoCircle, IconMessage, IconPhone, IconShield } from '@tabler/icons-react';
 import { useOs } from '@mantine/hooks';
 
 import { load } from "@apple/mapkit-loader";
@@ -48,9 +48,9 @@ export default function RepairServices() {
                 const radiusInMeters = 50 * 1000;
                 const circleStyle = new mapkit.Style({
                     strokeColor: '#007AFF',
-                    lineWidth: 3,
+                    lineWidth: 2,
                     fillColor: '#007AFF',
-                    fillOpacity: 0.15
+                    fillOpacity: 0.05
                 })
 
                 const circleOverlay = new mapkit.CircleOverlay(
@@ -142,8 +142,32 @@ export default function RepairServices() {
 
                 <Group>
                     <Stack>
-                        <Title order={1}>Desktop Services</Title>
-                        <Text c={'dimmed'}>Desktop running slow? Obnoxious and unwanted popups appearing or need a brand new system to handle the tasks at hand? Get it all below</Text>
+                        <Group justify={'space-between'}>
+                            <Title order={1}>Desktop Services</Title>
+                            <Group>
+                                <Tooltip label={
+                                    <Stack gap={0}>
+                                        <Text>Send a message</Text>
+                                        <Text c={'dimmed'} size={'sm'}>m.me/jarrodjnorwell</Text>
+                                    </Stack>
+                                }>
+                                    <ActionIcon color={'blue'} component={'a'} href={'https://m.me/jarrodjnorwell'} variant={'transparent'}>
+                                        <IconMessage />
+                                    </ActionIcon>
+                                </Tooltip>
+                                <Tooltip label={
+                                    <Stack gap={0}>
+                                        <Text>Make a call</Text>
+                                        <Text c={'dimmed'} size={'sm'}>0499 152 077</Text>
+                                    </Stack>
+                                }>
+                                    <ActionIcon color={'green'} component={'a'} href={'tel:0499152077'} variant={'transparent'}>
+                                        <IconPhone />
+                                    </ActionIcon>
+                                </Tooltip>
+                            </Group>
+                        </Group>
+                        <Text c={'dimmed'}>Desktop running slow? Obnoxious or unknown popups appearing or need a brand new system or upgrade to handle the tasks at hand? Get it all below</Text>
 
                         <Space />
 
@@ -153,9 +177,14 @@ export default function RepairServices() {
                                     {
                                         [
                                             {
-                                                icon: <IconDevices2 style={{ width: '100%', height: '100%' }} />,
+                                                icon: <IconDeviceDesktopPlus style={{ width: '100%', height: '100%' }} />,
                                                 text: 'Custom Builds',
                                                 secondaryText: 'Get a fully customised desktop built to your specifications, whether it be for gaming, work, or general use, all within the provided budget, if possible'
+                                            },
+                                            {
+                                                icon: <IconDeviceDesktopUp style={{ width: '100%', height: '100%' }} />,
+                                                text: 'Desktop Upgrade',
+                                                secondaryText: 'Games or programs not running as well as they should? Get a full review and upgrade your system so it can handle any of the tasks you want to throw at it'
                                             },
                                             {
                                                 icon: <IconShield style={{ width: '100%', height: '100%' }} />,
@@ -195,61 +224,73 @@ export default function RepairServices() {
                         <Space />
 
                         <Grid gap={'xl'}>
-                            <Grid.Col span={{ base: 12, md: 6 }}>
+                            <Grid.Col span={{ base: 12, md: 4 }}>
                                 <Title order={2}>Batteries</Title>
                                 <Text c={'dimmed'}>Batteries degrade over time reducing device performance and the time the device can be powered. Replacing the battery restores device lifespan and performance</Text>
 
                                 <Space h={'xl'} />
 
-                                <Grid>
-                                    {
-                                        [
-                                            { brand: 'Apple', starting_price: '90' },
-                                            { brand: 'Google', starting_price: '80' },
-                                            { brand: 'Samsung', starting_price: '90' }
-                                        ].map((element) => (
-                                            <Grid.Col span={{ base: 12, md: 6 }}>
-                                                <Card px={'lg'} py={'sm'} radius={'xl'} shadow={'md'} withBorder>
-                                                    <Group justify={'space-between'}>
-                                                        <Title fw={'normal'} ta={'left'} order={2}>{element.brand}</Title>
-                                                        <Stack gap={0}>
-                                                            <Text c={'blue'} ta={'right'}>from</Text>
-                                                            <Title ta={'right'} order={2}>${element.starting_price}</Title>
-                                                        </Stack>
-                                                    </Group>
-                                                </Card>
-                                            </Grid.Col>
-                                        ))
-                                    }
-                                </Grid>
+                                <Card radius={'xl'} shadow={'md'} withBorder>
+                                    <Table>
+                                        <Table.Thead>
+                                            <Table.Tr>
+                                                <Table.Th>Brand</Table.Th>
+                                                <Table.Th>Average Repair Time</Table.Th>
+                                                <Table.Th>Starting Price</Table.Th>
+                                            </Table.Tr>
+                                        </Table.Thead>
+
+                                        <Table.Tbody>
+                                            {
+                                                [
+                                                    { average_repair_time: 30, brand: 'Apple', starting_from: '90' },
+                                                    { average_repair_time: 60, brand: 'Google', starting_from: '80' },
+                                                    { average_repair_time: 60, brand: 'Samsung', starting_from: '90' }
+                                                ].map((element) => (
+                                                    <Table.Tr key={element.brand}>
+                                                        <Table.Td>{element.brand}</Table.Td>
+                                                        <Table.Td>{element.average_repair_time} mins</Table.Td>
+                                                        <Table.Td>${element.starting_from}</Table.Td>
+                                                    </Table.Tr>
+                                                ))
+                                            }
+                                        </Table.Tbody>
+                                    </Table>
+                                </Card>
                             </Grid.Col>
-                            <Grid.Col span={{ base: 12, md: 6 }}>
+                            <Grid.Col span={{ base: 12, md: 4 }}>
                                 <Title order={2}>Displays</Title>
                                 <Text c={'dimmed'}>Displays can be damaged from numerous causes, including drops, impacts, and exposure to liquids. Replacing the display restores functionality to the device</Text>
 
                                 <Space h={'xl'} />
 
-                                <Grid>
-                                    {
-                                        [
-                                            { brand: 'Apple', starting_price: '75' },
-                                            { brand: 'Google', starting_price: '125' },
-                                            { brand: 'Samsung', starting_price: '80' }
-                                        ].map((element) => (
-                                            <Grid.Col span={{ base: 12, md: 6 }}>
-                                                <Card px={'lg'} py={'sm'} radius={'xl'} shadow={'md'} withBorder>
-                                                    <Group justify={'space-between'}>
-                                                        <Title fw={'normal'} ta={'left'} order={2}>{element.brand}</Title>
-                                                        <Stack gap={0}>
-                                                            <Text c={'blue'} ta={'right'}>from</Text>
-                                                            <Title ta={'right'} order={2}>${element.starting_price}</Title>
-                                                        </Stack>
-                                                    </Group>
-                                                </Card>
-                                            </Grid.Col>
-                                        ))
-                                    }
-                                </Grid>
+                                <Card radius={'xl'} shadow={'md'} withBorder>
+                                    <Table>
+                                        <Table.Thead>
+                                            <Table.Tr>
+                                                <Table.Th>Brand</Table.Th>
+                                                <Table.Th>Average Repair Time</Table.Th>
+                                                <Table.Th>Starting Price</Table.Th>
+                                            </Table.Tr>
+                                        </Table.Thead>
+
+                                        <Table.Tbody>
+                                            {
+                                                [
+                                                    { average_repair_time: 30, brand: 'Apple', starting_from: '75' },
+                                                    { average_repair_time: 60, brand: 'Google', starting_from: '125' },
+                                                    { average_repair_time: 60, brand: 'Samsung', starting_from: '80' }
+                                                ].map((element) => (
+                                                    <Table.Tr key={element.brand}>
+                                                        <Table.Td>{element.brand}</Table.Td>
+                                                        <Table.Td>{element.average_repair_time} mins</Table.Td>
+                                                        <Table.Td>${element.starting_from}</Table.Td>
+                                                    </Table.Tr>
+                                                ))
+                                            }
+                                        </Table.Tbody>
+                                    </Table>
+                                </Card>
                             </Grid.Col>
                             <Grid.Col span={{ base: 12, md: 6 }}>
                                 <Title order={2}>Housing</Title>
@@ -274,7 +315,7 @@ export default function RepairServices() {
                         <Text c={'dimmed'} ta={'center'}>© {new Date().getFullYear()} Jarrod Norwell</Text>
                     </Stack>
                 </Group>
-            </Container>
-        </MantineProvider>
+            </Container >
+        </MantineProvider >
     )
 }
