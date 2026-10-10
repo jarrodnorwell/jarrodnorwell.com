@@ -31,7 +31,7 @@ export default defineConfig({
 
                 ludara: resolve(__dirname, 'ludara/index.html'),
 
-                repairservices: resolve(__dirname, 'repairservices/index.html')
+                local: resolve(__dirname, 'local/index.html')
             }
         }
     }
